@@ -121,30 +121,40 @@
     - 🎯 **End User:** Thêm 4 Thẻ tổng quan chỉ số bán hàng Hero (Doanh thu đa kênh 485.2M, OPEX 51.7M, Công nợ B2B 18.5M, Lợi nhuận thuần 218.3M), bảng danh sách đơn hàng real-time hỗ trợ phân loại kênh (Shopee Mall, TikTok Shop, POS, B2B), tích hợp Modal Quét mã VietQR B2B tự động thu tiền.
     - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons (thay thế biểu tượng emoji rác ở subtab navigation), badge kênh bán với màu tương ứng (Shopee = Cam, TikTok = Hồng, POS = Xanh dương, B2B = Tím Odoo).
 
-- [x] **16. [bo_06_qu_n_l_n_h_ng_v_n_h_nh_a_k_nh_mobile]** — *bo_06_qu_n_l_n_h_ng_v_n_h_nh_a_k_nh_mobile*
+- [x] ✔️ **16. [bo_06_qu_n_l_n_h_ng_v_n_h_nh_a_k_nh_mobile]** — *Quản Lý Đơn Hàng & Vận Hành Đa Kênh Mobile View (BO-06 Mobile)*
   - **File render mới (`new_pd`):** [`zone3_sales.js`](file:///d:/prototype/new_pd/js/components/zone3_sales.js) ➔ `Zone3Sales.renderOmnichannel()`
-  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Đơn hàng Đa kênh Mobile Responsive View
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Đơn hàng đa kênh Mobile Responsive View (`sales.html?sub=omnichannel`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm giao diện cuộn ngang mượt mà cho bảng đơn hàng trên màn hình nhỏ, nút mở mã quét VietQR B2B một chạm giúp nhân viên bán hàng/giao vận thu tiền nhanh chóng.
+    - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, badge màu sắc kênh bán hiển thị rõ ràng không bị đè chữ.
 
-- [x] **17. [bo_07_ai_business_analytics_ph_n_t_ch_hi_u_su_t_a_chi_u]** — *BO-07: AI Business Analytics &amp; Phân Tích Đa Chiều*
+- [x] ✔️ **17. [bo_07_ai_business_analytics_ph_n_t_ch_hi_u_su_t_a_chi_u]** — *AI Business Analytics & Phân Tích Đa Chiều (BO-07)*
   - **File render mới (`new_pd`):** [`zone5_ai.js`](file:///d:/prototype/new_pd/js/components/zone5_ai.js) ➔ `Zone5AI.renderKPIOverview()`
-  - **Vị trí nút bấm & đường dẫn:** Cố vấn AI ➔ Tab Báo cáo Phân tích Doanh thu & Lợi nhuận
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Cố vấn AI ➔ Tab Báo cáo Phân tích Doanh thu & Lợi nhuận (`index.html?view=dashboard`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm ma trận phân tích doanh thu đa chiều theo 4 kênh phân phối (Shopee 45%, TikTok 30%, POS 15%, B2B 10%), biểu đồ so sánh xu hướng doanh thu dồn tích vs lợi nhuận ròng 4 tháng gần nhất.
+    - 🎨 **UI Designer:** Bố cục thẻ trực quan chuẩn Odoo Enterprise, 100% Lucide Vector Icons, thanh tiến độ phân bổ tỷ lệ phần trăm đa sắc.
 
-- [x] **18. [bo_08_ai_anomaly_detection_trung_t_m_c_nh_b_o_r_i_ro_th_i_gian_th_c]** — *Trung Tâm Cảnh Báo Rủi Ro Thời Gian Thực*
+- [x] ✔️ **18. [bo_08_ai_anomaly_detection_trung_t_m_c_nh_b_o_r_i_ro_th_i_gian_th_c]** — *Trung Tâm Cảnh Báo Rủi Ro Thời Gian Thực (Anomaly Detection BO-08)*
   - **File render mới (`new_pd`):** [`zone5_ai.js`](file:///d:/prototype/new_pd/js/components/zone5_ai.js) ➔ `Zone5AI.renderAnomalyCenter()`
-  - **Vị trí nút bấm & đường dẫn:** Cố vấn AI ➔ Tab Cảnh báo Bất thường Anomaly Center
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Cố vấn AI ➔ Sub-tab 2: `⚠️ 2. AI Anomaly Alert Center (BO-08)` (`index.html?view=ai_advisor`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm Radar Bar quét live 15m/lần với 100% dữ liệu đối soát POS KiotViet, 4 Khối Stat Cards báo mức độ nghiêm trọng (P1 Khẩn cấp, P2 Cảnh báo, Đã khắc phục, Sức khỏe vận hành), bộ lọc sự cố theo mức độ, tích hợp Modal Xác nhận Giao dịch Tài chính khi gửi khiếu nại Shopee / xả hàng FEFO.
+    - 🎨 **UI Designer:** Chuẩn hóa hệ thống màu ngữ nghĩa (Red P1, Amber P2, Green Resolved, Sky Info), nổi bật con số thất thoát rủi ro (42.8M VNĐ), loại bỏ emoji rác bằng bộ 100% Lucide Vector Icons, tạo spacing thoáng đạt cho thẻ sự cố.
 
-- [x] **19. [bo_09_ai_demand_forecasting_replenishment_planning]** — *Dự Báo Nhu Cầu &amp; Kế Hoạch Nhập Hàng Tự Động*
+- [x] ✔️ **19. [bo_09_ai_demand_forecasting_replenishment_planning]** — *Dự Báo Nhu Cầu & Kế Hoạch Nhập Hàng Tự Động (BO-09)*
   - **File render mới (`new_pd`):** [`zone2_inventory.js`](file:///d:/prototype/new_pd/js/components/zone2_inventory.js) ➔ `Zone2Inventory.renderPODrafts()`
-  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ Sub-tab Dự báo Nhu cầu & PO Draft
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ Sub-tab 3: `📑 3. Gợi Ý Nhập Hàng Tự Động & Đặt Hàng PO` (`inventory.html?sub=po_drafts`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm mô hình AI Velocity-V4 tính tốc độ tiêu thụ burn-rate & cảnh báo runway cạn hàng 2.9 ngày (Serum Bio-B5), danh sách PO Drafts tự động lập theo gợi ý AI, tích hợp Modal Xác nhận Giao dịch Tài chính khi phát hành đơn mua PO 24.5Mđ cho nhà cung cấp.
+    - 🎨 **UI Designer:** Giao diện thẻ phẳng Odoo Enterprise, 100% Lucide Vector Icons, font mono cho số tiền & mã đơn PO.
 
-- [x] **20. [bo_09_ai_demand_forecasting_replenishment_planning_mobile_summary]** — *Dự Báo Nhu Cầu &amp; Nhập Hàng AI*
+- [x] ✔️ **20. [bo_09_ai_demand_forecasting_replenishment_planning_mobile_summary]** — *Dự Báo Nhu Cầu & Nhập Hàng AI Mobile Summary (BO-09 Mobile)*
   - **File render mới (`new_pd`):** [`zone2_inventory.js`](file:///d:/prototype/new_pd/js/components/zone2_inventory.js) ➔ `Zone2Inventory.renderPODrafts()`
-  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ PO Draft Mobile Summary View
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ PO Draft Mobile Summary View (`inventory.html?sub=po_drafts`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm bản tóm tắt danh sách đơn PO draft hiển thị dạng thẻ tối ưu cho di động, cho phép chủ cửa hàng duyệt nhanh đơn mua hàng 45Mđ bằng một chạm.
+    - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, phân cấp thẻ màu sắc rõ ràng (Violet = AI Draft, Emerald = Approved).
 
 - [x] **21. [bo_10_m_ph_ng_k_ch_b_n_kinh_doanh_what_if_scenario_lab]** — *Phòng Thí Nghiệm Chiến Lược &amp; Stress-Test Rủi Ro biotech*
   - **File render mới (`new_pd`):** [`zone5_ai.js`](file:///d:/prototype/new_pd/js/components/zone5_ai.js) ➔ `Zone5AI.renderWhatIfLab()`

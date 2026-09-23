@@ -10,17 +10,17 @@ const Zone2Inventory = {
       <div class="space-y-6">
         <!-- Sub-navigation Tabs for 100% 54-Screen Coverage -->
         <div class="flex items-center gap-2 border-b border-slate-200 pb-2 overflow-x-auto text-xs font-semibold text-slate-600">
-          <button onclick="Zone2Inventory.switchSubTab('variants_fefo')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'variants_fefo' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
-            🧴 1. Hạn Sử Dụng & Vị Trí Kệ Mỹ Phẩm (FEFO)
+          <button onclick="Zone2Inventory.switchSubTab('variants_fefo')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'variants_fefo' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+            <i class="lucide-sparkles w-3.5 h-3.5"></i> 1. Hạn Sử Dụng & Vị Trí Kệ Mỹ Phẩm (FEFO)
           </button>
-          <button onclick="Zone2Inventory.switchSubTab('stock_moves')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'stock_moves' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
-            📦 2. Nhật Ký Xuất Nhập Tồn
+          <button onclick="Zone2Inventory.switchSubTab('stock_moves')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'stock_moves' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+            <i class="lucide-package-search w-3.5 h-3.5"></i> 2. Nhật Ký Xuất Nhập Tồn
           </button>
-          <button onclick="Zone2Inventory.switchSubTab('po_drafts')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'po_drafts' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
-            📑 3. Gợi Ý Nhập Hàng Tự Động & Đặt Hàng PO
+          <button onclick="Zone2Inventory.switchSubTab('po_drafts')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'po_drafts' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+            <i class="lucide-file-text w-3.5 h-3.5"></i> 3. Gợi Ý Nhập Hàng Tự Động & Đặt Hàng PO
           </button>
-          <button onclick="Zone2Inventory.switchSubTab('suppliers')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'suppliers' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
-            🏭 4. Nhà Cung Cấp & Công Nợ Quá Hạn
+          <button onclick="Zone2Inventory.switchSubTab('suppliers')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'suppliers' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+            <i class="lucide-factory w-3.5 h-3.5"></i> 4. Nhà Cung Cấp & Công Nợ Quá Hạn
           </button>
         </div>
 
@@ -461,7 +461,7 @@ const Zone2Inventory = {
               <div class="text-xs text-slate-500"><strong>Ngày khởi tạo:</strong> ${po.date} (${po.itemsCount} mặt hàng)</div>
               <div class="flex justify-between items-center border-t pt-2 mt-2 text-xs">
                 <span class="font-extrabold text-slate-900">${po.total.toLocaleString()} VNĐ</span>
-                <button onclick="alert('Đã mở bản thảo đơn mua ${po.id}')" class="px-3 py-1 font-bold bg-purple-700 text-white rounded text-[11px]">Xem Bản Thảo →</button>
+                <button onclick="Zone0Shell.openFinancialConfirm('Phát Hành Đơn Mua PO ' + '${po.id}', '<p class=\\'text-xs text-slate-600\\'>Gửi đơn đặt hàng PO chính thức tới NCC ' + '${po.supplier}' + ' với tổng giá trị ' + '${po.total.toLocaleString()}' + ' VNĐ.</p>', 'Duyệt &amp; Phát Hành PO', () => alert('Đã phát hành đơn mua ' + '${po.id}' + ' thành công!'))" class="px-3 py-1 font-bold bg-purple-700 text-white rounded text-[11px] hover:bg-purple-800">Duyệt &amp; Phát Hành PO →</button>
               </div>
             </div>
           `).join('')}
