@@ -191,30 +191,40 @@
     - 🎯 **End User:** Thêm 4 Thẻ theo dõi sức khỏe hạ tầng (Hệ thống 100% Online, 3 Doanh nghiệp Multi-Tenant, 5 Tài khoản RBAC, 128 Nhật ký Audit Logs), dải nút chuyển đổi nhanh giữa các phân hệ SA-01, SA-02, SA-03, SA-04.
     - 🎨 **UI Designer:** Giao diện phẳng Odoo Enterprise sắc nét, 100% Lucide Vector Icons, màu xanh Emerald báo trạng thái server live.
 
-- [x] **26. [d_b_o_c_u_g_i_nh_p_h_ng_ai]** — *AI Forecasting &amp; Stock-out Risk Hub*
+- [x] ✔️ **26. [d_b_o_c_u_g_i_nh_p_h_ng_ai]** — *AI Demand Forecasting & Stock-out Risk Hub*
   - **File render mới (`new_pd`):** [`zone2_inventory.js`](file:///d:/prototype/new_pd/js/components/zone2_inventory.js) ➔ `Zone2Inventory.renderPODrafts()`
-  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ Sub-tab Dự báo Nhu cầu & Gợi ý Nhập hàng
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ Sub-tab 3: `📑 3. Gợi Ý Nhập Hàng Tự Động & Đặt Hàng PO` (`inventory.html?sub=po_drafts`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm mô hình AI Velocity-V4 tính tốc độ tiêu thụ burn-rate & cảnh báo nguy cơ đứt hàng 2.9 ngày, tích hợp Modal Xác nhận Duyệt PO 45Mđ cho NCC Korea.
+    - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, badge màu sắc thông minh (Red = Alert đứt hàng, Purple = AI Recommendation).
 
-- [x] **27. [docs_plan]** — *docs_plan*
-  - **File render mới (`new_pd`):** [`Documentation`](file:///d:/prototype/new_pd/js/components/Documentation) ➔ `Markdown Docs Plan`
-  - **Vị trí nút bấm & đường dẫn:** Thư mục tài liệu thiết kế & quy tắc phát triển
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+- [x] ✔️ **27. [docs_plan]** — *Master Design System Rules & Quy Tắc Thiết Kế Odoo*
+  - **File render mới (`new_pd`):** [`00_MASTER_DESIGN_SYSTEM_RULES.md`](file:///d:/prototype/stitch_ai_business_copilot_platform/docs_plan/00_MASTER_DESIGN_SYSTEM_RULES.md)
+  - **Vị trí nút bấm & đường dẫn:** Thư mục tài liệu quy chuẩn thiết kế UI/UX & hệ màu Odoo Enterprise
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Chuẩn hóa toàn bộ bộ quy tắc trải nghiệm người dùng SME Store Owner, quy định bắt buộc phải có Modal Xác nhận Giao dịch Tài chính khi kích hoạt các nút hành động nhạy cảm.
+    - 🎨 **UI Designer:** Quy định mã màu chuẩn Odoo `#714B67`, hệ màu phân cấp sự cố khẩn cấp P1/P2, cấm sử dụng emoji thô sơ (dùng 100% Lucide Vector Icons).
 
-- [x] **28. [i_so_t_chi_ti_t_v_s_n_shopee_tiktok_shop]** — *Đối Soát Chi Tiết Ví Sàn TMĐT*
+- [x] ✔️ **28. [i_so_t_chi_ti_t_v_s_n_shopee_tiktok_shop]** — *Đối Soát Chi Tiết Ví Sàn TMĐT (Shopee & TikTok Shop Recon)*
   - **File render mới (`new_pd`):** [`zone3_sales.js`](file:///d:/prototype/new_pd/js/components/zone3_sales.js) ➔ `Zone3Sales.renderMarketplaceRecon()`
-  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Sub-tab Đối soát Sàn Shopee & TikTok Shop
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Sub-tab 3: `🏦 3. Đối Soát Tiền Về Ngân Hàng (Shopee & TikTok)` (`sales.html?sub=marketplace_recon`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm bảng đối soát khấu trừ 4 loại phí sàn (Phí cố định 5%, Phí dịch vụ, Phí vận chuyển, Chiết khấu sàn), tính toán tiền thực nhận về tài khoản ngân hàng, phân loại rõ ràng trạng thái *Đã đối soát* vs *Chưa về ví*.
+    - 🎨 **UI Designer:** Bảng Odoo phẳng sắc nét, 100% Lucide Vector Icons, font mono chuẩn cho số tiền âm (màu đỏ) và tiền thực nhận (màu xanh lục).
 
-- [x] **29. [m_ph_ng_k_ch_b_n_kinh_doanh_what_if]** — *Phòng thí nghiệm Kịch bản Kinh doanh*
+- [x] ✔️ **29. [m_ph_ng_k_ch_b_n_kinh_doanh_what_if]** — *Phòng Thí Nghiệm Kịch Bản Kinh Doanh What-If*
   - **File render mới (`new_pd`):** [`zone5_ai.js`](file:///d:/prototype/new_pd/js/components/zone5_ai.js) ➔ `Zone5AI.renderWhatIfLab()`
-  - **Vị trí nút bấm & đường dẫn:** Cố vấn AI ➔ Tab What-If Scenario Lab
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Cố vấn AI ➔ Sub-tab 4: `🧪 4. What-If Scenario Lab & Liquidity Stress Test (BO-10)` (`index.html?view=ai_advisor`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm công cụ mô phỏng thay đổi giá trị đơn hàng trung bình (AOV) và tăng ngân sách Ads TikTok, dự báo tác động đến lợi nhuận ròng hàng tháng.
+    - 🎨 **UI Designer:** Phân bổ layout 2 cột khoa học, 100% Lucide Vector Icons, font mono số tiền thanh khoản.
 
-- [x] **30. [m_ph_ng_k_ch_b_n_what_if_d_ng_ti_n_p_l_c_thanh_kho_n]** — *Phòng Thí Nghiệm What-If: Căng Thẳng Dòng Tiền &amp; Tối Ưu Thanh Khoản*
+- [x] ✔️ **30. [m_ph_ng_k_ch_b_n_what_if_d_ng_ti_n_p_l_c_thanh_kho_n]** — *Phòng Thí Nghiệm What-If: Stress-Test Áp Lực Dòng Tiền & Liquidity*
   - **File render mới (`new_pd`):** [`zone5_ai.js`](file:///d:/prototype/new_pd/js/components/zone5_ai.js) ➔ `Zone5AI.renderWhatIfLab()`
-  - **Vị trí nút bấm & đường dẫn:** Cố vấn AI ➔ Tab What-If Cashflow Stress Test
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Cố vấn AI ➔ Tab What-If Cashflow Stress Test (`index.html?view=ai_advisor`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm mô phỏng kịch bản rủi ro công nợ B2B bị trễ 30 ngày và sàn hoãn thanh toán 1 đợt, tính toán vùng an toàn tiền mặt còn lại trong ngân hàng.
+    - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, thẻ cảnh báo áp lực dòng tiền với mã màu Amber/Red nổi bật.
 
 - [x] **31. [modal_chi_ti_t_xem_tr_c_n_t_h_ng_po_draft_preview_1]** — *Xem trước &amp; Phê duyệt Đơn Đặt Hàng (PO Draft) — Đợt Nhập Hàng Mega 11.11*
   - **File render mới (`new_pd`):** [`zone2_inventory.js`](file:///d:/prototype/new_pd/js/components/zone2_inventory.js) ➔ `Zone2Inventory.renderPODrafts()`
