@@ -1,0 +1,187 @@
+/* ==========================================================================
+   Stitch AI Business Copilot Platform - Master Design System CSS (Odoo Style)
+   ========================================================================== */
+
+:root {
+  /* Odoo Color Tokens */
+  --color-odoo-purple: #714B67;
+  --color-odoo-purple-hover: #5a3b52;
+  --color-odoo-teal: #017E84;
+  --color-odoo-teal-hover: #01656A;
+  
+  --color-bg-base: #F8F9FA;
+  --color-surface: #FFFFFF;
+  --color-border: #E2E8F0;
+  --color-text-main: #0F172A;
+  --color-text-muted: #64748B;
+
+  /* State Badges */
+  --badge-fact-bg: #EFF6FF;
+  --badge-fact-text: #1E40AF;
+  --badge-fact-border: #BFDBFE;
+
+  --badge-calc-bg: #F5F3FF;
+  --badge-calc-text: #5B21B6;
+  --badge-calc-border: #DDD6FE;
+
+  --badge-forecast-bg: #FEF3C7;
+  --badge-forecast-text: #92400E;
+  --badge-forecast-border: #FDE68A;
+
+  --badge-rec-bg: #ECFDF5;
+  --badge-rec-text: #065F46;
+  --badge-rec-border: #A7F3D0;
+
+  --badge-danger-bg: #FEF2F2;
+  --badge-danger-text: #991B1B;
+  --badge-danger-border: #FCA5A5;
+
+  --badge-warning-bg: #FFEDD5;
+  --badge-warning-text: #C2410C;
+  --badge-warning-border: #FDBA74;
+}
+
+/* Base Styles */
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-main);
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Odoo Card & Form Sheet styling */
+.o-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+}
+
+.o-form-sheet {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* AI State Badges */
+.badge-fact {
+  background-color: var(--badge-fact-bg);
+  color: var(--badge-fact-text);
+  border: 1px solid var(--badge-fact-border);
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.badge-calc {
+  background-color: var(--badge-calc-bg);
+  color: var(--badge-calc-text);
+  border: 1px solid var(--badge-calc-border);
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.badge-forecast {
+  background-color: var(--badge-forecast-bg);
+  color: var(--badge-forecast-text);
+  border: 1px solid var(--badge-forecast-border);
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.badge-rec {
+  background-color: var(--badge-rec-bg);
+  color: var(--badge-rec-text);
+  border: 1px solid var(--badge-rec-border);
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.badge-danger {
+  background-color: var(--badge-danger-bg);
+  color: var(--badge-danger-text);
+  border: 1px solid var(--badge-danger-border);
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.badge-warning {
+  background-color: var(--badge-warning-bg);
+  color: var(--badge-warning-text);
+  border: 1px solid var(--badge-warning-border);
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Odoo Statusbar Ribbon */
+.statusbar-step {
+  padding: 0.35rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748B;
+  background-color: #F1F5F9;
+  position: relative;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%, 10px 50%);
+}
+
+.statusbar-step.active {
+  background-color: #714B67;
+  color: #FFFFFF;
+}
+
+.statusbar-step:first-child {
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+/* Animation utilities */
+.drawer-transition {
+  transition: transform 0.3s ease-in-out;
+}
