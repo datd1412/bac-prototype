@@ -9,10 +9,10 @@ const Zone0Shell = {
       <header class="h-12 bg-[#714B67] text-white flex items-center justify-between px-4 fixed top-0 left-0 right-0 z-40 shadow-md">
         <!-- Left: App Switcher Grid & Logo -->
         <div class="flex items-center gap-3">
-          <button onclick="Zone0Shell.toggleAppMenu()" class="p-1.5 hover:bg-white/10 rounded transition text-white/90 hover:text-white" title="Danh mục ứng dụng Odoo">
+          <button onclick="App.navigateTo('apps')" class="p-1.5 hover:bg-white/10 rounded transition text-white/90 hover:text-white" title="Trang chủ Phân hệ Odoo Enterprise">
             <i class="lucide-layout-grid w-5 h-5"></i>
           </button>
-          <div class="flex items-center gap-2 cursor-pointer" onclick="App.navigateTo('dashboard')">
+          <div class="flex items-center gap-2 cursor-pointer" onclick="App.navigateTo('apps')">
             <span class="font-bold text-base tracking-wide text-white">Stitch AI</span>
             <span class="text-xs bg-white/20 px-2 py-0.5 rounded font-mono text-white/90">Trợ Lý Copilot ERP</span>
           </div>
@@ -452,5 +452,63 @@ const Zone0Shell = {
         body.scrollTop = body.scrollHeight;
       });
     }, 500);
+  },
+
+  // Render Odoo Enterprise Home App Grid Launcher (Image 1 Style)
+  renderAppLauncher: function() {
+    const apps = [
+      { id: 'dashboard', name: 'Dashboard KPI & Tài Chính', desc: 'Báo cáo doanh thu, lợi nhuận realtime', icon: 'lucide-layout-dashboard', color: 'bg-purple-600 text-white', badge: 'Realtime' },
+      { id: 'inventory', name: 'Quản Lý Tồn Kho FEFO', desc: 'Kiểm date mỹ phẩm, vị trí kệ, đề xuất PO', icon: 'lucide-boxes', color: 'bg-emerald-600 text-white', badge: '2 Cận Hạn' },
+      { id: 'sales', name: 'Bán Hàng & Thu Chi P&L', desc: 'Đơn đa kênh Shopee/TikTok, VietQR B2B', icon: 'lucide-shopping-bag', color: 'bg-amber-600 text-white', badge: 'Shopee/TikTok' },
+      { id: 'pos', name: 'POS Thu Ngân Quầy', desc: 'Tính tiền, in hóa đơn, chốt ca, kiểm kê', icon: 'lucide-monitor', color: 'bg-blue-600 text-white', badge: 'Quầy Live' },
+      { id: 'ai_advisor', name: 'Stitch AI Copilot Workspace', desc: 'Hỏi đáp dữ liệu, phân tích kinh doanh', icon: 'lucide-brain-circuit', color: 'bg-indigo-600 text-white', badge: 'AI v4.2' },
+      { id: 'anomaly', name: 'Cảnh Báo Bất Thường', desc: 'Phát hiện rủi ro dòng tiền & gian lận', icon: 'lucide-shield-alert', color: 'bg-rose-600 text-white', badge: '3 Cảnh Báo', subtab: 'anomaly_center', parentApp: 'ai_advisor' },
+      { id: 'whatif', name: 'What-If Simulation Lab', desc: 'Mô phỏng kịch bản giá & điểm hòa vốn', icon: 'lucide-flask-conical', color: 'bg-cyan-600 text-white', badge: 'Scenario', subtab: 'whatif_lab', parentApp: 'ai_advisor' },
+      { id: 'sa_admin', name: 'Quản Trị Multi-Tenant', desc: 'Phân hạng gói cước & cấu hình DN', icon: 'lucide-building-2', color: 'bg-slate-700 text-white', badge: 'SA Console', subtab: 'tenants' },
+      { id: 'rbac', name: 'Phân Quyền User RBAC', desc: 'Quản lý tài khoản & phân quyền vai trò', icon: 'lucide-users', color: 'bg-teal-700 text-white', badge: 'IAM Policy', subtab: 'rbac_users', parentApp: 'sa_admin' },
+      { id: 'audit', name: 'Nhật Ký Truy Cập Audit', desc: 'Lịch sử thao tác & tuân thủ bảo mật', icon: 'lucide-file-text', color: 'bg-orange-600 text-white', badge: 'Compliance', subtab: 'audit_logs', parentApp: 'sa_admin' }
+    ];
+
+    return `
+      <div class="min-h-[calc(100vh-10rem)] p-4 sm:p-8 flex flex-col items-center justify-center bg-gradient-to-b from-slate-100 via-slate-50 to-purple-50/20 rounded-2xl border border-slate-200/80 shadow-inner">
+        <!-- Title Header -->
+        <div class="text-center max-w-xl mb-10 space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-[#714B67] text-xs font-bold border border-purple-200 shadow-xs">
+            <i class="lucide-sparkles w-3.5 h-3.5"></i> Odoo Enterprise App Grid Launcher
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Danh Mục Phân Hệ Quản Trị Stitch AI</h1>
+          <p class="text-xs sm:text-sm text-slate-500">Chọn một phân hệ chức năng bên dưới để vào giao diện làm việc Odoo tinh gọn</p>
+        </div>
+
+        <!-- Apps Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 max-w-5xl w-full">
+          ${apps.map(app => `
+            <div onclick="${app.parentApp ? `MockData.subTabs.${app.parentApp} = '${app.subtab}'; App.navigateTo('${app.parentApp}');` : `App.navigateTo('${app.id}');`}" 
+                 class="group relative bg-white p-5 rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-200 cursor-pointer flex flex-col items-center text-center">
+              
+              ${app.badge ? `<span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full text-[9px] font-extrabold bg-slate-100 text-slate-700 border border-slate-200 group-hover:bg-[#714B67] group-hover:text-white transition">${app.badge}</span>` : ''}
+
+              <!-- App Icon Card -->
+              <div class="w-14 h-14 rounded-2xl ${app.color} flex items-center justify-center shadow-md mb-3 group-hover:scale-110 transition duration-200">
+                <i class="${app.icon} w-7 h-7"></i>
+              </div>
+
+              <!-- App Title & Description -->
+              <h3 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-[#714B67] transition line-clamp-1">${app.name}</h3>
+              <p class="text-[11px] text-slate-500 mt-1 line-clamp-2 leading-snug">${app.desc}</p>
+            </div>
+          `).join('')}
+        </div>
+
+        <!-- Bottom Quick System Info Footer -->
+        <div class="mt-12 text-center text-xs text-slate-400 flex items-center justify-center gap-4">
+          <span>Giao diện Odoo Enterprise Standard</span>
+          <span>•</span>
+          <span class="text-teal-700 font-medium">Tenant: Maison de Bloom</span>
+          <span>•</span>
+          <span>Role: <strong class="text-slate-700">${MockData.activeRole === 'SA' ? 'System Admin' : MockData.activeRole === 'BO' ? 'Business Owner' : 'Store Employee'}</strong></span>
+        </div>
+      </div>
+    `;
   }
 };

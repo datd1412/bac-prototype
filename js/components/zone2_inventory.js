@@ -8,18 +8,18 @@ const Zone2Inventory = {
 
     return `
       <div class="space-y-6">
-        <!-- Sub-navigation Tabs for 100% 54-Screen Coverage -->
-        <div class="flex items-center gap-2 border-b border-slate-200 pb-2 overflow-x-auto text-xs font-semibold text-slate-600">
-          <button onclick="Zone2Inventory.switchSubTab('variants_fefo')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'variants_fefo' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+        <!-- Sub-navigation Tabs for 100% 54-Screen Coverage (Odoo Enterprise Menu Link Style) -->
+        <div class="flex items-center gap-5 border-b border-slate-200 pb-0 overflow-x-auto text-xs text-slate-600 mb-4">
+          <button onclick="Zone2Inventory.switchSubTab('variants_fefo')" class="pb-2.5 px-1 border-b-2 transition flex items-center gap-1.5 ${activeSubTab === 'variants_fefo' ? 'border-[#714B67] text-[#714B67] font-bold' : 'border-transparent hover:text-slate-900 font-medium'}">
             <i class="lucide-sparkles w-3.5 h-3.5"></i> 1. Hạn Sử Dụng & Vị Trí Kệ Mỹ Phẩm (FEFO)
           </button>
-          <button onclick="Zone2Inventory.switchSubTab('stock_moves')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'stock_moves' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+          <button onclick="Zone2Inventory.switchSubTab('stock_moves')" class="pb-2.5 px-1 border-b-2 transition flex items-center gap-1.5 ${activeSubTab === 'stock_moves' ? 'border-[#714B67] text-[#714B67] font-bold' : 'border-transparent hover:text-slate-900 font-medium'}">
             <i class="lucide-package-search w-3.5 h-3.5"></i> 2. Nhật Ký Xuất Nhập Tồn
           </button>
-          <button onclick="Zone2Inventory.switchSubTab('po_drafts')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'po_drafts' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+          <button onclick="Zone2Inventory.switchSubTab('po_drafts')" class="pb-2.5 px-1 border-b-2 transition flex items-center gap-1.5 ${activeSubTab === 'po_drafts' ? 'border-[#714B67] text-[#714B67] font-bold' : 'border-transparent hover:text-slate-900 font-medium'}">
             <i class="lucide-file-text w-3.5 h-3.5"></i> 3. Gợi Ý Nhập Hàng Tự Động & Đặt Hàng PO
           </button>
-          <button onclick="Zone2Inventory.switchSubTab('suppliers')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'suppliers' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+          <button onclick="Zone2Inventory.switchSubTab('suppliers')" class="pb-2.5 px-1 border-b-2 transition flex items-center gap-1.5 ${activeSubTab === 'suppliers' ? 'border-[#714B67] text-[#714B67] font-bold' : 'border-transparent hover:text-slate-900 font-medium'}">
             <i class="lucide-factory w-3.5 h-3.5"></i> 4. Nhà Cung Cấp & Công Nợ Quá Hạn
           </button>
         </div>

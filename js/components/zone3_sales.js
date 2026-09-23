@@ -8,21 +8,21 @@ const Zone3Sales = {
 
     return `
       <div class="space-y-6">
-        <!-- Sub-navigation Tabs for 100% 54-Screen Coverage -->
-        <div class="flex items-center gap-2 border-b border-slate-200 pb-2 overflow-x-auto text-xs font-semibold text-slate-600">
-          <button onclick="Zone3Sales.switchSubTab('omnichannel')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'omnichannel' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+        <!-- Sub-navigation Tabs for 100% 54-Screen Coverage (Odoo Enterprise Menu Link Style) -->
+        <div class="flex items-center gap-5 border-b border-slate-200 pb-0 overflow-x-auto text-xs text-slate-600 mb-4">
+          <button onclick="Zone3Sales.switchSubTab('omnichannel')" class="pb-2.5 px-1 border-b-2 transition flex items-center gap-1.5 ${activeSubTab === 'omnichannel' ? 'border-[#714B67] text-[#714B67] font-bold' : 'border-transparent hover:text-slate-900 font-medium'}">
             <i class="lucide-shopping-bag w-3.5 h-3.5"></i> 1. Đơn Hàng Đa Kênh (Shopee, TikTok, POS)
           </button>
-          <button onclick="Zone3Sales.switchSubTab('new_order_form')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'new_order_form' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+          <button onclick="Zone3Sales.switchSubTab('new_order_form')" class="pb-2.5 px-1 border-b-2 transition flex items-center gap-1.5 ${activeSubTab === 'new_order_form' ? 'border-[#714B67] text-[#714B67] font-bold' : 'border-transparent hover:text-slate-900 font-medium'}">
             <i class="lucide-plus-circle w-3.5 h-3.5"></i> 2. Tạo Đơn Hàng Mới (+)
           </button>
-          <button onclick="Zone3Sales.switchSubTab('marketplace_recon')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'marketplace_recon' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+          <button onclick="Zone3Sales.switchSubTab('marketplace_recon')" class="pb-2.5 px-1 border-b-2 transition flex items-center gap-1.5 ${activeSubTab === 'marketplace_recon' ? 'border-[#714B67] text-[#714B67] font-bold' : 'border-transparent hover:text-slate-900 font-medium'}">
             <i class="lucide-landmark w-3.5 h-3.5"></i> 3. Đối Soát Tiền Về Ngân Hàng (Shopee & TikTok)
           </button>
-          <button onclick="Zone3Sales.switchSubTab('cashflow_accrual')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'cashflow_accrual' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+          <button onclick="Zone3Sales.switchSubTab('cashflow_accrual')" class="pb-2.5 px-1 border-b-2 transition flex items-center gap-1.5 ${activeSubTab === 'cashflow_accrual' ? 'border-[#714B67] text-[#714B67] font-bold' : 'border-transparent hover:text-slate-900 font-medium'}">
             <i class="lucide-dollar-sign w-3.5 h-3.5"></i> 4. Báo Cáo Thu Chi & Lợi Nhuận Thực Nhận (P&L)
           </button>
-          <button onclick="Zone3Sales.switchSubTab('opex_mobile')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'opex_mobile' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+          <button onclick="Zone3Sales.switchSubTab('opex_mobile')" class="pb-2.5 px-1 border-b-2 transition flex items-center gap-1.5 ${activeSubTab === 'opex_mobile' ? 'border-[#714B67] text-[#714B67] font-bold' : 'border-transparent hover:text-slate-900 font-medium'}">
             <i class="lucide-smartphone w-3.5 h-3.5"></i> 5. Ghi Nhận Chi Phí Nhanh & Ngân Sách OPEX (BO-02)
           </button>
         </div>

@@ -17,21 +17,21 @@ const Zone4POS = {
     const activeSubTab = MockData.subTabs.pos || 'terminal';
     return `
       <div class="space-y-4">
-        <!-- Sub-navigation Tabs -->
-        <div class="flex items-center gap-2 border-b border-slate-200 pb-2 overflow-x-auto text-xs font-semibold text-slate-600">
-          <button onclick="Zone4POS.switchSubTab('terminal')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'terminal' ? 'bg-blue-700 text-white shadow-sm font-bold' : 'hover:bg-slate-100'}">
+        <!-- Sub-navigation Tabs (Odoo Enterprise Menu Link Style) -->
+        <div class="flex items-center gap-5 border-b border-slate-200 pb-0 overflow-x-auto text-xs text-slate-600 mb-2">
+          <button onclick="Zone4POS.switchSubTab('terminal')" class="pb-2.5 px-1 border-b-2 transition flex items-center gap-1.5 ${activeSubTab === 'terminal' ? 'border-[#714B67] text-[#714B67] font-bold' : 'border-transparent hover:text-slate-900 font-medium'}">
             <i class="lucide-monitor w-3.5 h-3.5"></i> 1. Màn Hình Tính Tiền POS (Bán Hàng & In Hóa Đơn)
           </button>
-          <button onclick="Zone4POS.switchSubTab('returns_warranty')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'returns_warranty' ? 'bg-blue-700 text-white shadow-sm font-bold' : 'hover:bg-slate-100'}">
+          <button onclick="Zone4POS.switchSubTab('returns_warranty')" class="pb-2.5 px-1 border-b-2 transition flex items-center gap-1.5 ${activeSubTab === 'returns_warranty' ? 'border-[#714B67] text-[#714B67] font-bold' : 'border-transparent hover:text-slate-900 font-medium'}">
             <i class="lucide-rotate-ccw w-3.5 h-3.5"></i> 2. Đổi Trả & Bảo Hành Cho Khách
           </button>
-          <button onclick="Zone4POS.switchSubTab('inventory_count')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'inventory_count' ? 'bg-blue-700 text-white shadow-sm font-bold' : 'hover:bg-slate-100'}">
+          <button onclick="Zone4POS.switchSubTab('inventory_count')" class="pb-2.5 px-1 border-b-2 transition flex items-center gap-1.5 ${activeSubTab === 'inventory_count' ? 'border-[#714B67] text-[#714B67] font-bold' : 'border-transparent hover:text-slate-900 font-medium'}">
             <i class="lucide-clipboard-check w-3.5 h-3.5"></i> 3. Kiểm Kê & Kiểm Date Mỹ Phẩm FEFO
           </button>
-          <button onclick="Zone4POS.switchSubTab('product_directory')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'product_directory' ? 'bg-blue-700 text-white shadow-sm font-bold' : 'hover:bg-slate-100'}">
+          <button onclick="Zone4POS.switchSubTab('product_directory')" class="pb-2.5 px-1 border-b-2 transition flex items-center gap-1.5 ${activeSubTab === 'product_directory' ? 'border-[#714B67] text-[#714B67] font-bold' : 'border-transparent hover:text-slate-900 font-medium'}">
             <i class="lucide-search w-3.5 h-3.5"></i> 4. Tra Cứu Giá & Tồn Kho Sản Phẩm
           </button>
-          <button onclick="Zone4POS.switchSubTab('store_inward')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'store_inward' ? 'bg-blue-700 text-white shadow-sm font-bold' : 'hover:bg-slate-100'}">
+          <button onclick="Zone4POS.switchSubTab('store_inward')" class="pb-2.5 px-1 border-b-2 transition flex items-center gap-1.5 ${activeSubTab === 'store_inward' ? 'border-[#714B67] text-[#714B67] font-bold' : 'border-transparent hover:text-slate-900 font-medium'}">
             <i class="lucide-arrow-down-to-line w-3.5 h-3.5"></i> 5. Nhập Hàng Từ Kho Tổng Về Quầy (SE-03)
           </button>
         </div>

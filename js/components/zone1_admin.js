@@ -8,21 +8,21 @@ const Zone1Admin = {
 
     return `
       <div class="space-y-6">
-        <!-- Sub-navigation Tabs for 100% 54-Screen Coverage -->
-        <div class="flex items-center gap-2 border-b border-slate-200 pb-2 overflow-x-auto text-xs font-semibold text-slate-600">
-          <button onclick="Zone1Admin.switchSubTab('business_profile')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'business_profile' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+        <!-- Sub-navigation Tabs for 100% 54-Screen Coverage (Odoo Enterprise Menu Link Style) -->
+        <div class="flex items-center gap-5 border-b border-slate-200 pb-0 overflow-x-auto text-xs text-slate-600 mb-4">
+          <button onclick="Zone1Admin.switchSubTab('business_profile')" class="pb-2.5 px-1 border-b-2 transition flex items-center gap-1.5 ${activeSubTab === 'business_profile' ? 'border-[#714B67] text-[#714B67] font-bold' : 'border-transparent hover:text-slate-900 font-medium'}">
             <i class="lucide-building-2 w-3.5 h-3.5"></i> 1. Hồ sơ Doanh nghiệp & Vận hành (BO-01)
           </button>
-          <button onclick="Zone1Admin.switchSubTab('tenants')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'tenants' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+          <button onclick="Zone1Admin.switchSubTab('tenants')" class="pb-2.5 px-1 border-b-2 transition flex items-center gap-1.5 ${activeSubTab === 'tenants' ? 'border-[#714B67] text-[#714B67] font-bold' : 'border-transparent hover:text-slate-900 font-medium'}">
             <i class="lucide-globe w-3.5 h-3.5"></i> 2. Multi-Tenant Governance (SA-02)
           </button>
-          <button onclick="Zone1Admin.switchSubTab('rbac_users')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'rbac_users' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+          <button onclick="Zone1Admin.switchSubTab('rbac_users')" class="pb-2.5 px-1 border-b-2 transition flex items-center gap-1.5 ${activeSubTab === 'rbac_users' ? 'border-[#714B67] text-[#714B67] font-bold' : 'border-transparent hover:text-slate-900 font-medium'}">
             <i class="lucide-users w-3.5 h-3.5"></i> 3. Tài khoản & Phân quyền IAM RBAC (SA-01)
           </button>
-          <button onclick="Zone1Admin.switchSubTab('security_config')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'security_config' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+          <button onclick="Zone1Admin.switchSubTab('security_config')" class="pb-2.5 px-1 border-b-2 transition flex items-center gap-1.5 ${activeSubTab === 'security_config' ? 'border-[#714B67] text-[#714B67] font-bold' : 'border-transparent hover:text-slate-900 font-medium'}">
             <i class="lucide-settings w-3.5 h-3.5"></i> 4. Cấu hình Nền tảng & Security Policy (SA-03)
           </button>
-          <button onclick="Zone1Admin.switchSubTab('audit_logs')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'audit_logs' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+          <button onclick="Zone1Admin.switchSubTab('audit_logs')" class="pb-2.5 px-1 border-b-2 transition flex items-center gap-1.5 ${activeSubTab === 'audit_logs' ? 'border-[#714B67] text-[#714B67] font-bold' : 'border-transparent hover:text-slate-900 font-medium'}">
             <i class="lucide-shield-check w-3.5 h-3.5"></i> 5. Nhật ký Audit Trail & Truy vết (SA-04)
           </button>
         </div>

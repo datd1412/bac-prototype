@@ -27,6 +27,13 @@ const App = {
 
     // Route Mapping based on MockData.activeApp
     switch (MockData.activeApp) {
+      case 'apps':
+        pageTitle = 'Trang Chủ Phân Hệ Doanh Nghiệp (Odoo Launcher)';
+        breadcrumbs = ['Phân hệ Odoo'];
+        actions = [];
+        contentHTML = Zone0Shell.renderAppLauncher();
+        break;
+
       case 'dashboard':
         pageTitle = 'Dashboard KPI Doanh Nghiệp (Tổng Quan)';
         breadcrumbs = ['Quản lý', 'Dashboard KPI'];
@@ -96,15 +103,15 @@ const App = {
         break;
 
       default:
-        contentHTML = Zone5AI.renderDashboard();
+        contentHTML = Zone0Shell.renderAppLauncher();
     }
 
     // Assemble Full Single Page Layout
     root.innerHTML = `
       ${Zone0Shell.renderTopBar()}
-      ${Zone0Shell.renderControlPanel(pageTitle, breadcrumbs, actions)}
+      ${MockData.activeApp === 'apps' ? '' : Zone0Shell.renderControlPanel(pageTitle, breadcrumbs, actions)}
       
-      <main class="pt-28 pb-10 px-4 max-w-7xl mx-auto relative">
+      <main class="${MockData.activeApp === 'apps' ? 'pt-16' : 'pt-28'} pb-10 px-4 max-w-7xl mx-auto relative">
         ${contentHTML}
       </main>
 
@@ -114,8 +121,16 @@ const App = {
 
   // Navigation Controller (Multi-Page & SPA hybrid)
   navigateTo: function(appId) {
+    if (appId === 'apps') {
+      MockData.activeApp = 'apps';
+      this.render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
     const pageMap = {
-      'dashboard': 'index.html',
+      'apps': 'index.html?view=apps',
+      'dashboard': 'index.html?view=dashboard',
       'pos': 'pos.html',
       'inventory': 'inventory.html',
       'sales': 'sales.html',
