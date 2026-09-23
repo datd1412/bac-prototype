@@ -6,7 +6,7 @@ const MockData = {
   // Current Active Context
   activeRole: 'BO', // SA | BO | SE
   activeTenant: 'tenant_01',
-  activeApp: 'dashboard', // dashboard | inventory | sales | pos | ai_advisor | sa_admin
+  activeApp: 'apps', // apps | dashboard | inventory | sales | pos | ai_advisor | sa_admin
   activeView: 'list', // list | kanban | form | pivot
 
   // Active Sub-tabs for full 54-screen navigation
