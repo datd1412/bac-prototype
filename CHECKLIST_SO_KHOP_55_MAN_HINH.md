@@ -226,30 +226,40 @@
     - 🎯 **End User:** Thêm mô phỏng kịch bản rủi ro công nợ B2B bị trễ 30 ngày và sàn hoãn thanh toán 1 đợt, tính toán vùng an toàn tiền mặt còn lại trong ngân hàng.
     - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, thẻ cảnh báo áp lực dòng tiền với mã màu Amber/Red nổi bật.
 
-- [x] **31. [modal_chi_ti_t_xem_tr_c_n_t_h_ng_po_draft_preview_1]** — *Xem trước &amp; Phê duyệt Đơn Đặt Hàng (PO Draft) — Đợt Nhập Hàng Mega 11.11*
+- [x] ✔️ **31. [modal_chi_ti_t_xem_tr_c_n_t_h_ng_po_draft_preview_1]** — *Xem Trước & Phê Duyệt Đơn Đặt Hàng PO Draft 1 (Mega Sales 11.11)*
   - **File render mới (`new_pd`):** [`zone2_inventory.js`](file:///d:/prototype/new_pd/js/components/zone2_inventory.js) ➔ `Zone2Inventory.renderPODrafts()`
-  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ PO Draft ➔ Nút Duyệt PO Draft đợt 1
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ PO Draft ➔ Nút Duyệt & Phát hành PO (`inventory.html?sub=po_drafts`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm Modal xem trước đơn mua hàng PO-2026-004 chi tiết giá trị 24.5Mđ (100 hộp Serum Vitamin C), hiển thị nhà cung cấp Blossom Korea, tích hợp Modal Xác nhận Giao dịch Tài chính khi phát hành PO.
+    - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, font mono cho mã đơn PO & giá tiền, nút bấm duyệt màu tím Odoo `#714B67`.
 
-- [x] **32. [modal_chi_ti_t_xem_tr_c_n_t_h_ng_po_draft_preview_2]** — *Dự báo Nhu Cầu &amp; Gợi Ý Nhập Hàng Mega 11.11*
+- [x] ✔️ **32. [modal_chi_ti_t_xem_tr_c_n_t_h_ng_po_draft_preview_2]** — *Dự Báo Nhu Cầu & Gợi Ý Nhập Hàng Mega Sales 11.11 (PO Draft 2)*
   - **File render mới (`new_pd`):** [`zone2_inventory.js`](file:///d:/prototype/new_pd/js/components/zone2_inventory.js) ➔ `Zone2Inventory.renderPODrafts()`
-  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ PO Draft ➔ Nút Xem gợi ý Mega 11.11
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ PO Draft ➔ Nút Duyệt PO-2026-005 Silk Viet (`inventory.html?sub=po_drafts`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm đơn mua hàng PO-2026-005 giá trị 17.5Mđ (50 chiếc Áo Sơ mi Lụa Premium) chuẩn bị cho đợt Mega Sale 11.11, tích hợp Modal xác nhận giao dịch tài chính.
+    - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, font mono cho số tiền, phân cấp thông tin rõ ràng.
 
-- [x] **33. [modal_l_p_phi_u_chi_ti_n_qu_t_vietqr_b2b_cashflow_p_l]** — *Sổ Thu Chi &amp; Quản Trị Dòng Tiền Thực Tế*
+- [x] ✔️ **33. [modal_l_p_phi_u_chi_ti_n_qu_t_vietqr_b2b_cashflow_p_l]** — *Modal Lập Phiếu Chi VietQR B2B Auto-Reconciliation*
   - **File render mới (`new_pd`):** [`zone3_sales.js`](file:///d:/prototype/new_pd/js/components/zone3_sales.js) ➔ `Zone3Sales.openVietQRModal()`
-  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Nút Lập phiếu Chi VietQR B2B
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Sub-tab Đơn hàng / Chi phí ➔ Nút Tạo mã VietQR B2B (`sales.html?sub=omnichannel`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm mã QR thanh toán VietQR động tạo theo thời gian thực (API QR Server), hiển thị ngân hàng MB Bank STK 9999-8888-2026, cú pháp chuyển khoản tự động, nút "Xác nhận Đã thu/chi tiền" ghi nhận dồn tích ngay lập tức.
+    - 🎨 **UI Designer:** Khung Modal phẳng tập trung vào mã QR kích thước 200x200px, 100% Lucide Vector Icons, font mono cho số tài khoản và nội dung chuyển khoản.
 
-- [x] **34. [modal_l_p_phi_u_thu_ti_n_b_n_s_i_t_c_i_l_cashflow_p_l]** — *Sổ Thu Chi &amp; Quản Trị Dòng Tiền Thực Tế*
+- [x] ✔️ **34. [modal_l_p_phi_u_thu_ti_n_b_n_s_i_t_c_i_l_cashflow_p_l]** — *Modal Lập Phiếu Thu Tiền Bán Sỉ Đại Lý VietQR B2B*
   - **File render mới (`new_pd`):** [`zone3_sales.js`](file:///d:/prototype/new_pd/js/components/zone3_sales.js) ➔ `Zone3Sales.openVietQRModal()`
-  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Nút Lập phiếu Thu B2B Đại lý
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Sub-tab Đơn hàng ➔ Nút Thu tiền B2B Đại lý (`sales.html?sub=omnichannel`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm tính năng tạo mã VietQR B2B tự động gán cú pháp `TT SO ORD 2026 0894` trị giá 18.5Mđ cho Đại lý Phân phối Spa Blossom.
+    - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, giao diện Modal sạch đẹp chuẩn Odoo Enterprise.
 
-- [x] **35. [modal_nh_p_kho_kh_i_t_o_l_date_po_1]** — *Kho &amp; Lô Date Mỹ Phẩm*
+- [x] ✔️ **35. [modal_nh_p_kho_kh_i_t_o_l_date_po_1]** — *Wizard Nhập Kho & Khởi Tạo Lô Date FEFO Mỹ Phẩm 3 Bước (Wizard Intake Step 1)*
   - **File render mới (`new_pd`):** [`zone2_inventory.js`](file:///d:/prototype/new_pd/js/components/zone2_inventory.js) ➔ `Zone2Inventory.openIntakeWizard()`
-  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ PO Draft ➔ Nút Khởi tạo Nhập kho đợt 1
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ Sub-tab 1 ➔ Nút "+ Thêm Sản Phẩm / Lô FEFO" (`inventory.html?sub=variants_fefo`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm Wizard nhập kho 3 bước chuẩn Odoo (1. Chọn PO & NCC ➔ 2. Nhập Lô & HSD FEFO ➔ 3. Vị trí Kho & Duyệt), nhập thông tin Lot No `LOT-202610-NEW` & HSD Datepicker.
+    - 🎨 **UI Designer:** Odoo Statusbar 3 bước trên nền xám nhẹ, 100% Lucide Vector Icons, font mono cho mã lô sản phẩm.
 
 - [x] **36. [modal_nh_p_kho_kh_i_t_o_l_date_po_2]** — *Kho &amp; Lô Date Mỹ Phẩm*
   - **File render mới (`new_pd`):** [`zone2_inventory.js`](file:///d:/prototype/new_pd/js/components/zone2_inventory.js) ➔ `Zone2Inventory.openIntakeWizard()`
