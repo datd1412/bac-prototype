@@ -18,16 +18,11 @@ const Zone0Shell = {
           </div>
         </div>
 
-        <!-- Center: Tenant / Store Selector & Quick BO-01 link -->
-        <div class="hidden md:flex items-center gap-2">
-          <div class="flex items-center gap-2 bg-black/20 hover:bg-black/30 text-white/90 text-xs px-3 py-1.5 rounded-md cursor-pointer transition" onclick="Zone0Shell.showTenantModal()">
-            <i class="lucide-store w-3.5 h-3.5 text-teal-300"></i>
-            <span class="font-medium">${MockData.tenants.find(t => t.id === MockData.activeTenant)?.name || 'Maison de Bloom'}</span>
-            <i class="lucide-chevron-down w-3 h-3 text-white/60"></i>
-          </div>
-          <button onclick="App.navigateTo('sa_admin')" class="flex items-center gap-1.5 bg-amber-400 hover:bg-amber-300 text-slate-900 font-bold text-xs px-2.5 py-1.5 rounded-md transition shadow" title="Mở Hồ sơ Doanh nghiệp BO-01">
-            <i class="lucide-building-2 w-3.5 h-3.5"></i> Hồ sơ DN (BO-01)
-          </button>
+        <!-- Center: Tenant / Store Selector -->
+        <div class="hidden md:flex items-center gap-2 bg-black/20 hover:bg-black/30 text-white/90 text-xs px-3 py-1.5 rounded-md cursor-pointer transition" onclick="Zone0Shell.showTenantModal()">
+          <i class="lucide-store w-3.5 h-3.5 text-teal-300"></i>
+          <span class="font-medium">${MockData.tenants.find(t => t.id === MockData.activeTenant)?.name || 'Maison de Bloom'}</span>
+          <i class="lucide-chevron-down w-3 h-3 text-white/60"></i>
         </div>
 
         <!-- Right: Global Actions & User Profile -->
