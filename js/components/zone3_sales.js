@@ -11,16 +11,16 @@ const Zone3Sales = {
         <!-- Sub-navigation Tabs for 100% 54-Screen Coverage -->
         <div class="flex items-center gap-2 border-b border-slate-200 pb-2 overflow-x-auto text-xs font-semibold text-slate-600">
           <button onclick="Zone3Sales.switchSubTab('omnichannel')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'omnichannel' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
-            📦 1. Đơn hàng Đa kênh (Shopee/TikTok/POS/B2B)
+            🛒 1. Đơn Hàng Đa Kênh (Shopee, TikTok, POS)
           </button>
           <button onclick="Zone3Sales.switchSubTab('new_order_form')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'new_order_form' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
-            📝 2. Form Tạo Đơn Mới & Xuất Kho
+            📝 2. Tạo Đơn Hàng Mới (+)
           </button>
           <button onclick="Zone3Sales.switchSubTab('marketplace_recon')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'marketplace_recon' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
-            📊 3. Đối soát Sàn Shopee & TikTok Shop
+            🏦 3. Đối Soát Tiền Về Ngân Hàng (Shopee & TikTok)
           </button>
           <button onclick="Zone3Sales.switchSubTab('cashflow_accrual')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'cashflow_accrual' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
-            💰 4. Sổ Thu Chi & Accrual P&L vs Cashflow
+            💰 4. Báo Cáo Thu Chi & Lợi Nhuận Thực Nhận
           </button>
         </div>
 

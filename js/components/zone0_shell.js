@@ -59,28 +59,28 @@ const Zone0Shell = {
           <div class="grid grid-cols-3 gap-2">
             <button onclick="App.navigateTo('dashboard'); Zone0Shell.toggleAppMenu();" class="flex flex-col items-center gap-1.5 p-3 rounded-lg hover:bg-slate-100 transition group">
               <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center group-hover:scale-105 transition"><i class="lucide-layout-dashboard w-5 h-5"></i></div>
-              <span class="text-xs font-semibold text-slate-700">Dashboard KPI</span>
+              <span class="text-xs font-semibold text-slate-700 text-center">Tổng Quan & Lợi Nhuận</span>
             </button>
             <button onclick="App.navigateTo('inventory'); Zone0Shell.toggleAppMenu();" class="flex flex-col items-center gap-1.5 p-3 rounded-lg hover:bg-slate-100 transition group">
               <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center group-hover:scale-105 transition"><i class="lucide-boxes w-5 h-5"></i></div>
-              <span class="text-xs font-semibold text-slate-700">Kho & FEFO</span>
+              <span class="text-xs font-semibold text-slate-700 text-center">Kho & Hạn Dùng</span>
             </button>
             <button onclick="App.navigateTo('sales'); Zone0Shell.toggleAppMenu();" class="flex flex-col items-center gap-1.5 p-3 rounded-lg hover:bg-slate-100 transition group">
               <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center group-hover:scale-105 transition"><i class="lucide-shopping-bag w-5 h-5"></i></div>
-              <span class="text-xs font-semibold text-slate-700">Đơn Đa Kênh</span>
+              <span class="text-xs font-semibold text-slate-700 text-center">Đơn Hàng & Thu Chi</span>
             </button>
             <button onclick="App.navigateTo('pos'); Zone0Shell.toggleAppMenu();" class="flex flex-col items-center gap-1.5 p-3 rounded-lg hover:bg-slate-100 transition group">
               <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center group-hover:scale-105 transition"><i class="lucide-monitor w-5 h-5"></i></div>
-              <span class="text-xs font-semibold text-slate-700">POS Thu Ngân</span>
+              <span class="text-xs font-semibold text-slate-700 text-center">POS Thu Ngân</span>
             </button>
             <button onclick="App.navigateTo('ai_advisor'); Zone0Shell.toggleAppMenu();" class="flex flex-col items-center gap-1.5 p-3 rounded-lg hover:bg-slate-100 transition group">
               <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center group-hover:scale-105 transition"><i class="lucide-brain-circuit w-5 h-5"></i></div>
-              <span class="text-xs font-semibold text-slate-700">AI Advisor</span>
+              <span class="text-xs font-semibold text-slate-700 text-center">Cố Vấn AI</span>
             </button>
             ${MockData.activeRole === 'SA' || MockData.activeRole === 'BO' ? `
             <button onclick="App.navigateTo('sa_admin'); Zone0Shell.toggleAppMenu();" class="flex flex-col items-center gap-1.5 p-3 rounded-lg hover:bg-slate-100 transition group">
               <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-800 flex items-center justify-center group-hover:scale-105 transition"><i class="lucide-building-2 w-5 h-5"></i></div>
-              <span class="text-xs font-semibold text-slate-700">Quản trị & BO-01</span>
+              <span class="text-xs font-semibold text-slate-700 text-center">Cấu Hình DN (BO-01)</span>
             </button>
             ` : ''}
           </div>

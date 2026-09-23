@@ -11,16 +11,16 @@ const Zone2Inventory = {
         <!-- Sub-navigation Tabs for 100% 54-Screen Coverage -->
         <div class="flex items-center gap-2 border-b border-slate-200 pb-2 overflow-x-auto text-xs font-semibold text-slate-600">
           <button onclick="Zone2Inventory.switchSubTab('variants_fefo')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'variants_fefo' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
-            📦 1. Biến thể Size/Color & Lô FEFO Mỹ phẩm
+            🧴 1. Hạn Sử Dụng & Vị Trí Kệ Mỹ Phẩm (FEFO)
           </button>
           <button onclick="Zone2Inventory.switchSubTab('stock_moves')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'stock_moves' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
-            🔄 2. Thẻ Kho & Thao tác Xuất/Nhập Kho
+            📦 2. Nhật Ký Xuất Nhập Tồn
           </button>
           <button onclick="Zone2Inventory.switchSubTab('po_drafts')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'po_drafts' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
-            📄 3. Xem Trước Đơn Mua PO Draft Preview
+            📑 3. Gợi Ý Nhập Hàng Tự Động & Đặt Hàng PO
           </button>
           <button onclick="Zone2Inventory.switchSubTab('suppliers')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'suppliers' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
-            🏭 4. Nhà Cung Cấp & Công Nợ Mua Hàng
+            🏭 4. Nhà Cung Cấp & Công Nợ Quá Hạn
           </button>
         </div>
 
