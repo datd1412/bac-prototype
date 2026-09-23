@@ -77,8 +77,8 @@ const Zone5AI = {
               <h3 class="font-bold text-sm text-slate-800">Xu hướng Doanh thu & Lợi nhuận (Theo tháng)</h3>
               <span class="text-xs text-slate-500">So sánh dữ liệu thực tế với cùng kỳ</span>
             </div>
-            <button onclick="Zone0Shell.toggleAIDrawer()" class="px-2.5 py-1 text-xs font-semibold bg-purple-100 text-purple-800 border border-purple-200 rounded hover:bg-purple-200 flex items-center gap-1">
-              <i class="lucide-sparkles w-3.5 h-3.5"></i> Hỏi AI về Biểu đồ này
+            <button onclick="Zone0Shell.toggleAIDrawer()" class="px-2.5 py-1 text-xs font-semibold bg-indigo-100 text-indigo-800 border border-indigo-200 rounded hover:bg-indigo-200 flex items-center gap-1">
+              <i class="lucide-bot w-3.5 h-3.5"></i> Hỏi AI về Biểu đồ này
             </button>
           </div>
           
@@ -211,13 +211,13 @@ const Zone5AI = {
       <div class="o-card p-5 space-y-4">
         <div class="flex items-center justify-between border-b pb-3">
           <h2 class="text-sm font-bold text-slate-800 flex items-center gap-2">
-            <i class="lucide-sparkles w-4 h-4 text-indigo-600"></i> AI C-Level Strategic Business Advisor Workspace (BO-11)
+            <i class="lucide-bot w-4 h-4 text-indigo-600"></i> AI C-Level Strategic Business Advisor Workspace (BO-11)
           </h2>
           <span class="badge-rec">TRỢ LÝ CHIẾN LƯỢC C-LEVEL</span>
         </div>
         <p class="text-xs text-slate-600">Trợ lý AI hỗ trợ tự động tra cứu dữ liệu, tính toán biên lợi nhuận, gợi ý kế hoạch kinh doanh có bằng chứng chứng cứ.</p>
-        <button onclick="Zone0Shell.toggleAIDrawer()" class="px-4 py-2 bg-indigo-700 text-white font-bold text-xs rounded hover:bg-indigo-800 shadow">
-          ✨ Mở Khung Chat AI Copilot →
+        <button onclick="Zone0Shell.toggleAIDrawer()" class="px-4 py-2 bg-indigo-700 text-white font-bold text-xs rounded hover:bg-indigo-800 shadow flex items-center gap-1.5">
+          <i class="lucide-message-square-plus w-4 h-4"></i> Mở Khung Chat AI Copilot →
         </button>
       </div>
     `;

@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    ZONE 4: SE MODULE - STORE EMPLOYEE & POS TERMINAL (DYNAMIC INTERACTIVE)
    ========================================================================== */
 
@@ -803,25 +803,25 @@ const Zone4POS = {
 
             <!-- Card 1: AI FEFO Copilot -->
             <div class="o-card p-4 relative overflow-hidden">
-              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-700 via-indigo-600 to-blue-500"></div>
+              <div class="absolute top-0 left-0 right-0 h-1 bg-[#017E84]"></div>
               <div class="flex items-center justify-between mb-3">
                 <div class="flex items-center gap-2">
-                  <div class="w-8 h-8 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center">
-                    <i class="lucide-sparkles w-4 h-4"></i>
+                  <div class="w-8 h-8 rounded-lg bg-teal-100 text-teal-800 flex items-center justify-center">
+                    <i class="lucide-shield-check w-4 h-4"></i>
                   </div>
                   <div>
                     <div class="text-xs font-bold text-slate-900">Cosmetic Intake Copilot</div>
                     <div class="text-[10px] text-slate-500">Thẩm định quang học & Quy tắc FEFO</div>
                   </div>
                 </div>
-                <span class="text-[10px] font-bold bg-purple-100 text-purple-800 px-2 py-0.5 rounded-full">AI v2.4 Active</span>
+                <span class="text-[10px] font-bold bg-teal-100 text-teal-800 px-2 py-0.5 rounded-full border border-teal-200">FEFO Engine Active</span>
               </div>
 
               <!-- Visual Inspection Preview -->
               <div class="bg-slate-50 border border-slate-200 rounded-lg p-3 flex gap-3 items-center">
                 <div class="w-24 h-20 rounded-lg overflow-hidden flex-shrink-0 relative bg-slate-200">
                   <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=100&q=80" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/96x80/e2e8f0/64748b?text=Camera'" />
-                  <div class="absolute inset-0 bg-purple-900/20 flex items-center justify-center">
+                  <div class="absolute inset-0 bg-slate-900/30 flex items-center justify-center">
                     <i class="lucide-scan w-6 h-6 text-white drop-shadow"></i>
                   </div>
                 </div>
@@ -836,14 +836,14 @@ const Zone4POS = {
               </div>
 
               <!-- AI FEFO Advisory -->
-              <div class="mt-3 p-3 bg-purple-50 border border-purple-200 rounded-lg flex flex-col gap-1.5">
-                <div class="flex items-center gap-1.5 text-purple-800 font-bold text-[10px]">
+              <div class="mt-3 p-3 bg-teal-50/60 border border-teal-200 rounded-lg flex flex-col gap-1.5">
+                <div class="flex items-center gap-1.5 text-teal-900 font-bold text-[10px]">
                   <i class="lucide-info w-3.5 h-3.5"></i>
                   <span>Khuyến nghị xếp kho quầy (FEFO Rule):</span>
                 </div>
                 <p class="text-[10px] text-slate-700 leading-snug">
                   Cả 4 SKU nhập đợt này đều là date mới sản xuất (09/2026). Nhân viên vui lòng
-                  <span class="font-bold text-purple-800">xếp vào mặt sau kệ</span> để ưu tiên xuất bán hết các lô cũ (HSD 05/2026) đang trưng bày phía trước.
+                  <span class="font-bold text-teal-900">xếp vào mặt sau kệ</span> để ưu tiên xuất bán hết các lô cũ (HSD 05/2026) đang trưng bày phía trước.
                 </p>
               </div>
             </div>

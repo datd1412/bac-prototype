@@ -74,7 +74,7 @@ const Zone0Shell = {
               <span class="text-xs font-semibold text-slate-700">POS Thu Ngân</span>
             </button>
             <button onclick="App.navigateTo('ai_advisor'); Zone0Shell.toggleAppMenu();" class="flex flex-col items-center gap-1.5 p-3 rounded-lg hover:bg-slate-100 transition group">
-              <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center group-hover:scale-105 transition"><i class="lucide-sparkles w-5 h-5"></i></div>
+              <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center group-hover:scale-105 transition"><i class="lucide-brain-circuit w-5 h-5"></i></div>
               <span class="text-xs font-semibold text-slate-700">AI Advisor</span>
             </button>
             ${MockData.activeRole === 'SA' ? `
@@ -173,8 +173,8 @@ const Zone0Shell = {
   renderAIDrawer: function() {
     return `
       <!-- AI Copilot Floating Button -->
-      <button onclick="Zone0Shell.toggleAIDrawer()" class="fixed bottom-5 right-5 z-40 bg-gradient-to-r from-purple-700 to-indigo-600 hover:from-purple-800 hover:to-indigo-700 text-white font-semibold px-4 py-2.5 rounded-full shadow-lg flex items-center gap-2 transition transform hover:scale-105">
-        <i class="lucide-sparkles w-4 h-4 animate-pulse"></i>
+      <button onclick="Zone0Shell.toggleAIDrawer()" class="fixed bottom-5 right-5 z-40 bg-[#714B67] hover:bg-[#5a3b52] text-white font-semibold px-4 py-2.5 rounded-full shadow-lg flex items-center gap-2 transition transform hover:scale-105 border border-white/20">
+        <i class="lucide-bot w-4 h-4"></i>
         <span class="text-xs">Trợ Lý AI Copilot</span>
       </button>
 
