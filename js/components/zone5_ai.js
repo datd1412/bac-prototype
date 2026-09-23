@@ -372,17 +372,282 @@ const Zone5AI = {
 
   renderAdvisorWorkspace: function() {
     return `
-      <div class="o-card p-5 space-y-4">
-        <div class="flex items-center justify-between border-b pb-3">
-          <h2 class="text-sm font-bold text-slate-800 flex items-center gap-2">
-            <i class="lucide-bot w-4 h-4 text-indigo-600"></i> AI C-Level Strategic Business Advisor Workspace (BO-11)
-          </h2>
-          <span class="badge-rec">TRỢ LÝ CHIẾN LƯỢC C-LEVEL</span>
+      <div class="o-card p-0 overflow-hidden border border-slate-200 rounded-xl shadow-md bg-white">
+        <!-- Main Dual-Column AI Copilot Workspace Container -->
+        <div class="flex flex-col lg:flex-row h-[calc(100vh-14rem)] min-h-[620px]">
+          
+          <!-- LEFT SIDEBAR: SESSION LIST & SMART PROMPT LIBRARY -->
+          <aside class="w-full lg:w-80 border-r border-slate-200 bg-slate-50 flex flex-col justify-between shrink-0">
+            <div class="flex flex-col h-full overflow-hidden">
+              <!-- Sidebar Header -->
+              <div class="p-3.5 border-b border-slate-200 space-y-2 bg-white">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="w-7 h-7 rounded-lg bg-[#714B67] text-white flex items-center justify-center font-bold shadow-xs text-xs">
+                      <i class="lucide-bot w-4 h-4"></i>
+                    </div>
+                    <h2 class="font-bold text-xs text-slate-800 tracking-tight">Hội thoại Copilot</h2>
+                  </div>
+                  <span class="px-2 py-0.5 rounded-full bg-teal-100 text-teal-800 text-[10px] font-bold">Live v4.2</span>
+                </div>
+                <button onclick="Zone0Shell.sendPrompt('Tạo cuộc trò chuyện mới')" class="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-[#714B67] hover:bg-[#5b3b53] text-white font-bold text-xs transition shadow-sm">
+                  <i class="lucide-plus-circle w-3.5 h-3.5"></i>
+                  <span>Cuộc trò chuyện mới</span>
+                </button>
+                <!-- Filters / Tabs -->
+                <div class="flex items-center gap-1 p-1 bg-slate-100 rounded-lg text-[10px] font-semibold">
+                  <button class="flex-1 py-1 px-1.5 rounded bg-white text-purple-900 font-bold shadow-xs text-center">Gần đây</button>
+                  <button class="flex-1 py-1 px-1.5 rounded text-slate-600 hover:text-slate-900 text-center">Đã ghim (2)</button>
+                  <button class="flex-1 py-1 px-1.5 rounded text-slate-600 hover:text-slate-900 text-center">Chủ đề</button>
+                </div>
+              </div>
+
+              <!-- Conversation List -->
+              <div class="flex-1 overflow-y-auto p-2 space-y-1.5">
+                <!-- Active Conversation (Session 1) -->
+                <div class="p-3 rounded-xl bg-purple-50/80 border border-purple-200 text-slate-800 cursor-pointer shadow-xs relative">
+                  <div class="absolute left-0 top-3 bottom-3 w-1 bg-[#714B67] rounded-r-full"></div>
+                  <div class="flex items-start justify-between gap-1 mb-1 pl-1">
+                    <span class="font-bold text-xs text-purple-950 truncate flex items-center gap-1">
+                      <i class="lucide-trending-down w-3.5 h-3.5 text-rose-600"></i> Doanh thu tuần 42 giảm 12%
+                    </span>
+                    <span class="px-1.5 py-0.2 text-[9px] font-bold bg-purple-200 text-purple-900 rounded shrink-0">Đang xem</span>
+                  </div>
+                  <p class="text-[11px] text-slate-600 line-clamp-2 pl-1">Phân tích đứt hàng Serum B5 và chiết khấu sàn Shopee Q1...</p>
+                  <div class="flex items-center justify-between mt-2 pl-1 text-[10px] text-slate-400">
+                    <span>Hôm nay, 09:42</span>
+                    <span class="text-purple-700 font-bold flex items-center gap-0.5"><i class="lucide-sparkles w-3 h-3"></i> 3 đề xuất</span>
+                  </div>
+                </div>
+
+                <!-- Session 2 -->
+                <div onclick="Zone0Shell.sendPrompt('Đề xuất nhập Serum B5 cuối năm')" class="p-3 rounded-xl hover:bg-slate-100 text-slate-700 cursor-pointer transition-colors group">
+                  <div class="flex items-start justify-between gap-1 mb-1">
+                    <span class="font-semibold text-xs text-slate-800 truncate flex items-center gap-1 group-hover:text-purple-900">
+                      <i class="lucide-boxes w-3.5 h-3.5 text-slate-400 group-hover:text-purple-700"></i> Đề xuất nhập Serum B5 cuối năm
+                    </span>
+                  </div>
+                  <p class="text-[11px] text-slate-500 line-clamp-1">Mô phỏng nhu cầu tồn kho an toàn cho 45 ngày Tết...</p>
+                  <div class="flex items-center justify-between mt-2 text-[10px] text-slate-400">
+                    <span>2 ngày trước</span>
+                    <span class="text-emerald-700 font-semibold flex items-center gap-0.5"><i class="lucide-check-circle w-3 h-3"></i> Đã duyệt PO</span>
+                  </div>
+                </div>
+
+                <!-- Session 3 -->
+                <div onclick="Zone0Shell.sendPrompt('Hiệu quả TikTok Ads Váy Maxi')" class="p-3 rounded-xl hover:bg-slate-100 text-slate-700 cursor-pointer transition-colors group">
+                  <div class="flex items-start justify-between gap-1 mb-1">
+                    <span class="font-semibold text-xs text-slate-800 truncate flex items-center gap-1 group-hover:text-purple-900">
+                      <i class="lucide-megaphone w-3.5 h-3.5 text-slate-400 group-hover:text-purple-700"></i> Hiệu quả TikTok Ads Váy Maxi
+                    </span>
+                  </div>
+                  <p class="text-[11px] text-slate-500 line-clamp-1">ROAS giảm từ 3.8 xuống 2.1 do tỷ lệ hoàn COD...</p>
+                  <div class="flex items-center justify-between mt-2 text-[10px] text-slate-400">
+                    <span>5 ngày trước</span>
+                    <span>14 tin nhắn</span>
+                  </div>
+                </div>
+
+                <!-- Session 4 -->
+                <div onclick="Zone0Shell.sendPrompt('12 sản phẩm tồn kho > 90 ngày')" class="p-3 rounded-xl hover:bg-slate-100 text-slate-700 cursor-pointer transition-colors group">
+                  <div class="flex items-start justify-between gap-1 mb-1">
+                    <span class="font-semibold text-xs text-slate-800 truncate flex items-center gap-1 group-hover:text-purple-900">
+                      <i class="lucide-alert-circle w-3.5 h-3.5 text-rose-500"></i> 12 sản phẩm tồn kho > 90 ngày
+                    </span>
+                  </div>
+                  <p class="text-[11px] text-slate-500 line-clamp-1">Danh mục Son kem lì Merzy và phấn phủ kiểm dầu...</p>
+                  <div class="flex items-center justify-between mt-2 text-[10px] text-slate-400">
+                    <span>1 tuần trước</span>
+                    <span class="text-rose-600 font-bold flex items-center gap-0.5"><i class="lucide-flame w-3 h-3"></i> Cần xả hàng</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Smart Prompts Library Footer -->
+              <div class="p-3 bg-white border-t border-slate-200 space-y-1.5">
+                <div class="flex items-center justify-between text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+                  <span class="flex items-center gap-1"><i class="lucide-lightbulb w-3.5 h-3.5 text-amber-500"></i> Mẫu câu hỏi thông minh</span>
+                  <span class="text-purple-700 cursor-pointer hover:underline">Tất cả (18)</span>
+                </div>
+                <div class="space-y-1 text-xs">
+                  <button onclick="Zone0Shell.sendPrompt('Tại sao chi phí marketing tuần này vượt trần?')" class="w-full text-left p-1.5 rounded bg-slate-50 hover:bg-purple-50 text-slate-700 hover:text-purple-900 border border-slate-200 transition text-[11px] truncate flex items-center justify-between">
+                    <span>Tại sao chi phí marketing vượt trần?</span>
+                    <i class="lucide-arrow-right w-3 h-3 text-slate-400"></i>
+                  </button>
+                  <button onclick="Zone0Shell.sendPrompt('Sản phẩm nào có biên lợi nhuận cao nhất?')" class="w-full text-left p-1.5 rounded bg-slate-50 hover:bg-purple-50 text-slate-700 hover:text-purple-900 border border-slate-200 transition text-[11px] truncate flex items-center justify-between">
+                    <span>Sản phẩm nào có biên lợi nhuận cao nhất?</span>
+                    <i class="lucide-arrow-right w-3 h-3 text-slate-400"></i>
+                  </button>
+                  <button onclick="Zone0Shell.sendPrompt('Dự báo tồn kho an toàn cho 45 ngày Tết?')" class="w-full text-left p-1.5 rounded bg-slate-50 hover:bg-purple-50 text-slate-700 hover:text-purple-900 border border-slate-200 transition text-[11px] truncate flex items-center justify-between">
+                    <span>Dự báo tồn kho an toàn 45 ngày Tết?</span>
+                    <i class="lucide-arrow-right w-3 h-3 text-slate-400"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- RIGHT CENTER AREA: MAIN DIALOGUE THREAD & DECISION CANVAS -->
+          <section class="flex-1 flex flex-col h-full bg-slate-50/50 overflow-hidden relative">
+            <!-- Canvas Header -->
+            <div class="p-3.5 bg-white border-b border-slate-200 flex flex-wrap items-center justify-between gap-3 shrink-0 shadow-xs">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-[#714B67] text-white flex items-center justify-center font-bold shadow-sm">
+                  <i class="lucide-brain w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h1 class="font-bold text-sm text-slate-900">ABC Copilot — Trợ lý Ra Quyết Định Kinh Doanh</h1>
+                    <span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[10px] flex items-center gap-1">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Trực tiếp
+                    </span>
+                  </div>
+                  <div class="text-[11px] text-slate-500 flex items-center gap-2">
+                    <span>Đồng bộ: POS KiotViet, Kho Lô FEFO & Sổ Thu Chi</span>
+                    <span>•</span>
+                    <span class="text-emerald-700 font-semibold">Cập nhật 2 phút trước</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Top Actions -->
+              <div class="flex items-center gap-2 text-xs font-semibold">
+                <button onclick="alert('Đã xuất báo cáo phân tích AI dạng PDF!')" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 transition flex items-center gap-1.5 border border-slate-200">
+                  <i class="lucide-file-text w-3.5 h-3.5 text-slate-600"></i> Xuất PDF
+                </button>
+                <button onclick="alert('Đã gửi thông báo cảnh báo tới kênh Zalo Quản lý!')" class="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition shadow-xs flex items-center gap-1.5 font-bold">
+                  <i class="lucide-send w-3.5 h-3.5"></i> Gửi Zalo Quản Lý
+                </button>
+              </div>
+            </div>
+
+            <!-- Main Conversation Chat Messages -->
+            <div id="workspace-chat-body" class="flex-1 overflow-y-auto p-5 space-y-5 text-xs">
+              
+              <!-- USER MESSAGE 1 -->
+              <div class="flex items-start justify-end gap-3">
+                <div class="bg-[#714B67] text-white p-3.5 rounded-2xl rounded-tr-none max-w-2xl leading-relaxed shadow-sm">
+                  Cho tôi xem phân tích chi tiết tại sao doanh thu tuần 42 giảm 12% ở chi nhánh Q.1 và nguyên nhân chính là gì?
+                </div>
+                <div class="w-8 h-8 rounded-full bg-slate-800 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">
+                  BO
+                </div>
+              </div>
+
+              <!-- AI RESPONSE 1 WITH ACTION DECISION CARDS -->
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-full bg-purple-100 text-purple-800 border border-purple-200 flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">
+                  AI
+                </div>
+                <div class="bg-white p-4 rounded-2xl rounded-tl-none border border-slate-200 text-slate-800 max-w-3xl space-y-3.5 shadow-sm">
+                  <div class="space-y-1.5 leading-relaxed">
+                    <p class="font-bold text-sm text-slate-900">📊 Phân Tích Doanh Thu Tuần 42 Chi Nhánh Q.1:</p>
+                    <p>Doanh thu giảm 12% (tương đương <strong>-18.5 Triệu VNĐ</strong> so với tuần 41). Qua đối soát realtime từ KiotViet & Shopee, tôi xác định 2 nguyên nhân cốt lõi sau:</p>
+                    <ul class="list-disc pl-5 space-y-1 text-slate-700">
+                      <li><strong>Đứt hàng Serum B5 FEFO:</strong> Tồn kho chạm mức nguy hiểm (còn 8 hộp tại Q1), làm mất khoảng 12.4M doanh thu tiềm năng.</li>
+                      <li><strong>Chiết khấu sàn Shopee tăng:</strong> Phí sàn đợt 15/09 - 20/09 tăng 3.2% làm giảm lợi nhuận ròng.</li>
+                    </ul>
+                  </div>
+
+                  <!-- 1-Touch Action Decision Card 1 -->
+                  <div class="p-3 bg-purple-50/70 border border-purple-200 rounded-xl space-y-2">
+                    <div class="flex items-center justify-between">
+                      <span class="font-bold text-xs text-purple-950 flex items-center gap-1.5">
+                        <i class="lucide-box w-4 h-4 text-purple-700"></i> ĐỀ XUẤT 1: Tạo Đơn PO Nhập Kho Bổ Sung FEFO Khẩn Cấp
+                      </span>
+                      <span class="badge-rec">ƯU TIÊN CAO</span>
+                    </div>
+                    <p class="text-[11px] text-slate-600">Đề xuất mua khẩn 50 hộp Serum B5 từ NCC Mỹ Phẩm Viễn Đông để phục vụ tuần lễ mua sắm cuối tháng.</p>
+                    <div class="flex items-center justify-between pt-1 border-t border-purple-200/60 text-[11px]">
+                      <span class="text-slate-500">Giá trị đơn PO: <strong class="text-slate-800 font-mono">12,500,000 VNĐ</strong></span>
+                      <button onclick="App.navigateTo('inventory')" class="px-3 py-1.5 bg-[#714B67] hover:bg-[#5a3c53] text-white font-bold rounded-lg transition shadow-xs flex items-center gap-1">
+                        <i class="lucide-plus-circle w-3.5 h-3.5"></i> Tạo PO Nhập Kho Khẩn Cấp →
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- 1-Touch Action Decision Card 2 -->
+                  <div class="p-3 bg-amber-50/70 border border-amber-200 rounded-xl space-y-2">
+                    <div class="flex items-center justify-between">
+                      <span class="font-bold text-xs text-amber-950 flex items-center gap-1.5">
+                        <i class="lucide-zap w-4 h-4 text-amber-700"></i> ĐỀ XUẤT 2: Kích Hoạt KM Xả Hàng Lô FEFO Cận Hạn LOT-202608-A
+                      </span>
+                      <span class="badge-warning">CẬN HẠN 53 NGÀY</span>
+                    </div>
+                    <p class="text-[11px] text-slate-600">45 hộp Vitamin C còn 53 ngày hết hạn tại Kho Q1. Đề xuất tạo Flash Sale giảm 25% đẩy bán thu hồi 14.4M vốn.</p>
+                    <div class="flex items-center justify-between pt-1 border-t border-amber-200/60 text-[11px]">
+                      <span class="text-slate-500">Dự kiến thu hồi vốn: <strong class="text-emerald-700 font-mono">14,400,000 VNĐ</strong></span>
+                      <button onclick="alert('Đã kích hoạt Flash Sale giảm 25% lô cận hạn dùng FEFO thành công!')" class="px-3 py-1.5 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-lg transition shadow-xs flex items-center gap-1">
+                        <i class="lucide-check w-3.5 h-3.5"></i> Kích Hoạt Flash Sale Ngay
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="pt-1 flex items-center justify-between border-t border-slate-100 text-[11px]">
+                    <button onclick="Zone0Shell.showEvidenceModal()" class="text-purple-700 font-bold hover:underline flex items-center gap-1">
+                      <i class="lucide-search-code w-3.5 h-3.5"></i> [ 🔍 Inspect Evidence Data - Xem Bảng Chứng Cứ Dữ Liệu Gốc ]
+                    </button>
+                    <span class="text-slate-400">Độ tin cậy AI Engine: 98.4%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- USER MESSAGE 2 -->
+              <div class="flex items-start justify-end gap-3">
+                <div class="bg-[#714B67] text-white p-3.5 rounded-2xl rounded-tr-none max-w-2xl leading-relaxed shadow-sm">
+                  Nếu tôi duyệt nhập 50 hộp Serum B5 thì dòng tiền thực nhận bỏ túi tháng này có bị ảnh hưởng âm không?
+                </div>
+                <div class="w-8 h-8 rounded-full bg-slate-800 text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">
+                  BO
+                </div>
+              </div>
+
+              <!-- AI RESPONSE 2 -->
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-full bg-purple-100 text-purple-800 border border-purple-200 flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">
+                  AI
+                </div>
+                <div class="bg-white p-4 rounded-2xl rounded-tl-none border border-slate-200 text-slate-800 max-w-3xl space-y-3 shadow-sm">
+                  <p class="font-bold text-sm text-slate-900">📈 Mô Phỏng Dòng Tiền & Tính Thanh Khoản (What-If Liquidity Test):</p>
+                  <p class="leading-relaxed">Khi nhập 50 hộp Serum B5 (chi phí 12.5M VNĐ), nhờ điều khoản công nợ nhà cung cấp 30 ngày (Net 30), dòng tiền thực nhận trong 14 ngày tới <strong>không bị âm</strong>. Dự kiến doanh thu bán hàng mang về +21.5M VNĐ, giúp lợi nhuận ròng tăng thêm <strong>+9.0M VNĐ</strong>.</p>
+                  <div class="flex items-center gap-2 pt-1">
+                    <button onclick="Zone5AI.switchAIAdvisorSubTab('whatif_lab')" class="px-3 py-1.5 bg-indigo-700 hover:bg-indigo-800 text-white font-bold rounded-lg transition text-xs flex items-center gap-1">
+                      <i class="lucide-flask-conical w-3.5 h-3.5"></i> Xem Lab Mô Phỏng What-If Chi Tiết →
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Bottom Prompt Input & Quick Action Chips -->
+            <div class="p-3.5 bg-white border-t border-slate-200 space-y-2 shrink-0">
+              <!-- Quick Action Chips -->
+              <div class="flex items-center gap-1.5 overflow-x-auto text-[11px] font-semibold text-slate-600 pb-1">
+                <span class="text-slate-400 font-bold uppercase text-[10px]">Gợi ý nhanh:</span>
+                <button onclick="Zone0Shell.sendPrompt('Xả hàng tồn > 90 ngày')" class="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-purple-50 hover:text-purple-900 border border-slate-200 transition shrink-0">
+                  💡 Xả hàng tồn > 90 ngày
+                </button>
+                <button onclick="Zone0Shell.sendPrompt('Phân tích biên lợi nhuận Shopee')" class="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-purple-50 hover:text-purple-900 border border-slate-200 transition shrink-0">
+                  📊 Phân tích biên Shopee
+                </button>
+                <button onclick="Zone0Shell.sendPrompt('Tối ưu chi phí TikTok Ads')" class="px-2.5 py-1 rounded-full bg-slate-100 hover:bg-purple-50 hover:text-purple-900 border border-slate-200 transition shrink-0">
+                  🎯 Tối ưu chi phí TikTok Ads
+                </button>
+              </div>
+
+              <!-- Input Area -->
+              <div class="relative flex items-center">
+                <input type="text" id="workspace-chat-input" placeholder="Nhập yêu cầu hỏi AI Copilot (ví dụ: Phân tích hiệu quả kinh doanh tuần này)..." class="w-full pl-4 pr-24 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:bg-white transition" onkeypress="if(event.key==='Enter') Zone0Shell.sendPrompt(this.value)" />
+                <button onclick="Zone0Shell.sendPrompt(document.getElementById('workspace-chat-input').value)" class="absolute right-2 px-3 py-1.5 bg-[#714B67] hover:bg-[#593b51] text-white font-bold rounded-lg text-xs transition flex items-center gap-1 shadow-xs">
+                  <span>Gửi</span>
+                  <i class="lucide-send w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </div>
+          </section>
+
         </div>
-        <p class="text-xs text-slate-600">Trợ lý AI hỗ trợ tự động tra cứu dữ liệu, tính toán biên lợi nhuận, gợi ý kế hoạch kinh doanh có bằng chứng chứng cứ.</p>
-        <button onclick="Zone0Shell.toggleAIDrawer()" class="px-4 py-2 bg-indigo-700 text-white font-bold text-xs rounded hover:bg-indigo-800 shadow flex items-center gap-1.5">
-          <i class="lucide-message-square-plus w-4 h-4"></i> Mở Khung Chat AI Copilot →
-        </button>
       </div>
     `;
   },
