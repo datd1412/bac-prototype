@@ -486,17 +486,17 @@ const Zone5AI = {
       <div class="space-y-6">
         <!-- Sub-navigation Tabs for 100% 54-Screen Coverage -->
         <div class="flex items-center gap-2 border-b border-slate-200 pb-2 overflow-x-auto text-xs font-semibold text-slate-600">
-          <button onclick="Zone5AI.switchAIAdvisorSubTab('advisor_lab')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'advisor_lab' ? 'bg-indigo-800 text-white shadow-sm' : 'hover:bg-slate-100'}">
-            🤖 1. AI Business Advisor Workspace (BO-11)
+          <button onclick="Zone5AI.switchAIAdvisorSubTab('advisor_lab')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'advisor_lab' ? 'bg-indigo-800 text-white shadow-sm' : 'hover:bg-slate-100'}">
+            <i class="lucide-bot w-3.5 h-3.5"></i> 1. AI Business Advisor Workspace (BO-11)
           </button>
-          <button onclick="Zone5AI.switchAIAdvisorSubTab('anomaly_center')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'anomaly_center' ? 'bg-indigo-800 text-white shadow-sm' : 'hover:bg-slate-100'}">
-            ⚠️ 2. AI Anomaly Alert Center (BO-08)
+          <button onclick="Zone5AI.switchAIAdvisorSubTab('anomaly_center')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'anomaly_center' ? 'bg-indigo-800 text-white shadow-sm' : 'hover:bg-slate-100'}">
+            <i class="lucide-alert-triangle w-3.5 h-3.5"></i> 2. AI Anomaly Alert Center (BO-08)
           </button>
-          <button onclick="Zone5AI.switchAIAdvisorSubTab('demand_forecast')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'demand_forecast' ? 'bg-indigo-800 text-white shadow-sm' : 'hover:bg-slate-100'}">
-            📈 3. AI Demand Forecasting & PO Suggestion (BO-09)
+          <button onclick="Zone5AI.switchAIAdvisorSubTab('demand_forecast')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'demand_forecast' ? 'bg-indigo-800 text-white shadow-sm' : 'hover:bg-slate-100'}">
+            <i class="lucide-trending-up w-3.5 h-3.5"></i> 3. AI Demand Forecasting & PO Suggestion (BO-09)
           </button>
-          <button onclick="Zone5AI.switchAIAdvisorSubTab('whatif_lab')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'whatif_lab' ? 'bg-indigo-800 text-white shadow-sm' : 'hover:bg-slate-100'}">
-            🧪 4. What-If Scenario Lab & Liquidity Stress Test (BO-10)
+          <button onclick="Zone5AI.switchAIAdvisorSubTab('whatif_lab')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'whatif_lab' ? 'bg-indigo-800 text-white shadow-sm' : 'hover:bg-slate-100'}">
+            <i class="lucide-flask-conical w-3.5 h-3.5"></i> 4. What-If Scenario Lab & Liquidity Stress Test (BO-10)
           </button>
         </div>
 

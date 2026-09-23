@@ -156,30 +156,40 @@
     - 🎯 **End User:** Thêm bản tóm tắt danh sách đơn PO draft hiển thị dạng thẻ tối ưu cho di động, cho phép chủ cửa hàng duyệt nhanh đơn mua hàng 45Mđ bằng một chạm.
     - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, phân cấp thẻ màu sắc rõ ràng (Violet = AI Draft, Emerald = Approved).
 
-- [x] **21. [bo_10_m_ph_ng_k_ch_b_n_kinh_doanh_what_if_scenario_lab]** — *Phòng Thí Nghiệm Chiến Lược &amp; Stress-Test Rủi Ro biotech*
+- [x] ✔️ **21. [bo_10_m_ph_ng_k_ch_b_n_kinh_doanh_what_if_scenario_lab]** — *Phòng Thí Nghiệm Kịch Bản Kinh Doanh & Stress-Test Dòng Tiền (What-If Scenario Lab BO-10)*
   - **File render mới (`new_pd`):** [`zone5_ai.js`](file:///d:/prototype/new_pd/js/components/zone5_ai.js) ➔ `Zone5AI.renderWhatIfLab()`
-  - **Vị trí nút bấm & đường dẫn:** Cố vấn AI ➔ Tab What-If Scenario Lab & Cashflow Stress Test
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Cố vấn AI ➔ Sub-tab 4: `🧪 4. What-If Scenario Lab & Liquidity Stress Test (BO-10)` (`index.html?view=ai_advisor`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm thanh trượt giả định 3 tham số (Tăng Ads TikTok %, Giảm giá bán %, Tăng số lượng nhập PO), tính toán tự động tác động đến Lợi nhuận Net PnL & Dòng tiền dự trữ ngân hàng, nút kích hoạt giả định kiểm tra sức chịu đựng dòng tiền.
+    - 🎨 **UI Designer:** Bố cục 2 cột phẳng Odoo Enterprise, 100% Lucide Vector Icons, thanh range slider trực quan, thẻ so sánh kết quả kịch bản Baseline vs Target.
 
-- [x] **22. [bo_11_ai_business_advisor_tr_l_chi_n_l_c_c_level]** — *Trung Tâm Cố Vấn Chiến Lược Doanh Nghiệp*
+- [x] ✔️ **22. [bo_11_ai_business_advisor_tr_l_chi_n_l_c_c_level]** — *Trung Tâm Cố Vấn Chiến Lược Doanh Nghiệp (C-Level AI Advisor Workspace BO-11)*
+  - **File render mới (`new_pd`):** [`zone5_ai.js`](file:///d:/prototype/new_pd/js/components/zone5_ai.js) ➔ `Zone5AI.renderAIAdvisor()` & `renderAdvisorWorkspace()`
+  - **Vị trí nút bấm & đường dẫn:** Cố vấn AI ➔ Sub-tab 1: `🤖 1. AI Business Advisor Workspace (BO-11)` (`index.html?view=ai_advisor`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm banner xác minh độ tin cậy dữ liệu 98.4% (Live POS KiotViet & Kho FEFO), 2 tab sidebar phân tách Lịch sử Chat vs Task Cần Làm (3 việc ưu tiên), cửa sổ hội thoại tương tác với Copilot AI hỗ trợ đề xuất tạo PO & kích hoạt CTKM ngay trong chat.
+    - 🎨 **UI Designer:** Bố cục 2 cột phẳng hiện đại, 100% Lucide Vector Icons (loại bỏ biểu tượng emoji rác), font mono chuẩn cho số liệu & mã tham chiếu.
+
+- [x] ✔️ **23. [bo_11_ai_business_advisor_tr_l_chi_n_l_c_c_level_mobile]** — *Trung Tâm Cố Vấn Chiến Lược AI Mobile View (BO-11 Mobile)*
   - **File render mới (`new_pd`):** [`zone5_ai.js`](file:///d:/prototype/new_pd/js/components/zone5_ai.js) ➔ `Zone5AI.renderAIAdvisor()`
-  - **Vị trí nút bấm & đường dẫn:** Cố vấn AI ➔ Tab C-Level Strategic Advisor Workspace
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Cố vấn AI ➔ C-Level Advisor Mobile View (`index.html?view=ai_advisor`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm khung Chat Responsive tối ưu trên màn hình di động, cho phép chủ cửa hàng ra lệnh bằng giọng nói (Voice Prompting) hoặc chọn nhanh 4 mẫu câu hỏi thường gặp.
+    - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, bong bóng chat màu tím Odoo `#714B67`, lót lót lề an toàn ngăn bị đè khung bàn phím.
 
-- [x] **23. [bo_11_ai_business_advisor_tr_l_chi_n_l_c_c_level_mobile]** — *Trung Tâm Cố Vấn Chiến Lược AI*
-  - **File render mới (`new_pd`):** [`zone5_ai.js`](file:///d:/prototype/new_pd/js/components/zone5_ai.js) ➔ `Zone5AI.renderAIAdvisor()`
-  - **Vị trí nút bấm & đường dẫn:** Cố vấn AI ➔ C-Level Advisor Mobile View
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
-
-- [x] **24. [c_i_t_ph_n_quy_n_qu_n_l_nh_n_vi_n]** — *Quản lý Nhân viên &amp; Ma trận Phân quyền (RBAC)*
+- [x] ✔️ **24. [c_i_t_ph_n_quy_n_qu_n_l_nh_n_vi_n]** — *Quản lý Nhân Viên & Ma Trận Phân Quyền IAM RBAC (SA-01)*
   - **File render mới (`new_pd`):** [`zone1_admin.js`](file:///d:/prototype/new_pd/js/components/zone1_admin.js) ➔ `Zone1Admin.renderRBACUsers()`
-  - **Vị trí nút bấm & đường dẫn:** Quản trị ➔ Sub-tab Tài khoản & Phân quyền IAM RBAC (SA-01)
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Quản trị & SA-Admin ➔ Sub-tab 3: `👥 3. Tài khoản & Phân quyền IAM RBAC (SA-01)` (`admin.html?sub=rbac_users`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm 4 Thẻ chỉ số phân quyền (System Admin, Store Owner, Store Manager, Cashier POS), ma trận phân quyền 5 nhóm chức năng (Xem doanh thu, Duyệt PO, Kiểm kho, Tạo đơn bán, Cấu hình hệ thống), nút "+ Thêm Nhân Viên Mới" & "Khóa Tài Khoản".
+    - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, badge màu sắc theo vai trò (Red = System Admin, Purple = Owner, Blue = Manager, Emerald = Cashier POS), bảng phân quyền dạng checkbox Odoo phẳng.
 
-- [x] **25. [c_ng_qu_n_tr_h_th_ng_to_n_n_ng_system_administrator_sa_console]** — *Trung Tâm Điều Hành Hệ Thống &amp; Quản Trị Nền Tảng (System Administrator Console)*
+- [x] ✔️ **25. [c_ng_qu_n_tr_h_th_ng_to_n_n_ng_system_administrator_sa_console]** — *System Administrator Console & Điều Hành Nền Tảng (SA Console)*
   - **File render mới (`new_pd`):** [`zone1_admin.js`](file:///d:/prototype/new_pd/js/components/zone1_admin.js) ➔ `Zone1Admin.render()`
-  - **Vị trí nút bấm & đường dẫn:** Quản trị ➔ Master Header & Technical Infrastructure Cards
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Quản trị & SA-Admin ➔ Master Header & Technical Infrastructure Cards (`admin.html`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm 4 Thẻ theo dõi sức khỏe hạ tầng (Hệ thống 100% Online, 3 Doanh nghiệp Multi-Tenant, 5 Tài khoản RBAC, 128 Nhật ký Audit Logs), dải nút chuyển đổi nhanh giữa các phân hệ SA-01, SA-02, SA-03, SA-04.
+    - 🎨 **UI Designer:** Giao diện phẳng Odoo Enterprise sắc nét, 100% Lucide Vector Icons, màu xanh Emerald báo trạng thái server live.
 
 - [x] **26. [d_b_o_c_u_g_i_nh_p_h_ng_ai]** — *AI Forecasting &amp; Stock-out Risk Hub*
   - **File render mới (`new_pd`):** [`zone2_inventory.js`](file:///d:/prototype/new_pd/js/components/zone2_inventory.js) ➔ `Zone2Inventory.renderPODrafts()`
