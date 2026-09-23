@@ -86,30 +86,40 @@
     - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, phân cấp màu sắc rủi ro kho (Red = Stock-out risk, Amber = FEFO Expiring, Emerald = Safe/Done), typography số đếm font mono hiển thị chính xác.
 
 
-- [x] **11. [bo_05_b_o_c_o_dashboard_kpi_doanh_nghi_p_mobile]** — *bo_05_b_o_c_o_dashboard_kpi_doanh_nghi_p_mobile*
+- [x] ✔️ **11. [bo_05_b_o_c_o_dashboard_kpi_doanh_nghi_p_mobile]** — *Executive Dashboard KPI Mobile Responsive View (BO-05 Mobile)*
   - **File render mới (`new_pd`):** [`zone5_ai.js`](file:///d:/prototype/new_pd/js/components/zone5_ai.js) ➔ `Zone5AI.renderKPIOverview()`
-  - **Vị trí nút bấm & đường dẫn:** Executive Dashboard KPI Mobile Responsive View
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Executive Dashboard KPI Mobile Responsive View (`index.html?view=dashboard`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm thiết kế Touch-first responsive tối ưu trải nghiệm trên smartphone 6.1", thẻ lợi nhuận thực nhận nổi bật đầu trang, khối cảnh báo nóng 3 việc cần xử lý tích hợp Modal xác nhận giao dịch xả hàng FEFO hoặc xem lệch tiền ví Shopee.
+    - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons (loại bỏ biểu tượng emoji rác), mã màu ngữ nghĩa rõ ràng, khoảng cách đệm lót an toàn ngăn tràn viền trên màn hình di động nhỏ.
 
-- [x] **12. [bo_05_b_o_c_o_t_ng_quan_dashboard_kpi_doanh_nghi_p]** — *Executive Command Center*
+- [x] ✔️ **12. [bo_05_b_o_c_o_t_ng_quan_dashboard_kpi_doanh_nghi_p]** — *Executive Command Center (BO-05 Desktop)*
   - **File render mới (`new_pd`):** [`zone5_ai.js`](file:///d:/prototype/new_pd/js/components/zone5_ai.js) ➔ `Zone5AI.renderKPIOverview()`
-  - **Vị trí nút bấm & đường dẫn:** Executive Command Center Dashboard KPI (BO-05)
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Executive Command Center Dashboard KPI BO-05 (`index.html?view=dashboard&sub=kpi_overview`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm 7 Thẻ chỉ số KPI điều hành Hero (Lợi nhuận ròng thực nhận 218.3M VNĐ, Doanh thu 485.2M, Tiền về ngân hàng 390.0M, 18 đơn đang xử lý), khối cảnh báo đỏ 3 việc ưu tiên cấp bách, biểu đồ xu hướng doanh thu dồn tích vs chi phí 4 tháng gần nhất, ma trận tỷ lệ phân bổ 4 kênh bán (Shopee 45%, TikTok 30%, POS 15%, B2B 10%).
+    - 🎨 **UI Designer:** Giao diện phẳng Odoo Enterprise sắc nét, chuẩn hóa 100% Lucide Vector Icons, phân cấp màu sắc rủi ro (Red = Chôn vốn hạn dùng, Amber = Chưa đối soát sàn, Emerald = Tăng trưởng thực tế).
 
-- [x] **13. [bo_06_chi_ti_t_n_h_ng_l_ch_s_v_ng_i_bi_n_ng]** — *#ORD-2024-9982*
-  - **File render mới (`new_pd`):** [`zone3_sales.js`](file:///d:/prototype/new_pd/js/components/zone3_sales.js) ➔ `Zone3Sales.renderOmnichannel()`
-  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Đơn hàng ➔ Bấm vào mã đơn bất kỳ mở Xem Chi Tiết
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+- [x] ✔️ **13. [bo_06_chi_ti_t_n_h_ng_l_ch_s_v_ng_i_bi_n_ng]** — *Chi Tiết Đơn Hàng & Lịch Sử Vận Hành (#ORD-2024-9982)*
+  - **File render mới (`new_pd`):** [`zone3_sales.js`](file:///d:/prototype/new_pd/js/components/zone3_sales.js) ➔ `Zone3Sales.renderOmnichannel()` & `openOrderDetailModal()`
+  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Đơn hàng đa kênh ➔ Bấm vào mã đơn bất kỳ (ví dụ `#ORD-2024-9982`) để mở Modal Chi tiết
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thay thế lệnh alert đơn điệu bằng Modal xem chi tiết đơn hàng chuẩn Odoo Enterprise, thanh Odoo Statusbar trạng thái đơn hàng (Bản thảo ➔ Đã xác nhận ➔ Đang giao ➔ Hoàn tất), bảng sản phẩm trừ kho FEFO chính xác (Lô #B5-2024), nhật ký biến động theo mốc thời gian (Audit Trail), nút in phiếu giao nhận kèm hóa đơn VAT tích hợp Modal Xác nhận.
+    - 🎨 **UI Designer:** Bố cục 3 cột thông tin khách hàng/kênh bán/thanh toán trên nền xám nhẹ, 100% Lucide Vector Icons, font mono cho mã đơn & SKU.
 
-- [x] **14. [bo_06_form_t_o_n_h_ng_m_i_xu_t_kho_a_k_nh]** — *bo_06_form_t_o_n_h_ng_m_i_xu_t_kho_a_k_nh*
+- [x] ✔️ **14. [bo_06_form_t_o_n_h_ng_m_i_xu_t_kho_a_k_nh]** — *Form Tạo Đơn Hàng Mới & Xuất Kho Đa Kênh (New Sales Order Sheet BO-06)*
   - **File render mới (`new_pd`):** [`zone3_sales.js`](file:///d:/prototype/new_pd/js/components/zone3_sales.js) ➔ `Zone3Sales.renderNewOrderForm()`
-  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Đơn hàng ➔ Nút "+ Tạo đơn hàng mới"
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Sub-tab 2: `📝 2. Tạo Đơn Hàng Mới (+)` (`sales.html?sub=new_order_form`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm Odoo Form Sheet với thanh tiến độ Statusbar 4 bước (Bản thảo ➔ Xác nhận ➔ Xuất kho ➔ Hoàn tất), bảng chọn danh mục sản phẩm & lô FEFO tự động, tính tổng thanh toán & chiết khấu B2B, nút "Xác Nhận Xuất Kho" tích hợp Modal Xác nhận Giao dịch Tài chính (tránh ấn nhầm xuất kho).
+    - 🎨 **UI Designer:** Font mono chuẩn cho giá tiền & số lượng, 100% Lucide Vector Icons, phân biệt rõ ràng giữa nút Lưu bản thảo (#714B67) và Nút Xác nhận xuất kho (Emerald Green).
 
-- [x] **15. [bo_06_qu_n_l_n_h_ng_v_n_h_nh_a_k_nh]** — *Quản lý Đơn Hàng &amp; Vận Hành Đa Kênh*
+- [x] ✔️ **15. [bo_06_qu_n_l_n_h_ng_v_n_h_nh_a_k_nh]** — *Quản Lý Đơn Hàng & Vận Hành Đa Kênh (Omnichannel Orders BO-06)*
   - **File render mới (`new_pd`):** [`zone3_sales.js`](file:///d:/prototype/new_pd/js/components/zone3_sales.js) ➔ `Zone3Sales.renderOmnichannel()`
-  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Sub-tab Đơn hàng Đa kênh (Shopee/TikTok/POS)
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Sub-tab 1: `🛒 1. Đơn Hàng Đa Kênh (Shopee, TikTok, POS)` (`sales.html?sub=omnichannel`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm 4 Thẻ tổng quan chỉ số bán hàng Hero (Doanh thu đa kênh 485.2M, OPEX 51.7M, Công nợ B2B 18.5M, Lợi nhuận thuần 218.3M), bảng danh sách đơn hàng real-time hỗ trợ phân loại kênh (Shopee Mall, TikTok Shop, POS, B2B), tích hợp Modal Quét mã VietQR B2B tự động thu tiền.
+    - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons (thay thế biểu tượng emoji rác ở subtab navigation), badge kênh bán với màu tương ứng (Shopee = Cam, TikTok = Hồng, POS = Xanh dương, B2B = Tím Odoo).
 
 - [x] **16. [bo_06_qu_n_l_n_h_ng_v_n_h_nh_a_k_nh_mobile]** — *bo_06_qu_n_l_n_h_ng_v_n_h_nh_a_k_nh_mobile*
   - **File render mới (`new_pd`):** [`zone3_sales.js`](file:///d:/prototype/new_pd/js/components/zone3_sales.js) ➔ `Zone3Sales.renderOmnichannel()`

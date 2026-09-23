@@ -10,11 +10,11 @@ const Zone5AI = {
       <div class="space-y-6">
         <!-- Sub-navigation Tabs for 100% 54-Screen Coverage -->
         <div class="flex items-center gap-2 border-b border-slate-200 pb-2 overflow-x-auto text-xs font-semibold text-slate-600">
-          <button onclick="Zone5AI.switchDashboardSubTab('kpi_overview')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'kpi_overview' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
-            📊 1. Executive KPI Dashboard (BO-05)
+          <button onclick="Zone5AI.switchDashboardSubTab('kpi_overview')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'kpi_overview' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+            <i class="lucide-layout-dashboard w-3.5 h-3.5"></i> 1. Executive KPI Dashboard (BO-05)
           </button>
-          <button onclick="Zone5AI.switchDashboardSubTab('retail_pulse')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'retail_pulse' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
-            ⚡ 2. Retail Intelligence Pulse Monitor
+          <button onclick="Zone5AI.switchDashboardSubTab('retail_pulse')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'retail_pulse' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+            <i class="lucide-activity w-3.5 h-3.5"></i> 2. Retail Intelligence Pulse Monitor
           </button>
         </div>
 
@@ -40,7 +40,7 @@ const Zone5AI = {
 
           <!-- HERO METRIC CARD (Con số quan trọng nhất) -->
           <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 min-w-[280px]">
-            <div class="text-[11px] font-semibold text-slate-300 uppercase tracking-wide">💰 LỢI NHUẬN THỰC NHẬN BỎ TÚI (CASH NET PROFIT)</div>
+            <div class="text-[11px] font-semibold text-slate-300 uppercase tracking-wide flex items-center gap-1.5"><i class="lucide-wallet w-3.5 h-3.5 text-teal-300"></i> LỢI NHUẬN THỰC NHẬN BỎ TÚI (CASH NET PROFIT)</div>
             <div class="text-2xl font-extrabold text-teal-300 mt-1">${MockData.kpis.grossProfit.toLocaleString()} VNĐ</div>
             <div class="text-xs text-slate-200 mt-1 flex items-center justify-between">
               <span>Biên lợi nhuận: <strong class="text-white font-mono">${MockData.kpis.profitMargin}</strong></span>
@@ -52,21 +52,21 @@ const Zone5AI = {
         <!-- 3 Quick Stat Summary Pills -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-4 text-xs">
           <div class="bg-white/5 p-2.5 rounded-lg border border-white/10 flex items-center justify-between">
-            <span class="text-slate-300">📈 Tổng Doanh Thu Bán Hàng:</span>
+            <span class="text-slate-300 flex items-center gap-1.5"><i class="lucide-trending-up w-3.5 h-3.5 text-purple-300"></i> Tổng Doanh Thu Bán Hàng:</span>
             <strong class="text-white font-mono font-bold">${MockData.kpis.revenue.toLocaleString()} VNĐ</strong>
           </div>
           <div class="bg-white/5 p-2.5 rounded-lg border border-white/10 flex items-center justify-between">
-            <span class="text-slate-300">🏦 Tiền Về Ngân Hàng Realtime:</span>
+            <span class="text-slate-300 flex items-center gap-1.5"><i class="lucide-landmark w-3.5 h-3.5 text-teal-300"></i> Tiền Về Ngân Hàng Realtime:</span>
             <strong class="text-teal-300 font-mono font-bold">390,000,000 VNĐ</strong>
           </div>
           <div class="bg-white/5 p-2.5 rounded-lg border border-white/10 flex items-center justify-between">
-            <span class="text-slate-300">📦 Đơn Đang Xử Lý Đa Kênh:</span>
+            <span class="text-slate-300 flex items-center gap-1.5"><i class="lucide-package-check w-3.5 h-3.5 text-amber-300"></i> Đơn Đang Xử Lý Đa Kênh:</span>
             <strong class="text-amber-300 font-mono font-bold">18 đơn (Shopee: 8 | TikTok: 6 | POS: 4)</strong>
           </div>
         </div>
       </div>
 
-      <!-- RED-FLAG ACTION ALERTS: 🔴 KHỐI VIỆC CẦN XỬ LÝ GẤP TRONG NGÀY -->
+      <!-- RED-FLAG ACTION ALERTS: KHỐI VIỆC CẦN XỬ LÝ GẤP TRONG NGÀY -->
       <div class="o-card p-5 border-amber-300 bg-amber-50/40 rounded-xl space-y-3">
         <div class="flex items-center justify-between border-b border-amber-200 pb-2.5">
           <div class="flex items-center gap-2">
@@ -74,7 +74,7 @@ const Zone5AI = {
               <i class="lucide-alert-triangle w-4 h-4"></i>
             </div>
             <div>
-              <h2 class="text-sm font-bold text-slate-900">🔴 Khối Cảnh Báo Nóng - Việc Cần Chủ DN Chỉ Đạo Ngay</h2>
+              <h2 class="text-sm font-bold text-slate-900 flex items-center gap-1.5">Khối Cảnh Báo Nóng - Việc Cần Chủ DN Chỉ Đạo Ngay</h2>
               <p class="text-[11px] text-slate-600">3 sự cố rủi ro dòng tiền và hạn sử dụng lô hàng cần đưa ra quyết định xử lý</p>
             </div>
           </div>
@@ -92,7 +92,7 @@ const Zone5AI = {
               <p class="text-slate-700 font-semibold">Lô mỹ phẩm Serum Vitamin C20 (32 hộp) ở Kho Q1 sắp hết hạn dùng.</p>
               <div class="text-[11px] text-slate-500 mt-1">Giá trị tồn chôn vốn: <strong>14,400,000 VNĐ</strong></div>
             </div>
-            <button onclick="App.navigateTo('inventory')" class="w-full py-1.5 bg-rose-600 hover:bg-rose-700 text-white font-bold text-[11px] rounded transition shadow flex items-center justify-center gap-1">
+            <button onclick="Zone0Shell.openFinancialConfirm('Kích Hoạt Flash Sale Xả Hàng FEFO', '<p class=\\'text-xs text-slate-600\\'>Giảm 30% cho 32 hộp Serum Vitamin C20 (Còn 45 ngày HSD) để thu hồi vốn 14,400,000 VNĐ. Thao tác này sẽ cập nhật bảng giá khuyến mãi trên Shopee & POS.</p>', 'Kích Hoạt Flash Sale 30%', () => App.navigateTo(\\'inventory\\'))" class="w-full py-1.5 bg-rose-600 hover:bg-rose-700 text-white font-bold text-[11px] rounded transition shadow flex items-center justify-center gap-1">
               <i class="lucide-tag w-3 h-3"></i> Tạo CTKM Xả Hàng Giảm 30% →
             </button>
           </div>

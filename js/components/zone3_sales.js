@@ -10,20 +10,20 @@ const Zone3Sales = {
       <div class="space-y-6">
         <!-- Sub-navigation Tabs for 100% 54-Screen Coverage -->
         <div class="flex items-center gap-2 border-b border-slate-200 pb-2 overflow-x-auto text-xs font-semibold text-slate-600">
-          <button onclick="Zone3Sales.switchSubTab('omnichannel')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'omnichannel' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
-            🛒 1. Đơn Hàng Đa Kênh (Shopee, TikTok, POS)
+          <button onclick="Zone3Sales.switchSubTab('omnichannel')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'omnichannel' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+            <i class="lucide-shopping-bag w-3.5 h-3.5"></i> 1. Đơn Hàng Đa Kênh (Shopee, TikTok, POS)
           </button>
-          <button onclick="Zone3Sales.switchSubTab('new_order_form')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'new_order_form' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
-            📝 2. Tạo Đơn Hàng Mới (+)
+          <button onclick="Zone3Sales.switchSubTab('new_order_form')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'new_order_form' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+            <i class="lucide-plus-circle w-3.5 h-3.5"></i> 2. Tạo Đơn Hàng Mới (+)
           </button>
-          <button onclick="Zone3Sales.switchSubTab('marketplace_recon')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'marketplace_recon' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
-            🏦 3. Đối Soát Tiền Về Ngân Hàng (Shopee & TikTok)
+          <button onclick="Zone3Sales.switchSubTab('marketplace_recon')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'marketplace_recon' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+            <i class="lucide-landmark w-3.5 h-3.5"></i> 3. Đối Soát Tiền Về Ngân Hàng (Shopee & TikTok)
           </button>
-          <button onclick="Zone3Sales.switchSubTab('cashflow_accrual')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'cashflow_accrual' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
-            💰 4. Báo Cáo Thu Chi & Lợi Nhuận Thực Nhận (P&L)
+          <button onclick="Zone3Sales.switchSubTab('cashflow_accrual')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'cashflow_accrual' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+            <i class="lucide-dollar-sign w-3.5 h-3.5"></i> 4. Báo Cáo Thu Chi & Lợi Nhuận Thực Nhận (P&L)
           </button>
-          <button onclick="Zone3Sales.switchSubTab('opex_mobile')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'opex_mobile' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
-            📱 5. Ghi Nhận Chi Phí Nhanh & Ngân Sách OPEX (BO-02)
+          <button onclick="Zone3Sales.switchSubTab('opex_mobile')" class="px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${activeSubTab === 'opex_mobile' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+            <i class="lucide-smartphone w-3.5 h-3.5"></i> 5. Ghi Nhận Chi Phí Nhanh & Ngân Sách OPEX (BO-02)
           </button>
         </div>
 
@@ -83,8 +83,107 @@ const Zone3Sales = {
               </div>
             </div>
 
-            <div class="p-3 bg-slate-50 border-t flex justify-end gap-2">
-              <button onclick="Zone3Sales.closeVietQRModal()" class="px-4 py-1.5 text-xs font-semibold bg-slate-800 text-white rounded hover:bg-slate-900">Xác nhận Đã thu tiền</button>
+        <!-- Section: Order Detail Modal (bo_06_chi_ti_t_n_h_ng_l_ch_s_v_ng_i_bi_n_ng) -->
+        <div id="order-detail-modal" class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
+          <div class="bg-white rounded-xl shadow-2xl border border-slate-200 w-full max-w-3xl text-slate-800 overflow-hidden" onclick="event.stopPropagation()">
+            <div class="bg-slate-900 text-white p-4 flex items-center justify-between border-b border-slate-800">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-purple-700 flex items-center justify-center font-bold text-white shadow-sm">
+                  <i class="lucide-shopping-bag w-4 h-4"></i>
+                </div>
+                <div>
+                  <h3 id="modal-order-id" class="font-extrabold text-sm font-mono text-purple-300">Chi Tiết Đơn Hàng #ORD-2024-9982</h3>
+                  <p class="text-[11px] text-slate-300">Nhật ký xử lý &amp; Phân bổ tồn kho FEFO đa kênh</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="flex items-center text-[10px] font-semibold bg-slate-800 border border-slate-700 rounded-lg px-2 py-1">
+                  <span class="px-2 py-0.5 rounded bg-emerald-500 text-white font-bold">Hoàn tất</span>
+                </div>
+                <button onclick="Zone3Sales.closeOrderDetailModal()" class="text-slate-400 hover:text-white p-1"><i class="lucide-x w-5 h-5"></i></button>
+              </div>
+            </div>
+            
+            <div class="p-5 space-y-4 max-h-[75vh] overflow-y-auto">
+              <!-- Customer & Order Meta Grid -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                <div>
+                  <span class="text-slate-500 font-semibold block text-[10px] uppercase">Khách hàng / Đối tác:</span>
+                  <strong id="modal-order-customer" class="text-slate-900 font-bold">Nguyễn Văn Hùng</strong>
+                  <span class="text-slate-500 block">SĐT: 0908.123.456</span>
+                </div>
+                <div>
+                  <span class="text-slate-500 font-semibold block text-[10px] uppercase">Kênh Bán & Vận Chuyển:</span>
+                  <strong id="modal-order-channel" class="text-orange-700 font-bold">Shopee Mall (Shopee Express)</strong>
+                  <span class="text-slate-500 block font-mono">Mã VĐ: SPX-88291024</span>
+                </div>
+                <div>
+                  <span class="text-slate-500 font-semibold block text-[10px] uppercase">Thanh toán & Thời gian:</span>
+                  <strong id="modal-order-payment" class="text-slate-900 font-bold">Ví ShopeePay (Đã TT)</strong>
+                  <span id="modal-order-date" class="text-slate-500 block">24/10/2024 14:15</span>
+                </div>
+              </div>
+
+              <!-- Product Line Items -->
+              <div>
+                <div class="text-xs font-bold text-slate-800 mb-2 flex items-center justify-between">
+                  <span class="flex items-center gap-1.5"><i class="lucide-package w-3.5 h-3.5 text-purple-700"></i> Danh Sách Sản Phẩm & Trừ Kho FEFO</span>
+                  <span class="text-[11px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Giữ hàng 100% tại Kho Q.1</span>
+                </div>
+                <table class="w-full text-left text-xs border border-slate-200 rounded-lg overflow-hidden">
+                  <thead class="bg-slate-100 text-slate-700 font-semibold border-b">
+                    <tr>
+                      <th class="p-2">Sản phẩm</th>
+                      <th class="p-2">Mã SKU / Lô FEFO</th>
+                      <th class="p-2 text-right">Đơn giá</th>
+                      <th class="p-2 text-right">Số lượng</th>
+                      <th class="p-2 text-right">Thành tiền</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-200">
+                    <tr>
+                      <td class="p-2 font-medium">Serum Phục Hồi Bio-B5 Hydra Max 50ml</td>
+                      <td class="p-2 font-mono text-purple-800 font-semibold">SKU-SER-001 (Lô #B5-2024)</td>
+                      <td class="p-2 text-right font-mono">450,000đ</td>
+                      <td class="p-2 text-right font-bold">2</td>
+                      <td class="p-2 text-right font-bold text-slate-900">900,000đ</td>
+                    </tr>
+                    <tr>
+                      <td class="p-2 font-medium">Kem Dưỡng Ẩm Chuyên Sâu Cera-Repair</td>
+                      <td class="p-2 font-mono text-purple-800 font-semibold">SKU-CRE-004 (Lô #CR-2024)</td>
+                      <td class="p-2 text-right font-mono">380,000đ</td>
+                      <td class="p-2 text-right font-bold">1</td>
+                      <td class="p-2 text-right font-bold text-slate-900">380,000đ</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Timeline Audit Trail -->
+              <div class="border-t pt-3 space-y-2">
+                <div class="text-xs font-bold text-slate-800 flex items-center gap-1.5"><i class="lucide-history w-3.5 h-3.5 text-sky-700"></i> Lịch Sử Biến Động & Vận Hành Trạng Thái</div>
+                <div class="space-y-1.5 text-[11px]">
+                  <div class="flex items-start gap-2 text-slate-600 bg-slate-50 p-2 rounded border border-slate-200">
+                    <span class="font-mono font-semibold text-slate-400">14:15:02</span>
+                    <span>Đơn hàng được khởi tạo tự động từ kênh <strong class="text-slate-800">Shopee API Sync</strong>.</span>
+                  </div>
+                  <div class="flex items-start gap-2 text-slate-600 bg-slate-50 p-2 rounded border border-slate-200">
+                    <span class="font-mono font-semibold text-slate-400">14:16:30</span>
+                    <span>Hệ thống AI Copilot tự động trừ kho FEFO <strong class="text-purple-800 font-mono">Lô #B5-2024 (HSD 12/2026)</strong> tại Kho Q.1.</span>
+                  </div>
+                  <div class="flex items-start gap-2 text-slate-600 bg-slate-50 p-2 rounded border border-slate-200">
+                    <span class="font-mono font-semibold text-slate-400">14:35:10</span>
+                    <span>Đã in phiếu giao nhận &amp; bàn giao đơn hàng cho bưu tá <strong class="text-slate-800">Shopee Express (Bưu tá: Trần Văn Minh)</strong>.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3 bg-slate-50 border-t flex justify-between items-center text-xs">
+              <button onclick="Zone0Shell.openFinancialConfirm('In Phiếu Đơn Hàng', '<p class=\\'text-xs text-slate-600\\'>In phiếu giao nhận đính kèm hóa đơn VAT cho đơn hàng #' + (document.getElementById('modal-order-id')?.innerText || '') + '.</p>', 'In Phiếu Kèm Hóa Đơn', () => Zone3Sales.closeOrderDetailModal())" class="px-3 py-1.5 font-semibold bg-slate-100 text-slate-700 border border-slate-300 rounded hover:bg-slate-200 flex items-center gap-1">
+                <i class="lucide-printer w-3.5 h-3.5"></i> In Phiếu Đơn Hàng
+              </button>
+              <button onclick="Zone3Sales.closeOrderDetailModal()" class="px-4 py-1.5 font-bold bg-[#714B67] text-white rounded hover:bg-purple-900">Đóng</button>
             </div>
           </div>
         </div>
@@ -123,7 +222,7 @@ const Zone3Sales = {
             </thead>
             <tbody class="divide-y divide-slate-200">
               ${MockData.orders.map(o => `
-                <tr class="hover:bg-slate-50 cursor-pointer" onclick="alert('Xem chi tiết đơn hàng: ${o.id}')">
+                <tr class="hover:bg-slate-50 cursor-pointer" onclick="Zone3Sales.openOrderDetailModal('${o.id}')">
                   <td class="p-2.5 font-bold font-mono text-purple-800">${o.id}</td>
                   <td class="p-2.5 font-medium text-slate-800">${o.customer}</td>
                   <td class="p-2.5">
@@ -156,7 +255,7 @@ const Zone3Sales = {
         <div class="flex items-center justify-between border-b pb-3">
           <div class="flex items-center gap-2">
             <button onclick="alert('Đã lưu đơn hàng bản thảo!')" class="px-3 py-1.5 text-xs font-bold bg-[#714B67] text-white rounded">Lưu Đơn Hàng</button>
-            <button onclick="alert('Đã xác nhận xuất kho!')" class="px-3 py-1.5 text-xs font-semibold bg-emerald-700 text-white rounded">Xác Nhận Xuất Kho</button>
+            <button onclick="Zone0Shell.openFinancialConfirm('Xác Nhận Xuất Kho Đơn Bán B2B', '<p class=\\'text-xs text-slate-600\\'>Đơn hàng SO-ORD-2026-0894 trị giá 18,500,000đ sẽ xuất 30 hộp Serum + 10 Áo Sơ mi từ Kho Q.1. Thao tác này ghi nhận doanh thu & COGS dồn tích.</p>', 'Xác Nhận Xuất Kho', () => Zone3Sales.switchSubTab(\\'omnichannel\\'))" class="px-3 py-1.5 text-xs font-semibold bg-emerald-700 text-white rounded hover:bg-emerald-800">Xác Nhận Xuất Kho</button>
             <button onclick="Zone3Sales.switchSubTab('omnichannel')" class="px-3 py-1.5 text-xs font-semibold bg-slate-200 text-slate-700 rounded">Hủy bỏ</button>
           </div>
           <div class="flex items-center">
@@ -698,5 +797,24 @@ const Zone3Sales = {
   },
   closeVietQRModal: function() {
     document.getElementById('vietqr-modal')?.classList.add('hidden');
+  },
+  openOrderDetailModal: function(orderId) {
+    const order = MockData.orders.find(o => o.id === orderId) || { id: orderId, customer: 'Nguyễn Văn Hùng', channel: 'Shopee Mall', date: '24/10/2024 14:15', payment: 'Ví ShopeePay', status: 'Đã hoàn tất', total: 1280000 };
+    const modal = document.getElementById('order-detail-modal');
+    if (!modal) return;
+    const elId = document.getElementById('modal-order-id');
+    const elCustomer = document.getElementById('modal-order-customer');
+    const elChannel = document.getElementById('modal-order-channel');
+    const elPayment = document.getElementById('modal-order-payment');
+    const elDate = document.getElementById('modal-order-date');
+    if (elId) elId.innerText = `Chi Tiết Đơn Hàng ${order.id}`;
+    if (elCustomer) elCustomer.innerText = order.customer;
+    if (elChannel) elChannel.innerText = order.channel + ' (Giao hàng hỏa tốc)';
+    if (elPayment) elPayment.innerText = order.payment;
+    if (elDate) elDate.innerText = order.date;
+    modal.classList.remove('hidden');
+  },
+  closeOrderDetailModal: function() {
+    document.getElementById('order-detail-modal')?.classList.add('hidden');
   }
 };
