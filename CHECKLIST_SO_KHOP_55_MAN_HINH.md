@@ -8,10 +8,12 @@
 
 ## I. DANH SÁCH CHECKLIST TIẾN ĐỘ SO KHỚP 55 MÀN HÌNH (100% CHECKLIST)
 
-- [x] **01. [ai_copilot_tr_l_quy_t_nh]** — *ABC Copilot — Trợ lý Ra Quyết Định Kinh Doanh*
-  - **File render mới (`new_pd`):** [`zone0_shell.js`](file:///d:/prototype/new_pd/js/components/zone0_shell.js) ➔ `Zone0Shell.renderAIDrawer()`
-  - **Vị trí nút bấm & đường dẫn:** App Shell Right Slide-out AI Copilot Drawer
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+- [x] ✔️ **01. [ai_copilot_tr_l_quy_t_nh]** — *ABC Copilot — Trợ lý Ra Quyết Định Kinh Doanh*
+  - **File render mới (`new_pd`):** [`zone0_shell.js`](file:///d:/prototype/new_pd/js/components/zone0_shell.js) ➔ `Zone0Shell.renderAIDrawer()` & [`zone5_ai.js`](file:///d:/prototype/new_pd/js/components/zone5_ai.js) ➔ `Zone5AI.renderAIAdvisor()`
+  - **Vị trí nút bấm & đường dẫn:** App Shell Right Slide-out AI Copilot Drawer & Workstation Cố vấn AI (`index.html?view=ai_advisor`)
+  - **Ghi chú so khớp & Tối ưu (End User & UI Designer Audit):**
+    - 🎯 **Góc nhìn End User (Chủ DN & Quản lý):** Tích hợp đầy đủ các mẫu câu hỏi thông minh (Smart Prompts), thẻ quyết định 1-Touch Action Cards (`Tạo PO Nhập Kho Khẩn Cấp`, `Kích Hoạt Flash Sale FEFO`, `Xuất PDF`, `Gửi Zalo`) và cửa sổ tra cứu dữ liệu gốc Evidence Data Inspection.
+    - 🎨 **Góc nhìn UI Designer (Odoo Taste Skill):** Loại bỏ hiệu ứng sci-fi rườm rà, chuẩn hóa bảng màu Odoo Purple `#714B67`, Odoo Teal `#017E84`, phẳng hóa các nút bấm, typography tương phản cao Plus Jakarta Sans.
 
 - [x] **02. [ai_insights_ph_t_hi_n_b_t_th_ng_th_i_gian_th_c]** — *Trung tâm AI Insights &amp; Phát hiện Bất thường Engine v4.2*
   - **File render mới (`new_pd`):** [`zone5_ai.js`](file:///d:/prototype/new_pd/js/components/zone5_ai.js) ➔ `Zone5AI.renderAnomalyCenter()`

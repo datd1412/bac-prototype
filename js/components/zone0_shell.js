@@ -228,6 +228,12 @@ const Zone0Shell = {
               <button onclick="Zone0Shell.sendPrompt('Gợi ý đơn mua PO bổ sung tồn kho?')" class="w-full text-left p-2 bg-slate-50 hover:bg-purple-50 text-slate-700 hover:text-purple-900 border border-slate-200 hover:border-purple-200 rounded-lg transition text-[11px]">
                 📦 Gợi ý đơn mua PO bổ sung tồn kho?
               </button>
+              <button onclick="Zone0Shell.sendPrompt('Kiểm tra lô mỹ phẩm sắp hết hạn FEFO?')" class="w-full text-left p-2 bg-slate-50 hover:bg-purple-50 text-slate-700 hover:text-purple-900 border border-slate-200 hover:border-purple-200 rounded-lg transition text-[11px]">
+                ⚠️ Kiểm tra lô mỹ phẩm sắp hết hạn FEFO?
+              </button>
+              <button onclick="Zone0Shell.sendPrompt('Tại sao chi phí marketing tuần này vượt trần?')" class="w-full text-left p-2 bg-slate-50 hover:bg-purple-50 text-slate-700 hover:text-purple-900 border border-slate-200 hover:border-purple-200 rounded-lg transition text-[11px]">
+                📊 Tại sao chi phí marketing tuần này vượt trần?
+              </button>
             </div>
           </div>
         </div>
@@ -352,15 +358,44 @@ const Zone0Shell = {
       aiMsg.className = 'flex items-start gap-2.5';
       aiMsg.innerHTML = `
         <div class="w-6 h-6 rounded bg-purple-100 text-purple-700 flex items-center justify-center shrink-0 font-bold text-[10px]">AI</div>
-        <div class="bg-slate-100 p-3 rounded-2xl rounded-tl-none text-slate-700 leading-relaxed border border-slate-200 max-w-[85%]">
-          Đã trích xuất dữ liệu phân tích: Đối với câu hỏi <strong>"${userText}"</strong>, tôi nhận thấy doanh thu tăng 14.2% chủ yếu từ Sàn Shopee (chiếm 45%). Bạn có muốn chạy mô phỏng What-If kịch bản bán hàng tiếp theo?
-          <button onclick="Zone0Shell.showEvidenceModal()" class="mt-2 text-[10px] text-purple-700 font-bold hover:underline block">
-            [ 🔍 Inspect Evidence Data ]
+        <div class="bg-slate-100 p-3 rounded-2xl rounded-tl-none text-slate-700 leading-relaxed border border-slate-200 max-w-[85%] space-y-2">
+          <div>
+            Đã trích xuất dữ liệu phân tích realtime: Đối với câu hỏi <strong>"${userText}"</strong>, AI khuyến nghị xử lý khẩn cấp 2 tác vụ dưới đây:
+          </div>
+
+          <!-- Decision Action Card 1 -->
+          <div class="bg-white p-2.5 rounded-lg border border-purple-200 shadow-xs space-y-1.5">
+            <div class="font-bold text-slate-800 text-[11px] flex items-center gap-1">
+              <i class="lucide-box w-3.5 h-3.5 text-purple-600"></i> Đề Xuất PO Nhập Kho Bổ Sung FEFO
+            </div>
+            <p class="text-[10px] text-slate-500">Serum B5 đang chạm mốc tồn kho an toàn (dưới 15 hộp tại Q1).</p>
+            <div class="flex gap-1.5 pt-1">
+              <button onclick="App.navigateTo('inventory')" class="px-2.5 py-1 bg-purple-700 hover:bg-purple-800 text-white rounded font-bold text-[10px] flex items-center gap-1">
+                <i class="lucide-plus-circle w-3 h-3"></i> Tạo PO Nhập Kho Khẩn Cấp →
+              </button>
+            </div>
+          </div>
+
+          <!-- Decision Action Card 2 -->
+          <div class="bg-white p-2.5 rounded-lg border border-amber-200 shadow-xs space-y-1.5">
+            <div class="font-bold text-slate-800 text-[11px] flex items-center gap-1">
+              <i class="lucide-zap w-3.5 h-3.5 text-amber-600"></i> Kích Hoạt KM Xả Hàng Cận Hạn Lô LOT-202608-A
+            </div>
+            <p class="text-[10px] text-slate-500">45 hộp Vitamin C còn 53 ngày hết hạn. Đề xuất giảm giá 25% trên POS & Shopee.</p>
+            <div class="flex gap-1.5 pt-1">
+              <button onclick="alert('Đã kích hoạt chương trình Flash Sale xả hàng FEFO thành công!')" class="px-2.5 py-1 bg-amber-600 hover:bg-amber-700 text-white rounded font-bold text-[10px] flex items-center gap-1">
+                <i class="lucide-check w-3 h-3"></i> Kích Hoạt Flash Sale Ngay
+              </button>
+            </div>
+          </div>
+
+          <button onclick="Zone0Shell.showEvidenceModal()" class="mt-1 text-[10px] text-purple-700 font-bold hover:underline flex items-center gap-1">
+            <i class="lucide-search-code w-3 h-3"></i> [ 🔍 Inspect Evidence Data - Xem Bảng Chứng Cứ ]
           </button>
         </div>
       `;
       chatBody.appendChild(aiMsg);
       chatBody.scrollTop = chatBody.scrollHeight;
-    }, 600);
+    }, 500);
   }
 };
