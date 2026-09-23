@@ -85,20 +85,94 @@ const Zone1Admin = {
   // Sub-tab 0: BO-01 Business Profile & Operational Config
   renderBusinessProfile: function() {
     return `
-      <div class="space-y-5">
-        <!-- Top Banner BO-01 -->
-        <div class="o-card p-5 bg-gradient-to-r from-slate-900 to-slate-800 text-white flex items-center justify-between">
+      <div class="space-y-6">
+        <!-- Top Banner BO-01 Enterprise Tenant Hub -->
+        <div class="o-card p-5 bg-slate-900 text-white rounded-xl shadow-lg border border-slate-800 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div class="space-y-1">
             <div class="flex items-center gap-2">
-              <span class="text-xs font-bold bg-teal-500/20 text-teal-300 border border-teal-500/30 px-2.5 py-0.5 rounded-full uppercase">BO-01: Business Profile & Operational Hub</span>
-              <span class="text-xs text-emerald-400 font-semibold flex items-center gap-1"><i class="lucide-check-circle w-3.5 h-3.5"></i> Đã xác thực thông tin pháp lý</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wide">BO-01: Enterprise Tenant Hub</span>
+              <span class="text-xs text-emerald-400 font-semibold flex items-center gap-1">
+                <i class="lucide-shield-check w-3.5 h-3.5 text-emerald-400"></i> Đang hoạt động ổn định (Single Tenant Isolation)
+              </span>
             </div>
-            <h1 class="text-lg font-bold text-white">Quản lý Doanh nghiệp & Cấu hình Vận hành</h1>
+            <h1 class="text-xl font-extrabold text-white tracking-tight flex items-center gap-2">
+              Quản lý Doanh nghiệp & Cấu hình Vận hành
+            </h1>
             <p class="text-xs text-slate-300">Thiết lập hồ sơ pháp lý, mã số thuế, tiền tệ hạch toán, quy tắc xuất kho FEFO và hạn mức chi tiêu doanh nghiệp.</p>
           </div>
-          <button onclick="alert('✅ Đã lưu thay đổi cấu hình doanh nghiệp thành công!')" class="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-lg transition shadow flex items-center gap-1.5">
-            <i class="lucide-save w-4 h-4"></i> Lưu Thay Đổi Toàn Bộ
-          </button>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <button onclick="Zone0Shell.openFinancialConfirm('Lưu Cấu Hình Doanh Nghiệp', '<p class=\"text-xs text-slate-600\">Xác nhận áp dụng toàn bộ cài đặt pháp lý, quy tắc FEFO và hạn mức chi tiêu B2B trên toàn hệ thống 3 chi nhánh.</p>', 'Xác Nhận Lưu Cấu Hình', () => alert('Đã lưu cấu hình doanh nghiệp BO-01 thành công!'))" class="px-4 py-2 bg-[#714B67] hover:bg-purple-900 text-white font-bold text-xs rounded-lg transition shadow flex items-center gap-1.5">
+              <i class="lucide-save w-4 h-4 text-amber-300"></i> Lưu Thay Đổi Toàn Bộ
+            </button>
+          </div>
+        </div>
+
+        <!-- Operational Pulse KPIs (4 Key Metrics) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- KPI 1 -->
+          <div class="o-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Tổng Doanh thu Lũy kế</span>
+              <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                <i class="lucide-dollar-sign w-4.5 h-4.5"></i>
+              </div>
+            </div>
+            <div class="mt-2">
+              <div class="text-xl font-extrabold text-slate-900 font-mono">1.845.200.000 ₫</div>
+              <div class="mt-1 flex items-center gap-1 text-xs text-emerald-600 font-bold">
+                <i class="lucide-trending-up w-3.5 h-3.5"></i> +18.4% <span class="text-slate-500 font-normal">so với chu kỳ trước</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI 2 -->
+          <div class="o-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Đơn hàng Đã Xử lý</span>
+              <div class="w-8 h-8 rounded-lg bg-purple-100 text-purple-800 flex items-center justify-center">
+                <i class="lucide-shopping-bag w-4.5 h-4.5"></i>
+              </div>
+            </div>
+            <div class="mt-2">
+              <div class="text-xl font-extrabold text-slate-900 font-mono">4.280 đơn</div>
+              <div class="mt-1 flex items-center gap-1 text-xs text-emerald-600 font-bold">
+                <i class="lucide-check-circle-2 w-3.5 h-3.5"></i> 98.2% <span class="text-slate-500 font-normal">tỷ lệ hoàn thành chuẩn hạn</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI 3 -->
+          <div class="o-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Chi phí OPEX Ghi nhận</span>
+              <div class="w-8 h-8 rounded-lg bg-red-100 text-red-700 flex items-center justify-center">
+                <i class="lucide-calculator w-4.5 h-4.5"></i>
+              </div>
+            </div>
+            <div class="mt-2">
+              <div class="text-xl font-extrabold text-slate-900 font-mono">412.500.000 ₫</div>
+              <div class="mt-1 flex items-center gap-1 text-xs text-slate-600 font-medium">
+                <span class="px-1.5 py-0.5 rounded bg-slate-100 font-bold text-slate-800">22.3% OPEX</span> trên tổng doanh thu
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI 4 -->
+          <div class="o-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Giá trị Tồn kho Thực tế</span>
+              <div class="w-8 h-8 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center">
+                <i class="lucide-warehouse w-4.5 h-4.5"></i>
+              </div>
+            </div>
+            <div class="mt-2">
+              <div class="text-xl font-extrabold text-slate-900 font-mono">890.400.000 ₫</div>
+              <div class="mt-1 flex items-center gap-1 text-xs text-slate-600 font-medium">
+                <strong class="text-purple-900">142 SKU</strong> • 32 lô date đang lưu hành
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
@@ -110,7 +184,9 @@ const Zone1Admin = {
                 <h3 class="text-xs font-bold uppercase tracking-wide text-slate-800 flex items-center gap-2">
                   <i class="lucide-building-2 w-4 h-4 text-purple-700"></i> Hồ sơ Pháp lý Doanh nghiệp
                 </h3>
-                <span class="text-[10px] font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Mã DN: #TENANT-001</span>
+                <span class="text-[10px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-md flex items-center gap-1">
+                  <i class="lucide-shield-check w-3 h-3"></i> Verified Legal Tenant #TENANT-001
+                </span>
               </div>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                 <div>
@@ -118,15 +194,15 @@ const Zone1Admin = {
                   <input type="text" value="CÔNG TY TNHH THỜI TRANG & MỸ PHẨM MAISON DE BLOOM" class="w-full p-2 border border-slate-300 rounded font-semibold text-slate-800 bg-slate-50" />
                 </div>
                 <div>
-                  <label class="block text-slate-500 text-[11px] font-semibold mb-1">Mã Số Thuế (MST)</label>
-                  <input type="text" value="0317892301" class="w-full p-2 border border-slate-300 rounded font-mono font-semibold text-slate-800 bg-slate-50" />
+                  <label class="block text-slate-500 text-[11px] font-semibold mb-1">Mã Số Thuế (Tax ID)</label>
+                  <input type="text" value="0317892341" class="w-full p-2 border border-slate-300 rounded font-mono font-bold text-slate-900 bg-slate-50" />
                 </div>
                 <div>
                   <label class="block text-slate-500 text-[11px] font-semibold mb-1">Người Đại Diện Pháp Luật</label>
-                  <input type="text" value="Nguyễn Thị Mai (Tổng Giám Đốc)" class="w-full p-2 border border-slate-300 rounded font-semibold text-slate-800 bg-slate-50" />
+                  <input type="text" value="Nguyễn Thị Mai (Chủ tịch HĐQT kiêm CEO)" class="w-full p-2 border border-slate-300 rounded font-semibold text-slate-800 bg-slate-50" />
                 </div>
                 <div>
-                  <label class="block text-slate-500 text-[11px] font-semibold mb-1">Lĩnh Vực Kinh Doanh Chính</label>
+                  <label class="block text-slate-500 text-[11px] font-semibold mb-1">Ngành Hàng Kinh Doanh</label>
                   <input type="text" value="Bán lẻ Mỹ phẩm, Skincare & Thời trang Cao cấp" class="w-full p-2 border border-slate-300 rounded font-semibold text-slate-800 bg-slate-50" />
                 </div>
                 <div class="md:col-span-2">
@@ -177,9 +253,11 @@ const Zone1Admin = {
             <div class="o-card p-5 space-y-3">
               <div class="flex items-center justify-between border-b pb-3">
                 <h3 class="text-xs font-bold uppercase tracking-wide text-slate-800 flex items-center gap-2">
-                  <i class="lucide-store w-4 h-4 text-blue-700"></i> Danh sách Chi nhánh Cửa hàng (3 Stores)
+                  <i class="lucide-store w-4 h-4 text-purple-700"></i> Danh sách Chi nhánh Cửa hàng (3 Stores)
                 </h3>
-                <button onclick="alert('Đã mở modal thêm cửa hàng mới!')" class="text-[11px] text-purple-700 font-bold hover:underline">+ Thêm cửa hàng</button>
+                <button onclick="Zone0Shell.openFinancialConfirm('Thêm Chi Nhánh Cửa Hàng Mới', '<p class=\"text-xs text-slate-600\">Khởi tạo chi nhánh bán lẻ mới và cấp quyền két quầy POS cho cửa hàng.</p>', 'Khởi Tạo Chi Nhánh', () => alert('Đã mở modal tạo chi nhánh!'))" class="text-[11px] text-purple-700 font-bold hover:underline flex items-center gap-1">
+                  <i class="lucide-plus-circle w-3.5 h-3.5"></i> Thêm cửa hàng
+                </button>
               </div>
               <div class="space-y-2 text-xs">
                 <div class="p-3 border border-slate-200 rounded-lg bg-slate-50 flex items-center justify-between">

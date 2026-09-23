@@ -22,25 +22,37 @@
     - 🎯 **End User:** Thêm Radar Bar quét live 15m/lần với 100% dữ liệu đối soát POS KiotViet, 4 Khối Stat Cards báo mức độ nghiêm trọng (P1 Khẩn cấp, P2 Cảnh báo, Đã khắc phục, Sức khỏe vận hành), bộ lọc sự cố theo mức độ, tích hợp Modal Xác nhận Giao dịch Tài chính khi gửi khiếu nại Shopee / xả hàng FEFO.
     - 🎨 **UI Designer:** Chuẩn hóa hệ thống màu ngữ nghĩa (Red P1, Amber P2, Green Resolved, Sky Info), nổi bật con số thất thoát rủi ro (42.8M VNĐ), loại bỏ emoji rác bằng bộ 100% Lucide Vector Icons, tạo spacing thoáng đạt cho thẻ sự cố.
 
-- [x] **03. [b_o_c_o_l_i_l_p_l_chi_ti_t_accrual_vs_cashflow]** — *Báo Cáo Kết Quả Kinh Doanh &amp; Dòng Tiền Thực Tế*
+- [x] ✔️ **03. [b_o_c_o_l_i_l_p_l_chi_ti_t_accrual_vs_cashflow]** — *Báo Cáo Kết Quả Kinh Doanh & Dòng Tiền Thực Tế (Accrual vs Cashflow)*
   - **File render mới (`new_pd`):** [`zone3_sales.js`](file:///d:/prototype/new_pd/js/components/zone3_sales.js) ➔ `Zone3Sales.renderCashflowAccrual()`
-  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Sub-tab P&L Accrual vs Cashflow Realtime
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Sub-tab 4: `💰 4. Báo Cáo Thu Chi & Lợi Nhuận Thực Nhận` (`sales.html?sub=cashflow_accrual`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm bộ chuyển chế độ góc nhìn (*Accrual - Dồn tích* vs *Cashflow - Dòng tiền thực tế* vs *Đối so sánh lệch*), 4 Khối Stat Cards đo lường Doanh thu dồn tích vs Tiền thực về ngân hàng vs Chi phí dồn tích vs Lợi nhuận ròng, bảng phân tích đối soát chênh lệch doanh thu ghi nhận vs thực thu Shopee/TikTok/VietQR, giải thích tác động thuế VAT & chiết khấu.
+    - 🎨 **UI Designer:** Phân biệt rõ ràng hệ màu chỉ số (Green = Thực nhận ngân hàng, Indigo = Dồn tích KiotViet, Amber = Tiền đang treo sàn), Lucide vector icons 100%, badge phần trăm tăng trưởng, loại bỏ các nút AI giả và thay thế bằng bảng so sánh 2 cột chuẩn kế toán Odoo Enterprise.
 
-- [x] **04. [b_o_c_o_t_ng_quan_ch_c_a_h_ng]** — *Xin chào, Nguyễn Thị Mai!*
+
+- [x] ✔️ **04. [b_o_c_o_t_ng_quan_ch_c_a_h_ng]** — *Báo Cáo Tổng Quan Chuỗi Cửa Hàng (Retail Pulse Monitor)*
   - **File render mới (`new_pd`):** [`zone5_ai.js`](file:///d:/prototype/new_pd/js/components/zone5_ai.js) ➔ `Zone5AI.renderRetailPulse()`
-  - **Vị trí nút bấm & đường dẫn:** AI Advisor / Dashboard ➔ Sub-tab Retail Pulse 3 Cửa hàng
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** AI Advisor / Dashboard ➔ Sub-tab 2: `⚡ 2. Retail Intelligence Pulse Monitor` (`index.html?view=dashboard&sub=retail_pulse`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm banner chào mừng *Xin chào, Nguyễn Thị Mai!*, bộ lọc thời gian 30 ngày qua, khối tóm tắt 30 giây (TL;DR), 4 Thẻ chỉ số tài chính & kho (Doanh thu 284.5M, OPEX 162.1M, Lợi nhuận gộp 122.4M, Tồn kho 418.9M), dải chỉ số nhịp đập tốc độ bán (12 đơn/h, 4.5 đơn/h AOV 680k), bảng đối soát live 3 chi nhánh (Maison Q.1, Thủ Đức, Bình Thạnh) tích hợp Modal Xác nhận nộp tiền két quầy POS & Kích hoạt Flash sale tăng tốc.
+    - 🎨 **UI Designer:** Chuẩn hóa toàn bộ 100% Lucide Vector Icons (thay thế hoàn toàn emoji rác `⚡`, `⏱️`, `🟢`), phân cấp thị giác theo mã màu Odoo Enterprise (Emerald = Hoạt động tốt, Amber = Cảnh báo tốc độ bán chậm, Slate/Purple = Nền tảng Odoo), typography phẳng mạch lạc.
 
-- [x] **05. [bo_01_qu_n_l_doanh_nghi_p_c_u_h_nh_v_n_h_nh]** — *Quản lý Doanh nghiệp &amp; Cấu hình Vận hành (Business Profile &amp; Operational Settings)*
+
+- [x] ✔️ **05. [bo_01_qu_n_l_doanh_nghi_p_c_u_h_nh_v_n_h_nh]** — *Quản lý Doanh nghiệp & Cấu hình Vận hành (Enterprise Tenant Hub BO-01)*
   - **File render mới (`new_pd`):** [`zone1_admin.js`](file:///d:/prototype/new_pd/js/components/zone1_admin.js) ➔ `Zone1Admin.renderBusinessProfile()`
-  - **Vị trí nút bấm & đường dẫn:** Quản trị & BO-01 ➔ Tab Hồ sơ Doanh nghiệp BO-01
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Quản trị & SA-Admin ➔ Sub-tab 1: `🏢 1. Hồ sơ Doanh nghiệp & Vận hành (BO-01)` (`admin.html?sub=business_profile`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm 4 Thẻ chỉ số vận hành tổng quan (Doanh thu tích lũy 1.845B VNĐ, 4,280 đơn hàng xử lý, OPEX 412.5M VNĐ, Giá trị kho 890.4M VNĐ), tích hợp Modal Xác nhận Giao dịch khi lưu thay đổi cấu hình doanh nghiệp hoặc thêm chi nhánh mới, hiển thị đầy đủ MST 0317892341 & thông tin pháp lý CEO Nguyễn Thị Mai.
+    - 🎨 **UI Designer:** Bố cục 2 cột phẳng Odoo Enterprise thoáng đạt, chuẩn hóa 100% Lucide Vector Icons, thiết lập hệ màu phân biệt rõ ràng (Emerald = Verified Legal Tenant, Purple = Odoo Brand, Slate = Nền tảng), loại bỏ nút AI gây nhiễu thị giác.
 
-- [x] **06. [bo_02_ghi_nh_n_chi_ph_nhanh_qu_n_l_ng_n_s_ch_opex_mobile]** — *Chi Phí &amp; Ngân Sách*
-  - **File render mới (`new_pd`):** [`zone3_sales.js`](file:///d:/prototype/new_pd/js/components/zone3_sales.js) ➔ `Zone3Sales.renderCashflowAccrual()`
-  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Chi phí OPEX Mobile Responsive View
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+
+- [x] ✔️ **06. [bo_02_ghi_nh_n_chi_ph_nhanh_qu_n_l_ng_n_s_ch_opex_mobile]** — *Ghi Nhận Chi Phí Nhanh & Ngân Sách OPEX (Smart Bookkeeper Hub BO-02)*
+  - **File render mới (`new_pd`):** [`zone3_sales.js`](file:///d:/prototype/new_pd/js/components/zone3_sales.js) ➔ `Zone3Sales.renderOPEXMobile()`
+  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Sub-tab 5: `📱 5. Ghi Nhận Chi Phí Nhanh & Ngân Sách OPEX (BO-02)` (`sales.html?sub=opex_mobile`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm Banner Smart Bookkeeper AI hỗ trợ quét OCR hóa đơn e-VAT tự động bóc tách MST & nhập chi phí bằng giọng nói (Voice-to-Expense), 4 Thẻ chỉ số tổng quan (OPEX 412.5M VNĐ, COGS 968.7M VNĐ, EBT 463.9M VNĐ, 28.5M Khoản chi chờ duyệt tích hợp Modal Xác nhận Duyệt Chi), danh mục tiến độ 7 nhóm ngân sách (Mặt bằng 100%, Ads TikTok 104% cảnh báo đỏ, Lương nhân sự 97.3%, Điện nước 82.7%).
+    - 🎨 **UI Designer:** Chuẩn hóa toàn bộ 100% Lucide Vector Icons (thay thế emoji rác `📸`, `🎙️`), hệ màu cảnh báo trực quan (Red = Vượt ngân sách 104%, Amber = Tiệm cận định mức, Emerald = Trong tầm kiểm soát), thiết kế đáp ứng hoàn hảo trên cả Mobile & Desktop View.
+
 
 - [x] **07. [bo_02_qu_n_l_chi_ph_t_i_ch_nh_c_b_n]** — *Quản lý Nhóm Chi Phí &amp; Tài Chính Cơ Bản*
   - **File render mới (`new_pd`):** [`zone3_sales.js`](file:///d:/prototype/new_pd/js/components/zone3_sales.js) ➔ `Zone3Sales.renderCashflowAccrual()`

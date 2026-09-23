@@ -241,97 +241,235 @@ const Zone5AI = {
 
   renderRetailPulse: function() {
     return `
-      <div class="o-card p-5 space-y-5">
-        <!-- Header -->
-        <div class="flex items-center justify-between border-b pb-3">
-          <div>
-            <h2 class="text-sm font-bold text-slate-900 flex items-center gap-2">
-              <i class="lucide-activity w-4.5 h-4.5 text-emerald-600 animate-pulse"></i> ⚡ Theo Dõi Tốc Độ Bán Hàng Realtime (Nhịp Đập Cửa Hàng)
-            </h2>
-            <p class="text-xs text-slate-500 mt-0.5">Cập nhật liên tục đơn hàng mới phát sinh trong giờ, giá trị đơn hàng trung bình và tiền két tại quầy.</p>
+      <div class="space-y-6">
+        <!-- Top Controls Bar & Welcome Greeting Banner -->
+        <div class="o-card p-5 bg-slate-900 text-white rounded-xl shadow-lg border border-slate-800 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wide">Trang Quản Trị Vận Hành Bán Lẻ</span>
+              <span class="text-xs text-emerald-400 font-semibold flex items-center gap-1">
+                <i class="lucide-check-circle-2 w-3.5 h-3.5 text-emerald-400"></i> Dữ liệu KiotViet POS Live (5m/lần)
+              </span>
+            </div>
+            <h1 class="text-xl font-extrabold text-white tracking-tight flex items-center gap-2">
+              Xin chào, Nguyễn Thị Mai! <span class="text-xs font-normal text-slate-400">(Chủ Chuỗi Maison de Bloom)</span>
+            </h1>
+            <p class="text-xs text-slate-300">Cập nhật tốc độ bán hàng, dòng tiền két quầy và hiệu suất vận hành 3 chi nhánh thời gian thực.</p>
           </div>
-          <span class="badge-rec">DỮ LIỆU TỰ ĐỘNG CẬP NHẬT 5 PHÚT/LẦN</span>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <!-- Date Filter Dropdown -->
+            <div class="px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-xs font-medium text-slate-200 flex items-center gap-2 shadow-sm">
+              <i class="lucide-calendar w-4 h-4 text-purple-400"></i>
+              <span>30 ngày qua (01/10 - 24/10/2026)</span>
+              <i class="lucide-chevron-down w-3.5 h-3.5 text-slate-400"></i>
+            </div>
+            <!-- Secondary Action: Export PDF/Excel -->
+            <button onclick="Zone0Shell.openFinancialConfirm('Xuất Báo Cáo Doanh Thu Bán Lẻ', '<p class=\"text-xs text-slate-600\">Hệ thống sẽ tổng hợp dữ liệu giao dịch 3 chi nhánh và tạo file báo cáo kế toán (Excel & PDF).</p>', 'Xuất Báo Cáo (.XLSX)', () => alert('Đã xuất báo cáo thành công!'))" class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold rounded-lg flex items-center gap-1.5 transition">
+              <i class="lucide-download w-4 h-4 text-sky-400"></i>
+              <span>Xuất báo cáo</span>
+            </button>
+            <!-- Primary Action: New POS Sale -->
+            <button onclick="window.location.href='pos.html'" class="px-4 py-2 bg-[#714B67] hover:bg-purple-900 text-white text-xs font-bold rounded-lg flex items-center gap-1.5 shadow-md transition">
+              <i class="lucide-plus-circle w-4 h-4 text-amber-300"></i>
+              <span>Tạo đơn bán mới (+)</span>
+            </button>
+          </div>
         </div>
 
-        <!-- 3 Metric Cards -->
+        <!-- TL;DR Executive Summary Block -->
+        <div class="bg-purple-50/80 border border-purple-200 rounded-xl p-4 flex items-start gap-3 text-xs">
+          <div class="p-2 bg-purple-600 text-white rounded-lg shrink-0 mt-0.5">
+            <i class="lucide-zap w-4 h-4"></i>
+          </div>
+          <div class="space-y-1">
+            <div class="font-bold text-purple-950 text-xs uppercase tracking-wide">⚡ Tóm Tắt Nhanh Nhịp Đập Bán Hàng 30 Giây (Retail Pulse TL;DR)</div>
+            <p class="text-slate-700 leading-relaxed">
+              Tổng doanh thu 3 chi nhánh hôm nay đạt <strong class="text-purple-900 font-mono">86,300,000 VNĐ</strong> (tăng <strong class="text-emerald-700">+14.2%</strong> so với cùng kỳ). 
+              <strong>Maison Quận 1</strong> dẫn đầu với 28 đơn hàng và két quầy 18.2M VNĐ. <strong>Maison Bình Thạnh</strong> đang có tốc độ bán chậm hơn dự kiến (10 đơn), đề xuất chạy chương trình khuyến mãi Voucher POS tại quầy.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row 1: 4 Key Financial & Inventory Metric Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Metric 1: Revenue -->
+          <div class="o-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-500">Doanh thu thuần</span>
+              <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                <i class="lucide-dollar-sign w-4.5 h-4.5"></i>
+              </div>
+            </div>
+            <div class="mt-2">
+              <div class="text-xl font-extrabold text-slate-900 font-mono">284.500.000 ₫</div>
+              <div class="mt-1 flex items-center gap-1 text-xs text-emerald-600 font-bold">
+                <i class="lucide-trending-up w-3.5 h-3.5"></i> +14.2% <span class="text-slate-500 font-normal">so với tháng trước</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metric 2: Expenses -->
+          <div class="o-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-500">Tổng chi phí OPEX</span>
+              <div class="w-8 h-8 rounded-lg bg-red-100 text-red-700 flex items-center justify-center">
+                <i class="lucide-credit-card w-4.5 h-4.5"></i>
+              </div>
+            </div>
+            <div class="mt-2">
+              <div class="text-xl font-extrabold text-slate-900 font-mono">162.100.000 ₫</div>
+              <div class="mt-1 flex items-center gap-1 text-xs text-red-600 font-bold">
+                <i class="lucide-arrow-up-right w-3.5 h-3.5"></i> +22.8% <span class="text-slate-500 font-normal">Ads TikTok & Chi phí kho</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metric 3: Gross Profit -->
+          <div class="o-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-500">Lợi nhuận gộp</span>
+              <div class="w-8 h-8 rounded-lg bg-purple-100 text-purple-800 flex items-center justify-center">
+                <i class="lucide-pie-chart w-4.5 h-4.5"></i>
+              </div>
+            </div>
+            <div class="mt-2">
+              <div class="text-xl font-extrabold text-purple-950 font-mono">122.400.000 ₫</div>
+              <div class="mt-1 flex items-center gap-1.5 text-xs">
+                <span class="text-emerald-600 font-bold">+4.5%</span>
+                <span class="px-1.5 py-0.5 rounded bg-slate-100 font-bold text-slate-700">Margin 43.0%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metric 4: Inventory Valuation -->
+          <div class="o-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-500">Tồn kho 3 Chi Nhánh</span>
+              <div class="w-8 h-8 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center">
+                <i class="lucide-package w-4.5 h-4.5"></i>
+              </div>
+            </div>
+            <div class="mt-2">
+              <div class="text-xl font-extrabold text-slate-900 font-mono">418.900.000 ₫</div>
+              <div class="mt-1 flex items-center gap-1 text-xs text-amber-700 font-semibold">
+                <i class="lucide-clock w-3.5 h-3.5"></i> 842 mã hàng • 4 mã cận date
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Realtime Store Speed Metric Strip -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-          <div class="p-3.5 bg-emerald-50/60 border border-emerald-200 rounded-lg flex items-center justify-between shadow-sm">
+          <div class="p-3.5 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center justify-between shadow-sm">
             <div>
-              <div class="text-slate-600 font-semibold">⚡ Đơn mới nhận trong 1 giờ qua:</div>
-              <div class="text-lg font-extrabold text-emerald-700 mt-1">12 đơn hàng</div>
-              <div class="text-[11px] text-emerald-600 font-bold mt-0.5">▲ Tăng 20% so với giờ trước</div>
+              <div class="text-slate-600 font-semibold flex items-center gap-1.5">
+                <i class="lucide-shopping-cart w-4 h-4 text-emerald-600"></i> Đơn mới 1 giờ qua:
+              </div>
+              <div class="text-lg font-extrabold text-emerald-800 mt-1">12 đơn hàng</div>
+              <div class="text-[11px] text-emerald-700 font-bold mt-0.5">▲ Tăng 20% so với giờ trước</div>
             </div>
-            <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-base">
-              <i class="lucide-shopping-cart w-5 h-5"></i>
+            <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center">
+              <i class="lucide-activity w-5 h-5"></i>
             </div>
           </div>
 
-          <div class="p-3.5 bg-blue-50/60 border border-blue-200 rounded-lg flex items-center justify-between shadow-sm">
+          <div class="p-3.5 bg-sky-50 border border-sky-200 rounded-xl flex items-center justify-between shadow-sm">
             <div>
-              <div class="text-slate-600 font-semibold">⏱️ Tốc độ bán hàng trung bình:</div>
-              <div class="text-lg font-extrabold text-blue-900 mt-1">4.5 đơn / giờ</div>
-              <div class="text-[11px] text-slate-500 mt-0.5">Dự báo hôm nay đạt ~54 đơn</div>
+              <div class="text-slate-600 font-semibold flex items-center gap-1.5">
+                <i class="lucide-clock w-4 h-4 text-sky-600"></i> Tốc độ bán hàng trung bình:
+              </div>
+              <div class="text-lg font-extrabold text-sky-900 mt-1">4.5 đơn / giờ</div>
+              <div class="text-[11px] text-slate-600 mt-0.5">Dự báo hôm nay đạt ~54 đơn</div>
             </div>
-            <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-800 flex items-center justify-center font-bold text-base">
-              <i class="lucide-clock w-5 h-5"></i>
+            <div class="w-10 h-10 rounded-lg bg-sky-100 text-sky-800 flex items-center justify-center">
+              <i class="lucide-gauge w-5 h-5"></i>
             </div>
           </div>
 
-          <div class="p-3.5 bg-purple-50/60 border border-purple-200 rounded-lg flex items-center justify-between shadow-sm">
+          <div class="p-3.5 bg-purple-50 border border-purple-200 rounded-xl flex items-center justify-between shadow-sm">
             <div>
-              <div class="text-slate-600 font-semibold">💳 Giá trị trung bình 1 đơn (AOV):</div>
+              <div class="text-slate-600 font-semibold flex items-center gap-1.5">
+                <i class="lucide-credit-card w-4 h-4 text-purple-600"></i> Giá trị 1 đơn (AOV):
+              </div>
               <div class="text-lg font-extrabold text-purple-900 mt-1">680,000 VNĐ / đơn</div>
-              <div class="text-[11px] text-purple-700 font-semibold mt-0.5">Mỹ phẩm bán chạy: Serum Vit C</div>
+              <div class="text-[11px] text-purple-700 font-semibold mt-0.5">Top 1: Serum Vitamin C FEFO</div>
             </div>
-            <div class="w-10 h-10 rounded-lg bg-purple-100 text-purple-800 flex items-center justify-center font-bold text-base">
-              <i class="lucide-credit-card w-5 h-5"></i>
+            <div class="w-10 h-10 rounded-lg bg-purple-100 text-purple-800 flex items-center justify-center">
+              <i class="lucide-receipt w-5 h-5"></i>
             </div>
           </div>
         </div>
 
         <!-- Store Branch Live Table -->
-        <div class="space-y-2 pt-2">
-          <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wide flex items-center gap-1.5">
-            <i class="lucide-store w-4 h-4 text-slate-700"></i> Báo Cáo Doanh Thu Tương Tác 3 Chi Nhánh Cửa Hàng
-          </h3>
+        <div class="o-card p-5 space-y-3">
+          <div class="flex items-center justify-between border-b pb-3">
+            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <i class="lucide-store w-4.5 h-4.5 text-[#714B67]"></i> Theo Dõi Chi Tiết 3 Chi Nhánh Cửa Hàng Live
+            </h3>
+            <span class="px-2.5 py-0.5 text-[10px] font-extrabold bg-emerald-100 text-emerald-800 rounded-full">100% KiotViet Sync</span>
+          </div>
+
           <div class="overflow-x-auto border border-slate-200 rounded-lg">
             <table class="w-full text-xs text-left">
               <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
                 <tr>
-                  <th class="p-2.5">Tên Chi Nhánh Cửa Hàng</th>
-                  <th class="p-2.5 text-right">Doanh Thu Hôm Nay</th>
-                  <th class="p-2.5 text-right">Tiền Két Tại Quầy (POS)</th>
-                  <th class="p-2.5 text-center">Số Đơn Đã Bán</th>
-                  <th class="p-2.5 text-center">Trạng Thái Bán Hàng</th>
+                  <th class="p-3">Chi Nhánh Cửa Hàng</th>
+                  <th class="p-3 text-right">Doanh Thu Hôm Nay</th>
+                  <th class="p-3 text-right">Két Quầy POS (Tiền mặt)</th>
+                  <th class="p-3 text-center">Số Đơn</th>
+                  <th class="p-3 text-center">Trạng Thái Vận Hành</th>
+                  <th class="p-3 text-center">Thao Tác Kế Toán</th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-slate-100 font-medium text-slate-800">
-                <tr class="hover:bg-slate-50">
-                  <td class="p-2.5 font-bold flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Maison Quận 1 (Flagship Store)
+                <tr class="hover:bg-slate-50 transition">
+                  <td class="p-3 font-bold flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Maison Quận 1 (Flagship)
                   </td>
-                  <td class="p-2.5 text-right font-mono font-bold text-purple-900">42,500,000 VNĐ</td>
-                  <td class="p-2.5 text-right font-mono font-bold text-emerald-800">18,200,000 VNĐ</td>
-                  <td class="p-2.5 text-center font-bold">28 đơn</td>
-                  <td class="p-2.5 text-center"><span class="px-2 py-0.5 text-[10px] font-bold bg-emerald-100 text-emerald-800 rounded">🟢 Đang bán tốt</span></td>
+                  <td class="p-3 text-right font-mono font-bold text-purple-900">42,500,000 VNĐ</td>
+                  <td class="p-3 text-right font-mono font-bold text-emerald-800">18,200,000 VNĐ</td>
+                  <td class="p-3 text-center font-bold">28 đơn</td>
+                  <td class="p-3 text-center">
+                    <span class="px-2.5 py-1 text-[11px] font-bold bg-emerald-100 text-emerald-800 rounded-md inline-flex items-center gap-1">
+                      <i class="lucide-check-circle-2 w-3 h-3"></i> Đang bán tốt
+                    </span>
+                  </td>
+                  <td class="p-3 text-center">
+                    <button onclick="Zone0Shell.openFinancialConfirm('Chốt Tiền Két Quầy Q.1', '<p class=\"text-xs text-slate-600\">Xác nhận đối soát 18,200,000 VNĐ tiền mặt két POS Quận 1 nộp về ngân hàng.</p>', 'Xác Nhận Nộp Tiền', () => alert('Đã chốt sổ két quầy Q.1!'))" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded font-semibold text-[11px]">Chốt Két</button>
+                  </td>
                 </tr>
-                <tr class="hover:bg-slate-50">
-                  <td class="p-2.5 font-bold flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Maison Thủ Đức
+                <tr class="hover:bg-slate-50 transition">
+                  <td class="p-3 font-bold flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Maison Thủ Đức
                   </td>
-                  <td class="p-2.5 text-right font-mono font-bold text-purple-900">28,000,000 VNĐ</td>
-                  <td class="p-2.5 text-right font-mono font-bold text-emerald-800">11,500,000 VNĐ</td>
-                  <td class="p-2.5 text-center font-bold">18 đơn</td>
-                  <td class="p-2.5 text-center"><span class="px-2 py-0.5 text-[10px] font-bold bg-emerald-100 text-emerald-800 rounded">🟢 Đang bán tốt</span></td>
+                  <td class="p-3 text-right font-mono font-bold text-purple-900">28,000,000 VNĐ</td>
+                  <td class="p-3 text-right font-mono font-bold text-emerald-800">11,500,000 VNĐ</td>
+                  <td class="p-3 text-center font-bold">18 đơn</td>
+                  <td class="p-3 text-center">
+                    <span class="px-2.5 py-1 text-[11px] font-bold bg-emerald-100 text-emerald-800 rounded-md inline-flex items-center gap-1">
+                      <i class="lucide-check-circle-2 w-3 h-3"></i> Đang bán tốt
+                    </span>
+                  </td>
+                  <td class="p-3 text-center">
+                    <button onclick="Zone0Shell.openFinancialConfirm('Chốt Tiền Két Quầy Thủ Đức', '<p class=\"text-xs text-slate-600\">Xác nhận đối soát 11,500,000 VNĐ tiền mặt két POS Thủ Đức nộp về ngân hàng.</p>', 'Xác Nhận Nộp Tiền', () => alert('Đã chốt sổ két quầy Thủ Đức!'))" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded font-semibold text-[11px]">Chốt Két</button>
+                  </td>
                 </tr>
-                <tr class="hover:bg-slate-50">
-                  <td class="p-2.5 font-bold flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-amber-500"></span> Maison Bình Thạnh
+                <tr class="hover:bg-slate-50 transition">
+                  <td class="p-3 font-bold flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Maison Bình Thạnh
                   </td>
-                  <td class="p-2.5 text-right font-mono font-bold text-purple-900">15,800,000 VNĐ</td>
-                  <td class="p-2.5 text-right font-mono font-bold text-emerald-800">6,000,000 VNĐ</td>
-                  <td class="p-2.5 text-center font-bold">10 đơn</td>
-                  <td class="p-2.5 text-center"><span class="px-2 py-0.5 text-[10px] font-bold bg-amber-100 text-amber-800 rounded">🟡 Tốc độ chậm</span></td>
+                  <td class="p-3 text-right font-mono font-bold text-purple-900">15,800,000 VNĐ</td>
+                  <td class="p-3 text-right font-mono font-bold text-emerald-800">6,000,000 VNĐ</td>
+                  <td class="p-3 text-center font-bold">10 đơn</td>
+                  <td class="p-3 text-center">
+                    <span class="px-2.5 py-1 text-[11px] font-bold bg-amber-100 text-amber-800 rounded-md inline-flex items-center gap-1">
+                      <i class="lucide-alert-triangle w-3 h-3"></i> Tốc độ chậm
+                    </span>
+                  </td>
+                  <td class="p-3 text-center">
+                    <button onclick="Zone0Shell.openFinancialConfirm('Kích Hoạt Flash Sale Tăng Tốc Bình Thạnh', '<p class=\"text-xs text-slate-600\">Tạo Voucher POS giảm 10% cho khách mua trực tiếp tại quầy Bình Thạnh trong 3 giờ tới.</p>', 'Kích Hoạt Flash Sale', () => alert('Đã tạo Flash Sale Bình Thạnh!'))" class="px-2.5 py-1 bg-amber-500 hover:bg-amber-600 text-white rounded font-bold text-[11px]">Tăng Tốc</button>
+                  </td>
                 </tr>
               </tbody>
             </table>
