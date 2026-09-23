@@ -169,13 +169,13 @@ const Zone0Shell = {
     `;
   },
 
-  // Render AI Copilot Slide-out Drawer
+  // Render AI Copilot Slide-out Drawer & Modals
   renderAIDrawer: function() {
     return `
-      <!-- AI Copilot Floating Button -->
-      <button onclick="Zone0Shell.toggleAIDrawer()" class="fixed bottom-5 right-5 z-40 bg-[#714B67] hover:bg-[#5a3b52] text-white font-semibold px-4 py-2.5 rounded-full shadow-lg flex items-center gap-2 transition transform hover:scale-105 border border-white/20">
-        <i class="lucide-bot w-4 h-4"></i>
-        <span class="text-xs">Trợ Lý AI Copilot</span>
+      <!-- AI Copilot Floating Button with Safe Margin Padding -->
+      <button onclick="Zone0Shell.toggleAIDrawer()" class="fixed bottom-6 right-6 z-50 bg-[#714B67] hover:bg-[#5b3b53] text-white font-bold px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2 transition transform hover:scale-105 border border-white/30">
+        <i class="lucide-bot w-4 h-4 text-teal-300"></i>
+        <span class="text-xs tracking-wide">Trợ Lý AI Copilot</span>
       </button>
 
       <!-- Slide-out Drawer -->
@@ -183,12 +183,12 @@ const Zone0Shell = {
         <!-- Header -->
         <div class="p-3.5 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
           <div class="flex items-center gap-2">
-            <div class="w-7 h-7 rounded-lg bg-purple-600 text-white flex items-center justify-center shadow-sm">
-              <i class="lucide-bot w-4 h-4"></i>
+            <div class="w-7 h-7 rounded-lg bg-[#714B67] text-white flex items-center justify-center shadow-sm">
+              <i class="lucide-bot w-4 h-4 text-teal-300"></i>
             </div>
             <div>
-              <h3 class="text-xs font-bold text-slate-800">Stitch AI Advisor</h3>
-              <span class="text-[10px] text-emerald-600 font-semibold flex items-center gap-1"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> Sẵn sàng hỗ trợ</span>
+              <h3 class="text-xs font-bold text-slate-800">Stitch AI Copilot</h3>
+              <span class="text-[10px] text-emerald-600 font-semibold flex items-center gap-1"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span> Sẵn sàng hỗ trợ</span>
             </div>
           </div>
           <button onclick="Zone0Shell.toggleAIDrawer()" class="text-slate-400 hover:text-slate-600 p-1 rounded hover:bg-slate-200 transition">
@@ -296,6 +296,35 @@ const Zone0Shell = {
           </div>
         </div>
       </div>
+
+      <!-- Financial Action Safety Confirmation Modal -->
+      <div id="financial-confirm-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-2xl border border-slate-300 w-full max-w-lg text-slate-800 overflow-hidden" onclick="event.stopPropagation()">
+          <div class="bg-red-700 text-white p-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <i class="lucide-shield-alert w-5 h-5 text-amber-300"></i>
+              <h3 id="confirm-modal-title" class="font-bold text-sm">Xác Nhận Tác Vụ Tài Chính & Ngân Sách</h3>
+            </div>
+            <button onclick="Zone0Shell.closeConfirmModal()" class="text-white/80 hover:text-white"><i class="lucide-x w-5 h-5"></i></button>
+          </div>
+          <div class="p-5 space-y-4 text-xs">
+            <div id="confirm-modal-body" class="space-y-3">
+              <!-- Dynamic Details HTML inserted by Zone0Shell.openFinancialConfirm -->
+            </div>
+            <div class="p-3 bg-amber-50 border border-amber-200 rounded-lg text-amber-900 flex items-start gap-2">
+              <i class="lucide-alert-circle w-4 h-4 text-amber-700 shrink-0 mt-0.5"></i>
+              <span>Lưu ý: Tác vụ này sẽ trực tiếp sinh chứng từ/đơn hàng và ảnh hưởng dòng tiền thực tế. Vui lòng kiểm tra kỹ trước khi xác nhận.</span>
+            </div>
+          </div>
+          <div class="p-3.5 bg-slate-100 border-t flex items-center justify-end gap-2">
+            <button onclick="Zone0Shell.closeConfirmModal()" class="px-4 py-2 text-xs font-bold text-slate-700 hover:bg-slate-200 rounded-lg transition">Hủy Bỏ</button>
+            <button id="confirm-modal-action-btn" class="px-4 py-2 text-xs font-bold bg-red-700 hover:bg-red-800 text-white rounded-lg transition shadow flex items-center gap-1.5">
+              <i class="lucide-check-circle-2 w-4 h-4"></i>
+              <span id="confirm-modal-action-text">Cấp Phép Thực Thi Ngay</span>
+            </button>
+          </div>
+        </div>
+      </div>
     `;
   },
 
@@ -325,6 +354,24 @@ const Zone0Shell = {
   },
   hideEvidenceModal: function() {
     document.getElementById('evidence-modal')?.classList.add('hidden');
+  },
+  openFinancialConfirm: function(title, bodyHTML, actionLabel, onConfirmCallback) {
+    const modal = document.getElementById('financial-confirm-modal');
+    if (!modal) return;
+    document.getElementById('confirm-modal-title').innerText = title;
+    document.getElementById('confirm-modal-body').innerHTML = bodyHTML;
+    document.getElementById('confirm-modal-action-text').innerText = actionLabel || 'Cấp Phép Thực Thi Ngay';
+    const actionBtn = document.getElementById('confirm-modal-action-btn');
+    actionBtn.onclick = function() {
+      Zone0Shell.closeConfirmModal();
+      if (typeof onConfirmCallback === 'function') {
+        onConfirmCallback();
+      }
+    };
+    modal.classList.remove('hidden');
+  },
+  closeConfirmModal: function() {
+    document.getElementById('financial-confirm-modal')?.classList.add('hidden');
   },
   sendPrompt: function(text) {
     const drawerInput = document.getElementById('ai-chat-input');
