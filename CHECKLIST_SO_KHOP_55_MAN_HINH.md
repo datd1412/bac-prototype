@@ -296,30 +296,40 @@
     - 🎯 **End User:** Thêm tổng hợp doanh thu đơn bán lẻ đa kênh real-time, bộ lọc trạng thái đơn hàng (Đã hoàn tất, Đang giao, Đã hủy), xem chi tiết đơn qua Modal `#ORD-2024-9982`.
     - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, phân cấp thẻ stat cards tài chính rõ ràng.
 
-- [x] **41. [qu_n_l_nh_cung_c_p_c_ng_n_n_h_ng]** — *Quản lý Nhà Cung Cấp &amp; Công Nợ Đơn Hàng*
+- [x] ✔️ **41. [qu_n_l_nh_cung_c_p_c_ng_n_n_h_ng]** — *Quản Lý Nhà Cung Cấp & Công Nợ Mua Hàng (Suppliers Debt BO-04)*
   - **File render mới (`new_pd`):** [`zone2_inventory.js`](file:///d:/prototype/new_pd/js/components/zone2_inventory.js) ➔ `Zone2Inventory.renderSuppliers()`
-  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ Sub-tab Nhà cung cấp & Công nợ Quá hạn
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ Sub-tab 4: `🏭 4. Nhà Cung Cấp & Công Nợ Quá Hạn` (`inventory.html?sub=suppliers`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm bảng đối soát công nợ phải trả cho nhà cung cấp, hiển thị hạn thanh toán, nút thanh toán chuyển khoản VietQR B2B tự động gán cú pháp.
+    - 🎨 **UI Designer:** Bảng Odoo phẳng sắc nét, 100% Lucide Vector Icons, font mono cho số tiền công nợ màu đỏ (nếu còn nợ) và màu xám (nếu đã thanh toán).
 
-- [x] **42. [qu_n_l_s_n_ph_m_bi_n_th_kho_l_m_ph_m]** — *Quản lý Sản phẩm, Biến thể &amp; Kho Lô Mỹ phẩm*
+- [x] ✔️ **42. [qu_n_l_s_n_ph_m_bi_n_th_kho_l_m_ph_m]** — *Quản Lý Sản Phẩm, Biến Thể & Kho Lô Mỹ Phẩm FEFO (Catalog BO-03)*
   - **File render mới (`new_pd`):** [`zone2_inventory.js`](file:///d:/prototype/new_pd/js/components/zone2_inventory.js) ➔ `Zone2Inventory.renderVariantsFEFO()`
-  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ Sub-tab Sản phẩm & Biến thể FEFO
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ Sub-tab 1: `🧴 1. Hạn Sử Dụng & Vị Trí Kệ Mỹ Phẩm (FEFO)` (`inventory.html?sub=variants_fefo`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm phân loại ma trận biến thể cho sản phẩm Thời trang (Size S/M/L) và Lô HSD strict cho Mỹ phẩm Skincare, hiển thị biên lợi nhuận gộp từng SKU (Margin 47.45%).
+    - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, thẻ sản phẩm dạng 2 cột Odoo thoáng đạt.
 
-- [x] **43. [retail_intelligence_pulse]** — *retail_intelligence_pulse*
+- [x] ✔️ **43. [retail_intelligence_pulse]** — *Retail Intelligence Pulse Monitor (Retail Pulse)*
   - **File render mới (`new_pd`):** [`zone5_ai.js`](file:///d:/prototype/new_pd/js/components/zone5_ai.js) ➔ `Zone5AI.renderRetailPulse()`
-  - **Vị trí nút bấm & đường dẫn:** AI Advisor / Dashboard ➔ Sub-tab Retail Pulse 3 Cửa hàng
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** AI Advisor / Dashboard ➔ Sub-tab 2: `⚡ 2. Retail Intelligence Pulse Monitor` (`index.html?view=dashboard&sub=retail_pulse`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm dải chỉ số nhịp đập tốc độ bán hàng real-time 3 chi nhánh (Q.1, Thủ Đức, Bình Thạnh), tích hợp Modal Chốt két quầy POS & Kích hoạt Flash Sale tăng tốc chi nhánh bán chậm.
+    - 🎨 **UI Designer:** Giao diện tối Odoo Enterprise sang trọng, 100% Lucide Vector Icons (thay thế biểu tượng emoji rác), font mono chuẩn cho số liệu doanh thu.
 
-- [x] **44. [s_thu_chi_d_ng_ti_n_th_c_t_cashflow_p_l]** — *Sổ Thu Chi &amp; Quản Trị Dòng Tiền Thực Tế*
+- [x] ✔️ **44. [s_thu_chi_d_ng_ti_n_th_c_t_cashflow_p_l]** — *Sổ Thu Chi & Quản Trị Dòng Tiền Thực Tế Cashflow P&L*
   - **File render mới (`new_pd`):** [`zone3_sales.js`](file:///d:/prototype/new_pd/js/components/zone3_sales.js) ➔ `Zone3Sales.renderCashflowAccrual()`
-  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Sub-tab Sổ Thu Chi & Cashflow Realtime
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Sub-tab 4: `💰 4. Báo Cáo Thu Chi & Lợi Nhuận Thực Nhận` (`sales.html?sub=cashflow_accrual`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm bộ chuyển đổi chế độ xem Accrual (Dồn tích) vs Cashflow (Dòng tiền thực nhận) vs Compare (So sánh chênh lệch), giải thích tác động của dòng tiền treo trên sàn Shopee/TikTok.
+    - 🎨 **UI Designer:** Bảng so sánh 2 cột chuẩn kế toán Odoo, 100% Lucide Vector Icons, màu sắc phân biệt rõ ràng dòng tiền dồn tích vs thực thu.
 
-- [x] **45. [sa_01_qu_n_l_t_i_kho_n_ph_n_quy_n_iam_rbac_console]** — *SA-01: Quản Lý Tài Khoản &amp; Phân Quyền (IAM &amp; RBAC Governance)*
+- [x] ✔️ **45. [sa_01_qu_n_l_t_i_kho_n_ph_n_quy_n_iam_rbac_console]** — *SA-01 IAM RBAC Governance Console*
   - **File render mới (`new_pd`):** [`zone1_admin.js`](file:///d:/prototype/new_pd/js/components/zone1_admin.js) ➔ `Zone1Admin.renderRBACUsers()`
-  - **Vị trí nút bấm & đường dẫn:** Quản trị ➔ Sub-tab Tài khoản & Phân quyền IAM RBAC
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Quản trị & SA-Admin ➔ Sub-tab 3: `👥 3. Tài khoản & Phân quyền IAM RBAC (SA-01)` (`admin.html?sub=rbac_users`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm quản lý 5 tài khoản nhân sự với ma trận phân quyền truy cập 4 khu vực (Kho, POS, Báo cáo, Quản trị), nút khóa/mở khóa tài khoản bảo mật.
+    - 🎨 **UI Designer:** Bảng phân quyền Odoo phẳng, 100% Lucide Vector Icons, màu sắc đại diện cho từng cấp bậc phân quyền.
 
 - [x] **46. [sa_01_qu_n_tr_h_th_ng_c_u_h_nh_n_n_t_ng_system_administrator_master_console]** — *sa_01_qu_n_tr_h_th_ng_c_u_h_nh_n_n_t_ng_system_administrator_master_console*
   - **File render mới (`new_pd`):** [`zone1_admin.js`](file:///d:/prototype/new_pd/js/components/zone1_admin.js) ➔ `Zone1Admin.renderSecurityConfig()`
