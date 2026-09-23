@@ -11,9 +11,9 @@
 - [x] ✔️ **01. [ai_copilot_tr_l_quy_t_nh]** — *ABC Copilot — Trợ lý Ra Quyết Định Kinh Doanh*
   - **File render mới (`new_pd`):** [`zone0_shell.js`](file:///d:/prototype/new_pd/js/components/zone0_shell.js) ➔ `Zone0Shell.renderAIDrawer()` & [`zone5_ai.js`](file:///d:/prototype/new_pd/js/components/zone5_ai.js) ➔ `Zone5AI.renderAIAdvisor()`
   - **Vị trí nút bấm & đường dẫn:** App Shell Right Slide-out AI Copilot Drawer & Workstation Cố vấn AI (`index.html?view=ai_advisor`)
-  - **Ghi chú so khớp & Tối ưu (End User & UI Designer Audit):**
-    - 🎯 **Góc nhìn End User (Chủ DN & Quản lý):** Tích hợp đầy đủ các mẫu câu hỏi thông minh (Smart Prompts), thẻ quyết định 1-Touch Action Cards (`Tạo PO Nhập Kho Khẩn Cấp`, `Kích Hoạt Flash Sale FEFO`, `Xuất PDF`, `Gửi Zalo`) và cửa sổ tra cứu dữ liệu gốc Evidence Data Inspection.
-    - 🎨 **Góc nhìn UI Designer (Odoo Taste Skill):** Loại bỏ hiệu ứng sci-fi rườm rà, chuẩn hóa bảng màu Odoo Purple `#714B67`, Odoo Teal `#017E84`, phẳng hóa các nút bấm, typography tương phản cao Plus Jakarta Sans.
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm bản tóm tắt 30 giây (TL;DR), quy trình Modal Xác nhận Giao dịch Tài chính cho nút PO & Flash sale (tránh bấm nhầm), phân cấp nhãn ưu tiên P1 (Khẩn cấp 24h) / P2 (Ưu tiên 3 ngày), tách 2 Tab Lịch sử Chat vs Task Cần Làm, nổi bật khối xác thực nguồn dữ liệu KiotViet POS & Kho FEFO (độ tin cậy 98.4%).
+    - 🎨 **UI Designer:** Chuẩn hóa hệ màu ngữ nghĩa (Red = P1 khẩn cấp, Amber = P2 khuyến nghị, Indigo/Purple = Thao tác thường, Sky = Phân tích/Xem PDF, Green = Đã duyệt/Live), tách các số liệu tài chính thành Khối Stat Cards riêng biệt, xử lý tràn/cắt khung nhìn ở đáy, đồng bộ 100% Lucide Vector Icons (loại bỏ emoji rác), tiết chế chữ in đậm và tạo margin an toàn cho nút Floating Action.
 
 - [x] **02. [ai_insights_ph_t_hi_n_b_t_th_ng_th_i_gian_th_c]** — *Trung tâm AI Insights &amp; Phát hiện Bất thường Engine v4.2*
   - **File render mới (`new_pd`):** [`zone5_ai.js`](file:///d:/prototype/new_pd/js/components/zone5_ai.js) ➔ `Zone5AI.renderAnomalyCenter()`
