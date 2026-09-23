@@ -77,10 +77,10 @@ const Zone0Shell = {
               <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center group-hover:scale-105 transition"><i class="lucide-brain-circuit w-5 h-5"></i></div>
               <span class="text-xs font-semibold text-slate-700">AI Advisor</span>
             </button>
-            ${MockData.activeRole === 'SA' ? `
+            ${MockData.activeRole === 'SA' || MockData.activeRole === 'BO' ? `
             <button onclick="App.navigateTo('sa_admin'); Zone0Shell.toggleAppMenu();" class="flex flex-col items-center gap-1.5 p-3 rounded-lg hover:bg-slate-100 transition group">
-              <div class="w-10 h-10 rounded-xl bg-red-100 text-red-700 flex items-center justify-center group-hover:scale-105 transition"><i class="lucide-shield-alert w-5 h-5"></i></div>
-              <span class="text-xs font-semibold text-slate-700">SA Console</span>
+              <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-800 flex items-center justify-center group-hover:scale-105 transition"><i class="lucide-building-2 w-5 h-5"></i></div>
+              <span class="text-xs font-semibold text-slate-700">Quản trị & BO-01</span>
             </button>
             ` : ''}
           </div>

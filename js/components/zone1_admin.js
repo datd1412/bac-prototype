@@ -10,17 +10,20 @@ const Zone1Admin = {
       <div class="space-y-6">
         <!-- Sub-navigation Tabs for 100% 54-Screen Coverage -->
         <div class="flex items-center gap-2 border-b border-slate-200 pb-2 overflow-x-auto text-xs font-semibold text-slate-600">
-          <button onclick="Zone1Admin.switchSubTab('tenants')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'tenants' ? 'bg-red-800 text-white shadow-sm' : 'hover:bg-slate-100'}">
-            🏢 1. Multi-Tenant Governance (SA-02)
+          <button onclick="Zone1Admin.switchSubTab('business_profile')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'business_profile' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+            🏢 1. Hồ sơ Doanh nghiệp & Vận hành (BO-01)
           </button>
-          <button onclick="Zone1Admin.switchSubTab('rbac_users')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'rbac_users' ? 'bg-red-800 text-white shadow-sm' : 'hover:bg-slate-100'}">
-            👥 2. Tài khoản & Phân quyền IAM RBAC (SA-01)
+          <button onclick="Zone1Admin.switchSubTab('tenants')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'tenants' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+            🌐 2. Multi-Tenant Governance (SA-02)
           </button>
-          <button onclick="Zone1Admin.switchSubTab('security_config')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'security_config' ? 'bg-red-800 text-white shadow-sm' : 'hover:bg-slate-100'}">
-            ⚙️ 3. Cấu hình Nền tảng & Security Policy (SA-03)
+          <button onclick="Zone1Admin.switchSubTab('rbac_users')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'rbac_users' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+            👥 3. Tài khoản & Phân quyền IAM RBAC (SA-01)
           </button>
-          <button onclick="Zone1Admin.switchSubTab('audit_logs')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'audit_logs' ? 'bg-red-800 text-white shadow-sm' : 'hover:bg-slate-100'}">
-            🛡️ 4. Nhật ký Audit Trail & Truy vết (SA-04)
+          <button onclick="Zone1Admin.switchSubTab('security_config')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'security_config' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+            ⚙️ 4. Cấu hình Nền tảng & Security Policy (SA-03)
+          </button>
+          <button onclick="Zone1Admin.switchSubTab('audit_logs')" class="px-3 py-1.5 rounded-lg transition ${activeSubTab === 'audit_logs' ? 'bg-[#714B67] text-white shadow-sm' : 'hover:bg-slate-100'}">
+            🛡️ 5. Nhật ký Audit Trail & Truy vết (SA-04)
           </button>
         </div>
 
@@ -40,7 +43,7 @@ const Zone1Admin = {
 
           <div class="o-card p-4 flex items-center gap-3">
             <div class="w-10 h-10 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center font-bold">
-              <i class="lucide-building-2 w-5 h-5"></i>
+              <div class="w-10 h-10 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center font-bold"><i class="lucide-building-2 w-5 h-5"></i></div>
             </div>
             <div>
               <div class="text-[11px] font-semibold text-slate-500">Doanh Nghiệp Multi-Tenant</div>
@@ -70,10 +73,163 @@ const Zone1Admin = {
         </div>
 
         <!-- Dynamic Render based on Active Sub-tab -->
+        ${activeSubTab === 'business_profile' || !activeSubTab ? this.renderBusinessProfile() : ''}
         ${activeSubTab === 'tenants' ? this.renderTenants() : ''}
         ${activeSubTab === 'rbac_users' ? this.renderRBACUsers() : ''}
         ${activeSubTab === 'security_config' ? this.renderSecurityConfig() : ''}
         ${activeSubTab === 'audit_logs' ? this.renderAuditLogs() : ''}
+      </div>
+    `;
+  },
+
+  // Sub-tab 0: BO-01 Business Profile & Operational Config
+  renderBusinessProfile: function() {
+    return `
+      <div class="space-y-5">
+        <!-- Top Banner BO-01 -->
+        <div class="o-card p-5 bg-gradient-to-r from-slate-900 to-slate-800 text-white flex items-center justify-between">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold bg-teal-500/20 text-teal-300 border border-teal-500/30 px-2.5 py-0.5 rounded-full uppercase">BO-01: Business Profile & Operational Hub</span>
+              <span class="text-xs text-emerald-400 font-semibold flex items-center gap-1"><i class="lucide-check-circle w-3.5 h-3.5"></i> Đã xác thực thông tin pháp lý</span>
+            </div>
+            <h1 class="text-lg font-bold text-white">Quản lý Doanh nghiệp & Cấu hình Vận hành</h1>
+            <p class="text-xs text-slate-300">Thiết lập hồ sơ pháp lý, mã số thuế, tiền tệ hạch toán, quy tắc xuất kho FEFO và hạn mức chi tiêu doanh nghiệp.</p>
+          </div>
+          <button onclick="alert('✅ Đã lưu thay đổi cấu hình doanh nghiệp thành công!')" class="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-lg transition shadow flex items-center gap-1.5">
+            <i class="lucide-save w-4 h-4"></i> Lưu Thay Đổi Toàn Bộ
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          <!-- Left: Legal Profile & Operations (7 cols) -->
+          <div class="lg:col-span-7 space-y-5">
+            <!-- Card 1: Legal Profile -->
+            <div class="o-card p-5 space-y-4">
+              <div class="flex items-center justify-between border-b pb-3">
+                <h3 class="text-xs font-bold uppercase tracking-wide text-slate-800 flex items-center gap-2">
+                  <i class="lucide-building-2 w-4 h-4 text-purple-700"></i> Hồ sơ Pháp lý Doanh nghiệp
+                </h3>
+                <span class="text-[10px] font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded">Mã DN: #TENANT-001</span>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div>
+                  <label class="block text-slate-500 text-[11px] font-semibold mb-1">Tên Doanh Nghiệp (Pháp lý)</label>
+                  <input type="text" value="CÔNG TY TNHH THỜI TRANG & MỸ PHẨM MAISON DE BLOOM" class="w-full p-2 border border-slate-300 rounded font-semibold text-slate-800 bg-slate-50" />
+                </div>
+                <div>
+                  <label class="block text-slate-500 text-[11px] font-semibold mb-1">Mã Số Thuế (MST)</label>
+                  <input type="text" value="0317892301" class="w-full p-2 border border-slate-300 rounded font-mono font-semibold text-slate-800 bg-slate-50" />
+                </div>
+                <div>
+                  <label class="block text-slate-500 text-[11px] font-semibold mb-1">Người Đại Diện Pháp Luật</label>
+                  <input type="text" value="Nguyễn Thị Mai (Tổng Giám Đốc)" class="w-full p-2 border border-slate-300 rounded font-semibold text-slate-800 bg-slate-50" />
+                </div>
+                <div>
+                  <label class="block text-slate-500 text-[11px] font-semibold mb-1">Lĩnh Vực Kinh Doanh Chính</label>
+                  <input type="text" value="Bán lẻ Mỹ phẩm, Skincare & Thời trang Cao cấp" class="w-full p-2 border border-slate-300 rounded font-semibold text-slate-800 bg-slate-50" />
+                </div>
+                <div class="md:col-span-2">
+                  <label class="block text-slate-500 text-[11px] font-semibold mb-1">Địa Chỉ Trụ Sở Chính</label>
+                  <input type="text" value="Tầng 12, Tòa nhà Landmark 81, 720A Điện Biên Phủ, Phường 22, Bình Thạnh, TP. Hồ Chí Minh" class="w-full p-2 border border-slate-300 rounded font-semibold text-slate-800 bg-slate-50" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Accounting & Operational Settings -->
+            <div class="o-card p-5 space-y-4">
+              <div class="flex items-center justify-between border-b pb-3">
+                <h3 class="text-xs font-bold uppercase tracking-wide text-slate-800 flex items-center gap-2">
+                  <i class="lucide-calculator w-4 h-4 text-teal-700"></i> Tham số Kế toán & Vận hành Kho FEFO
+                </h3>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div>
+                  <label class="block text-slate-500 text-[11px] font-semibold mb-1">Đơn vị Tiền tệ Hạch toán</label>
+                  <select class="w-full p-2 border border-slate-300 rounded font-semibold text-slate-800 bg-white">
+                    <option selected>VNĐ (Việt Nam Đồng)</option>
+                    <option>USD (Đô la Mỹ)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-slate-500 text-[11px] font-semibold mb-1">Phương Pháp Tính Giá Vốn Tồn Kho</label>
+                  <select class="w-full p-2 border border-slate-300 rounded font-semibold text-slate-800 bg-white">
+                    <option selected>FEFO (First Expired, First Out - Ưu tiên lô hết hạn trước)</option>
+                    <option>FIFO (First In, First Out)</option>
+                    <option>Bình quân tức thời (Moving Average)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-slate-500 text-[11px] font-semibold mb-1">Cảnh báo Lô Hạn Sử Dụng (Mỹ phẩm)</label>
+                  <input type="text" value="Báo động đỏ khi HSD dưới 60 ngày" class="w-full p-2 border border-slate-300 rounded font-semibold text-amber-800 bg-amber-50" />
+                </div>
+                <div>
+                  <label class="block text-slate-500 text-[11px] font-semibold mb-1">Đồng bộ Tồn kho Đa kênh</label>
+                  <input type="text" value="Tự động Realtime (Shopee, TikTok, POS)" class="w-full p-2 border border-slate-300 rounded font-semibold text-emerald-800 bg-emerald-50" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Branch & Executive Pulse (5 cols) -->
+          <div class="lg:col-span-5 space-y-5">
+            <!-- Card 3: Active Store Branches -->
+            <div class="o-card p-5 space-y-3">
+              <div class="flex items-center justify-between border-b pb-3">
+                <h3 class="text-xs font-bold uppercase tracking-wide text-slate-800 flex items-center gap-2">
+                  <i class="lucide-store w-4 h-4 text-blue-700"></i> Danh sách Chi nhánh Cửa hàng (3 Stores)
+                </h3>
+                <button onclick="alert('Đã mở modal thêm cửa hàng mới!')" class="text-[11px] text-purple-700 font-bold hover:underline">+ Thêm cửa hàng</button>
+              </div>
+              <div class="space-y-2 text-xs">
+                <div class="p-3 border border-slate-200 rounded-lg bg-slate-50 flex items-center justify-between">
+                  <div>
+                    <div class="font-bold text-slate-800">Chi nhánh 1: Maison Quận 1 (Flagship)</div>
+                    <div class="text-[11px] text-slate-500">128 Nguyễn Huệ, Phường Bến Nghé, Quận 1</div>
+                  </div>
+                  <span class="px-2 py-0.5 text-[10px] font-bold bg-emerald-100 text-emerald-800 rounded">Hoạt động</span>
+                </div>
+                <div class="p-3 border border-slate-200 rounded-lg bg-slate-50 flex items-center justify-between">
+                  <div>
+                    <div class="font-bold text-slate-800">Chi nhánh 2: Maison Thủ Đức</div>
+                    <div class="text-[11px] text-slate-500">215 Võ Văn Ngân, Bình Thọ, Thủ Đức</div>
+                  </div>
+                  <span class="px-2 py-0.5 text-[10px] font-bold bg-emerald-100 text-emerald-800 rounded">Hoạt động</span>
+                </div>
+                <div class="p-3 border border-slate-200 rounded-lg bg-slate-50 flex items-center justify-between">
+                  <div>
+                    <div class="font-bold text-slate-800">Chi nhánh 3: Maison Bình Thạnh</div>
+                    <div class="text-[11px] text-slate-500">48 Phan Đăng Lưu, Phường 6, Bình Thạnh</div>
+                  </div>
+                  <span class="px-2 py-0.5 text-[10px] font-bold bg-emerald-100 text-emerald-800 rounded">Hoạt động</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4: Operating Budget & Risk Limits -->
+            <div class="o-card p-5 space-y-3">
+              <div class="flex items-center justify-between border-b pb-3">
+                <h3 class="text-xs font-bold uppercase tracking-wide text-slate-800 flex items-center gap-2">
+                  <i class="lucide-shield-check w-4 h-4 text-emerald-700"></i> Hạn mức Rủi ro & Duyệt Chi B2B
+                </h3>
+              </div>
+              <div class="space-y-2 text-xs">
+                <div class="flex justify-between items-center p-2.5 bg-slate-50 rounded border">
+                  <span class="text-slate-600 font-medium">Duyệt tự động Lệnh Chi VietQR B2B:</span>
+                  <span class="font-mono font-bold text-slate-900">&lt; 50,000,000 VNĐ</span>
+                </div>
+                <div class="flex justify-between items-center p-2.5 bg-slate-50 rounded border">
+                  <span class="text-slate-600 font-medium">Hạn mức Ngân sách OPEX Hàng tháng:</span>
+                  <span class="font-mono font-bold text-slate-900">450,000,000 VNĐ</span>
+                </div>
+                <div class="flex justify-between items-center p-2.5 bg-slate-50 rounded border">
+                  <span class="text-slate-600 font-medium">Cảnh báo Anomaly Dòng tiền Thực tế:</span>
+                  <span class="font-mono font-bold text-amber-700">Lệch &gt; 5% Cashflow</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     `;
   },

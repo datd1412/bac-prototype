@@ -12,7 +12,7 @@ Hệ thống cũ bao gồm **53 thư mục HTML độc lập** với 5 nhóm vai
 
 Trong bản mới `new_pd`, toàn bộ 53 màn hình này đã được hợp nhất thành **1 Đơn trang SPA (Single Page Application)** chạy trên nền HTML5 + CSS Tailwind/Custom + JavaScript ES6 Modular, phân chia thành **5 Zone chính**:
 - **Zone 0 (`zone0_shell.js`)**: App Shell, Topbar, Sidebar, Audit Drawer, AI Copilot Drawer.
-- **Zone 1 (`zone1_admin.js`)**: Quản trị Nền tảng (SA-01 -> SA-04) & Cấu hình Doanh nghiệp (BO-01).
+- **Zone 1 (`zone1_admin.js`)**: Quản trị Nền tảng (SA-01 -> SA-04) & Cấu hình Vận hành Doanh nghiệp (BO-01 Hồ sơ Pháp lý, Mã số thuế, Đơn vị tiền tệ, Quy tắc FEFO & Hạn mức rủi ro).
 - **Zone 2 (`zone2_inventory.js`)**: Quản lý Kho, Biến thể Mỹ phẩm FEFO, Dự báo PO Draft & Công nợ Nhà cung cấp (BO-03, BO-04, BO-09).
 - **Zone 3 (`zone3_sales.js`)**: Đơn hàng Đa kênh, P&L (Accrual vs Cashflow), Sổ thu chi VietQR B2B, Chi phí OPEX & Đối soát Shopee/TikTok Shop (BO-02, BO-05, BO-06).
 - **Zone 4 (`zone4_pos.js`)**: Trạm POS Thu ngân, Kiểm kê quầy, Nhập kho quầy SE-03, Giao ca két tiền, Đổi trả & Tra cứu (SE-01 -> SE-04).
@@ -24,7 +24,7 @@ Trong bản mới `new_pd`, toàn bộ 53 màn hình này đã được hợp nh
 
 | Mã màn hình | Tên màn hình / Tên nghiệp vụ bản cũ | Trạng thái ở `new_pd` | Vị trí / Đường dẫn truy cập trong `new_pd` |
 |---|---|---|---|
-| **BO-01** | Cấu hình Vận hành Doanh nghiệp (Business Profile) | ✅ Đã hoàn thiện | **App Switcher ➔ Quản trị ➔ Tab "Hồ sơ Doanh nghiệp"** |
+| **BO-01** | Cấu hình Vận hành Doanh nghiệp (Business Profile) | ✅ Đã bổ sung mới | **App Switcher ➔ Quản trị & BO-01 ➔ Tab "Hồ sơ Doanh nghiệp & Vận hành (BO-01)"** |
 | **BO-02** | Quản lý Chi phí OPEX & Ngân sách Tài chính | ✅ Đã hoàn thiện | **App Switcher ➔ Tài chính ➔ Sub-tab "Chi phí & Ngân sách OPEX"** |
 | **BO-02m**| Ghi nhận Chi phí Nhanh OPEX (Mobile View) | ✅ Đã đáp ứng | **Co giãn màn hình mobile ➔ Tài chính ➔ OPEX (Có nút Lập phiếu chi nhanh)** |
 | **BO-03** | Quản lý Sản phẩm, Biến thể & Bảng Giá | ✅ Đã hoàn thiện | **App Switcher ➔ Kho hàng ➔ Sub-tab "Sản phẩm & Biến thể FEFO"** |
@@ -56,7 +56,15 @@ Trong bản mới `new_pd`, toàn bộ 53 màn hình này đã được hợp nh
 
 Chủ doanh nghiệp có thể truy cập toàn bộ các phân hệ thông qua **App Switcher (Grid 9 chấm bên trái topbar)** hoặc **Menu điều hướng chính**:
 
-1. **Xem Báo cáo Tổng quan & Chiến lược AI (Executive & Strategy):**
+1. **Xem & Thiết lập Hồ sơ Doanh nghiệp BO-01:**
+   - Click App Switcher (Grid 9 chấm) ➔ Choose **`Quản trị & BO-01`**.
+   - Tab 1 chính là **🏢 1. Hồ sơ Doanh nghiệp & Vận hành (BO-01)**:
+     - Xem Tên công ty pháp lý, Mã số thuế `0317892301`, Người đại diện, Trụ sở chính.
+     - Thiết lập Đơn vị tiền tệ, Phương pháp tính giá vốn FEFO, Ngưỡng cảnh báo lô hãn dùng < 60 ngày.
+     - Quản lý danh sách 3 Chi nhánh cửa hàng (Maison Quận 1, Thủ Đức, Bình Thạnh).
+     - Cấu hình Hạn mức duyệt chi tự động VietQR B2B & Ngân sách OPEX.
+
+2. **Xem Báo cáo Tổng quan & Chiến lược AI (Executive & Strategy):**
    - Click biểu tượng **AI Advisor** trên Topbar hoặc chọn App Switcher ➔ `Cố vấn AI & Báo cáo`.
    - Chuyển giữa các tab:
      - **Dashboard Điều hành**: Xem doanh thu, biên lợi nhuận, cashflow, tồn kho và cảnh báo.
@@ -65,39 +73,22 @@ Chủ doanh nghiệp có thể truy cập toàn bộ các phân hệ thông qua 
      - **Cảnh báo Bất thường**: Xem rò rỉ dòng tiền, lệch kho, gian lận chiết khấu.
      - **Trợ lý Chiến lược C-Level**: Đặt câu hỏi tự nhiên cho AI Copilot về định hướng kinh doanh.
 
-2. **Quản lý Tài chính, Doanh thu & Dòng tiền (Financial & Revenue Management):**
+3. **Quản lý Tài chính, Doanh thu & Dòng tiền (Financial & Revenue Management):**
    - Click chọn menu **Tài chính** trên Topbar.
    - Các sub-tab nghiệp vụ:
      - **P&L Dồn tích vs Dòng tiền**: So sánh Lợi nhuận Kế toán (Accrual P&L) vs Dòng tiền Thực nhận (Cashflow).
-     - **Đơn hàng Đa kênh**: Quản lý đơn hàng Shopee, TikTok Shop, Website, POS. Bấm vào bất kỳ dòng đơn hàng nào để mở chi tiết đơn hàng (lịch sử biến động status).
-     - **Chi phí & Ngân sách OPEX**: Theo dõi chi phí mặt bằng, nhân sự, marketing và hạn mức ngân sách.
-     - **Đối soát Sàn TMĐT**: Xem chênh lệch doanh số sàn vs tiền về tài khoản ngân hàng (Shopee, TikTok).
-     - **Sổ Thu Chi VietQR**: Bấm nút **"Lập phiếu Chi VietQR"** hoặc **"Lập phiếu Thu B2B"** để kích hoạt VietQR code động tự động dán nội dung chuyển khoản.
+     - **Đơn hàng Đa kênh**: Quản lý đơn hàng Shopee, TikTok Shop, Website, POS.
+     - **Chi phí & Ngân sách OPEX**: Theo dõi chi phí mặt bằng, nhân sự, marketing.
+     - **Đối soát Sàn TMĐT**: Xem chênh lệch doanh số sàn vs tiền về tài khoản ngân hàng.
+     - **Sổ Thu Chi VietQR**: Bấm nút **"Lập phiếu Chi VietQR"** hoặc **"Lập phiếu Thu B2B"**.
 
-3. **Quản lý Kho hàng, Biến thể Mỹ phẩm & Nhập hàng (Inventory & Supply Chain):**
+4. **Quản lý Kho hàng, Biến thể Mỹ phẩm & Nhập hàng (Inventory & Supply Chain):**
    - Click chọn menu **Kho hàng** trên Topbar.
    - Các sub-tab nghiệp vụ:
-     - **Sản phẩm & Biến thể FEFO**: Theo dõi lô date hãn dùng mỹ phẩm (cảnh báo đỏ nếu dưới 60 ngày), vị trí kệ kho.
-     - **Dự báo Nhu cầu & PO Draft**: Xem AI gợi ý số lượng cần nhập dựa trên tốc độ bán cạn (Run-rate). Bấm **"Duyệt PO Draft"** để mở Wizard duyệt 3 bước.
-     - **Nhật ký Xuất Nhập Tồn**: Tra cứu lịch sử di chuyển kho giữa Kho Tổng và các Quầy.
-     - **Nhà cung cấp & Công nợ**: Theo dõi công nợ quá hạn, hạn thanh toán và tạo lệnh chuyển khoản VietQR B2B cho NCC.
+     - **Sản phẩm & Biến thể FEFO**: Theo dõi lô date hãn dùng mỹ phẩm, vị trí kệ kho.
+     - **Dự báo Nhu cầu & PO Draft**: Xem AI gợi ý số lượng cần nhập.
+     - **Nhật ký Xuất Nhập Tồn**: Tra cứu lịch sử di chuyển kho.
+     - **Nhà cung cấp & Công nợ**: Theo dõi công nợ quá hạn và thanh toán VietQR B2B.
 
 ---
-
-## IV. ĐÁNH GIÁ UI/UX THEO TIÊU CHUẨN ODOO & CÁC ĐIỂM CẦN CẢI THIỆN Ở PHASE 2
-
-### 1. Hiện trạng Icon AI (Sparkles `✨`) rườm rà
-- Bản prototype hiện tại còn xuất hiện biểu tượng `✨` ở quá nhiều vị trí (Topbar, KPI cards, Table headers, Action buttons).
-- **Đánh giá Designer & End-User**: Việc lạm dụng icon sparkles `✨` làm giao diện trông "đồ chơi", thiếu tính tin cậy của một phần mềm quản trị doanh nghiệp (ERP/POS) chuẩn Odoo.
-- **Giải pháp Phase 2**: Loại bỏ toàn bộ icon `✨` rực rỡ; thay bằng badge chữ phẳng thanh lịch (`AI Smart`, `[Gợi ý AI]`, `Tự động FEFO`) với màu sắc dịu nhẹ.
-
-### 2. Chuẩn hóa Badge Trạng thái (Status Badges) & Palette màu Odoo
-- Cần áp dụng chuẩn Odoo Badge System:
-  - **Draft (Bản nháp)**: Nền xám nhạt `#F1F5F9`, chữ `#475569`.
-  - **Pending / Waiting (Chờ xử lý)**: Nền vàng kem `#FEF3C7`, chữ `#D97706`.
-  - **Approved / Done (Đã hoàn tất)**: Nền xanh pastel `#DCFCE7`, chữ `#15803D`.
-  - **Cancelled / Risk (Rủi ro / Hủy)**: Nền hồng kem `#FEE2E2`, chữ `#B91C1C`.
-- Tăng độ tương phản chữ trên các bảng biểu danh sách sản phẩm và sổ thu chi.
-
----
-*Báo cáo đã được ghi nhận vào hệ thống. Sẵn sàng chuyển sang Phase 2 để tiến hành nâng cấp UI/UX Odoo và dọn dẹp icon AI.*
+*Báo cáo đã cập nhật hoàn tất.*
