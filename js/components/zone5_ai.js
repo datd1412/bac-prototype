@@ -749,25 +749,192 @@ const Zone5AI = {
   },
 
   renderAnomalyCenter: function() {
+    const filterTab = MockData.subTabs.anomalyFilter || 'all';
+
     return `
-      <div class="o-card p-5 border-amber-200 bg-amber-50/20 space-y-4">
-        <h2 class="text-sm font-bold text-slate-800 flex items-center gap-2 mb-3">
-          <i class="lucide-alert-triangle w-4 h-4 text-amber-600"></i> Trung tâm Cảnh báo Bất thường AI (Anomaly Detection Center BO-08)
-        </h2>
-        <div class="space-y-3">
-          ${MockData.anomalies.map(a => `
-            <div class="p-3.5 bg-white border border-slate-200 rounded-lg shadow-sm space-y-1.5">
-              <div class="flex items-center justify-between">
-                <span class="font-bold text-xs text-slate-800">${a.title}</span>
-                <span class="${a.level === 'HIGH' ? 'badge-danger' : 'badge-warning'}">${a.level === 'HIGH' ? 'RỦI RO CAO' : 'CẢNH BÁO'}</span>
+      <div class="space-y-6">
+        <!-- TOP HERO & RADAR CONTROL BAR (Screen 02 Parity) -->
+        <div class="o-card p-5 bg-gradient-to-r from-slate-900 via-purple-950 to-slate-900 text-white rounded-xl shadow-lg border border-purple-900/50 relative overflow-hidden">
+          <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-4 relative z-10">
+            <div class="space-y-1.5 max-w-3xl">
+              <div class="flex flex-wrap items-center gap-2 text-xs">
+                <span class="text-teal-300 font-bold flex items-center gap-1">
+                  <i class="lucide-brain w-4 h-4 text-teal-300"></i> Trí Tuệ AI Engine v4.2
+                </span>
+                <span class="text-white/40">•</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold text-[10px] flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Radar Đang Quét (Live Stream 15 phút/lần)
+                </span>
               </div>
-              <div class="text-xs text-slate-600">${a.evidence}</div>
-              <div class="text-xs font-bold text-emerald-700 flex items-center justify-between pt-1 border-t border-slate-100">
-                <span>Khuyên nghị: ${a.suggestion}</span>
-                <button onclick="Zone0Shell.showEvidenceModal()" class="text-purple-700 hover:underline">Xem Chứng Cứ Dữ Liệu →</button>
+
+              <h1 class="text-xl font-extrabold text-white tracking-tight flex items-center gap-2">
+                Trung Tâm AI Insights & Phát Hiện Bất Thường Realtime (BO-08)
+              </h1>
+
+              <p class="text-xs text-slate-300 font-normal">
+                Thuật toán kép Isolation Forest & Adaptive Z-Score (+/- 3σ) tự động rà soát sai lệch tiền ví TMĐT, đứt hàng FEFO và lãng phí quảng cáo.
+              </p>
+            </div>
+
+            <!-- Radar Control Action Buttons -->
+            <div class="flex flex-wrap items-center gap-2 text-xs font-semibold">
+              <button onclick="alert('Đã kích hoạt lượt quét cưỡng bức toàn bộ CSDL!')" class="px-3.5 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white transition shadow flex items-center gap-1.5 font-bold">
+                <i class="lucide-zap w-4 h-4"></i> Quét Cưỡng Bức Ngay
+              </button>
+              <button onclick="alert('Đã xuất báo cáo tổng hợp sự cố dạng PDF!')" class="px-3.5 py-2 rounded-lg bg-sky-600 hover:bg-sky-700 text-white transition shadow flex items-center gap-1.5 font-bold">
+                <i class="lucide-file-text w-4 h-4"></i> Xuất Báo Cáo Sự Cố
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 SEVERITY METRICS STAT CARDS (Semantic Colors & Visual Hierarchy - Point 1 & 2 UI) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+          <!-- Card 1: Critical (Đỏ P1) -->
+          <div class="p-4 rounded-xl bg-white border border-red-200 shadow-sm relative overflow-hidden space-y-2">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-red-600"></div>
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 rounded-full bg-red-100 text-red-800 font-bold text-[10px] border border-red-300 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-600"></span> P1 - KHẨN CẤP
+              </span>
+              <i class="lucide-alert-triangle w-5 h-5 text-red-600"></i>
+            </div>
+            <div>
+              <div class="text-2xl font-extrabold text-red-700 font-mono">3 Sự Cố</div>
+              <div class="text-xs font-bold text-slate-700 mt-0.5">Thất thoát dự kiến: ~42,800,000 VNĐ</div>
+            </div>
+            <p class="text-[11px] text-slate-500 font-normal line-clamp-2">Lệch tiền ví Shopee Mall, ROAS TikTok Ads giảm & đứt hàng FEFO Q1.</p>
+          </div>
+
+          <!-- Card 2: Warning (Cam P2) -->
+          <div class="p-4 rounded-xl bg-white border border-amber-200 shadow-sm relative overflow-hidden space-y-2">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-amber-500"></div>
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-bold text-[10px] border border-amber-300 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span> P2 - CẢNH BÁO
+              </span>
+              <i class="lucide-clock w-5 h-5 text-amber-600"></i>
+            </div>
+            <div>
+              <div class="text-2xl font-extrabold text-amber-700 font-mono">5 Điểm Lưu Ý</div>
+              <div class="text-xs font-bold text-slate-700 mt-0.5">Nguy cơ ảnh hưởng: ~18,500,000 VNĐ</div>
+            </div>
+            <p class="text-[11px] text-slate-500 font-normal line-clamp-2">Tỷ lệ hoàn bưu phẩm Miền Trung tăng +18% do vận chuyển trễ.</p>
+          </div>
+
+          <!-- Card 3: Auto-Resolved (Xanh lá) -->
+          <div class="p-4 rounded-xl bg-white border border-emerald-200 shadow-sm relative overflow-hidden space-y-2">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-emerald-600"></div>
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[10px] border border-emerald-300 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> ĐÃ KHẮC PHỤC
+              </span>
+              <i class="lucide-check-circle-2 w-5 h-5 text-emerald-600"></i>
+            </div>
+            <div>
+              <div class="text-2xl font-extrabold text-emerald-700 font-mono">12 Đã Xử Lý</div>
+              <div class="text-xs font-bold text-slate-700 mt-0.5">Bảo toàn vốn: +31,200,000 VNĐ</div>
+            </div>
+            <p class="text-[11px] text-slate-500 font-normal line-clamp-2">AI Copilot tự ngắt 2 Adset lãng phí & tự gửi khiếu nại cước sàn.</p>
+          </div>
+
+          <!-- Card 4: Health Score (Tím Odoo) -->
+          <div class="p-4 rounded-xl bg-white border border-purple-200 shadow-sm relative overflow-hidden space-y-2">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-[#714B67]"></div>
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 rounded-full bg-purple-100 text-purple-900 font-bold text-[10px] border border-purple-300">
+                SỨC KHỎE CHUỖI
+              </span>
+              <i class="lucide-activity w-5 h-5 text-[#714B67]"></i>
+            </div>
+            <div>
+              <div class="text-2xl font-extrabold text-[#714B67] font-mono">88 / 100</div>
+              <div class="text-xs font-bold text-slate-700 mt-0.5">Chỉ số ổn định hệ thống</div>
+            </div>
+            <p class="text-[11px] text-slate-500 font-normal line-clamp-2">3 cửa hàng đang hoạt động bình thường trên POS KiotViet.</p>
+          </div>
+        </div>
+
+        <!-- ANOMALY FEED LIST WITH FINANCIAL CONFIRMATION MODAL & EVIDENCE -->
+        <div class="o-card p-5 space-y-4">
+          <div class="flex items-center justify-between border-b pb-3 flex-wrap gap-2">
+            <h2 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+              <i class="lucide-list-checks w-4 h-4 text-[#714B67]"></i> Danh Sách Sự Cố Bất Thường Cần Chủ DN Ra Quyết Định
+            </h2>
+            <div class="flex items-center gap-1 text-xs font-semibold">
+              <button class="px-3 py-1 bg-[#714B67] text-white rounded-lg shadow-xs">Tất cả (8)</button>
+              <button class="px-3 py-1 bg-red-100 text-red-800 rounded-lg hover:bg-red-200">🔴 Khẩn cấp (3)</button>
+              <button class="px-3 py-1 bg-amber-100 text-amber-800 rounded-lg hover:bg-amber-200">🟡 Cảnh báo (5)</button>
+            </div>
+          </div>
+
+          <div class="space-y-3.5">
+            <!-- Anomaly Item 1 -->
+            <div class="p-4 bg-red-50/40 border border-red-200 rounded-xl space-y-3 shadow-xs">
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <div class="flex items-center gap-2">
+                  <span class="px-2 py-0.5 bg-red-600 text-white font-bold text-[10px] rounded uppercase">P1 - KHẨN CẤP</span>
+                  <h3 class="font-bold text-xs text-red-950">1. Shopee chưa đối soát 14.500.000 VNĐ đợt 15/09 - 20/09</h3>
+                </div>
+                <span class="text-[11px] font-mono font-bold text-red-700 bg-red-100 px-2 py-0.5 rounded">Thất thoát rủi ro: -420.000 VNĐ</span>
+              </div>
+              <p class="text-xs text-slate-700 font-normal leading-relaxed">
+                Hệ thống phát hiện sai lệch chiết khấu sàn 3.2% đối với các đơn hàng mỹ phẩm chạy KM trên Shopee Mall. Tiền chưa về ví doanh nghiệp.
+              </p>
+              <div class="flex items-center justify-between pt-2 border-t border-red-200/60 text-xs flex-wrap gap-2">
+                <button onclick="Zone0Shell.showEvidenceModal()" class="text-sky-700 font-bold hover:underline flex items-center gap-1">
+                  <i class="lucide-search-code w-3.5 h-3.5 text-sky-600"></i> [ Xem Bảng Chứng Cứ Đơn Hàng Shopee ]
+                </button>
+                <button onclick="Zone0Shell.openFinancialConfirm('Xác Nhận Gửi Yêu Cầu Khiếu Nại Shopee', '<div class=\'p-3 bg-purple-50 rounded-lg border border-purple-200 text-xs space-y-1\'><div><strong>Mã đợt đối soát:</strong> #SP-2026-09B</div><div><strong>Số tiền chưa về:</strong> 14,500,000 VNĐ</div><div><strong>Lệch phí sàn:</strong> -420,000 VNĐ</div></div>', 'Gửi Khiếu Nại Sàn Shopee', function() { alert('Đã gửi ticket khiếu nại đối soát tới bộ phận hỗ trợ Shopee Mall thành công!'); })" class="px-3.5 py-1.5 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition shadow-xs flex items-center gap-1">
+                  <i class="lucide-send w-3.5 h-3.5"></i> Gửi Khiếu Nại Sàn Ngay →
+                </button>
               </div>
             </div>
-          `).join('')}
+
+            <!-- Anomaly Item 2 -->
+            <div class="p-4 bg-amber-50/40 border border-amber-200 rounded-xl space-y-3 shadow-xs">
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <div class="flex items-center gap-2">
+                  <span class="px-2 py-0.5 bg-amber-600 text-white font-bold text-[10px] rounded uppercase">P2 - UUTIÊN 3 NGÀY</span>
+                  <h3 class="font-bold text-xs text-amber-950">2. Lô Mỹ phẩm Serum Vitamin C20 (32 hộp) Kho Q1 cận date 45 ngày</h3>
+                </div>
+                <span class="text-[11px] font-mono font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">Tồn chôn vốn: 14.400.000 VNĐ</span>
+              </div>
+              <p class="text-xs text-slate-700 font-normal leading-relaxed">
+                Tốc độ bán hiện tại 0.8 hộp/ngày sẽ không tiêu thụ hết trước hạn sử dụng 15/11/2026. Nguy cơ phải hủy hàng lỗ 100%.
+              </p>
+              <div class="flex items-center justify-between pt-2 border-t border-amber-200/60 text-xs flex-wrap gap-2">
+                <button onclick="Zone0Shell.showEvidenceModal()" class="text-sky-700 font-bold hover:underline flex items-center gap-1">
+                  <i class="lucide-search-code w-3.5 h-3.5 text-sky-600"></i> [ Tra Cứu Thẻ Lô FEFO Kho Q1 ]
+                </button>
+                <button onclick="Zone0Shell.openFinancialConfirm('Xác Nhận Tạo CTKM Flash Sale Giảm 30%', '<div class=\'p-3 bg-amber-50 rounded-lg border border-amber-200 text-xs space-y-1\'><div><strong>Sản phẩm:</strong> Serum Vitamin C20 30ml</div><div><strong>Số lượng:</strong> 32 hộp</div><div><strong>Mức giảm giá:</strong> 30%</div><div><strong>Dự kiến thu hồi vốn:</strong> 10,080,000 VNĐ</div></div>', 'Kích Hoạt Flash Sale Xả Hàng', function() { alert('Đã kích hoạt Flash Sale giảm 30% thành công!'); })" class="px-3.5 py-1.5 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-lg transition shadow-xs flex items-center gap-1">
+                  <i class="lucide-tag w-3.5 h-3.5"></i> Tạo CTKM Xả Hàng Giảm 30% →
+                </button>
+              </div>
+            </div>
+
+            <!-- Anomaly Item 3 -->
+            <div class="p-4 bg-sky-50/40 border border-sky-200 rounded-xl space-y-3 shadow-xs">
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <div class="flex items-center gap-2">
+                  <span class="px-2 py-0.5 bg-sky-600 text-white font-bold text-[10px] rounded uppercase">VẬN CHUYỂN</span>
+                  <h3 class="font-bold text-xs text-sky-950">3. Chi nhánh Thủ Đức có 6 đơn hàng giao chậm trễ > 48h</h3>
+                </div>
+                <span class="text-[11px] font-mono font-bold text-sky-800 bg-sky-100 px-2 py-0.5 rounded">Giá trị đơn treo: 5.800.000 VNĐ</span>
+              </div>
+              <p class="text-xs text-slate-700 font-normal leading-relaxed">
+                Tỷ lệ hoàn đơn tại chi nhánh Thủ Đức tăng 4.2% do đơn vị giao vận NinjaVan chậm lấy hàng đợt mưa lớn.
+              </p>
+              <div class="flex items-center justify-between pt-2 border-t border-sky-200/60 text-xs flex-wrap gap-2">
+                <button onclick="App.navigateTo('sales')" class="text-sky-700 font-bold hover:underline flex items-center gap-1">
+                  <i class="lucide-truck w-3.5 h-3.5 text-sky-600"></i> [ Kiểm Tra Vận Đơn Khách Hàng ]
+                </button>
+                <button onclick="alert('Đã gửi yêu cầu hỏa tốc chuyển đổi đơn vị giao vận cho 6 đơn treo!')" class="px-3.5 py-1.5 bg-sky-700 hover:bg-sky-800 text-white font-bold rounded-lg transition shadow-xs flex items-center gap-1">
+                  <i class="lucide-refresh-cw w-3.5 h-3.5"></i> Đổi Đơn Vị Giao Vận Hỏa Tốc →
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     `;

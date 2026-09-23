@@ -15,10 +15,12 @@
     - 🎯 **End User:** Thêm bản tóm tắt 30 giây (TL;DR), quy trình Modal Xác nhận Giao dịch Tài chính cho nút PO & Flash sale (tránh bấm nhầm), phân cấp nhãn ưu tiên P1 (Khẩn cấp 24h) / P2 (Ưu tiên 3 ngày), tách 2 Tab Lịch sử Chat vs Task Cần Làm, nổi bật khối xác thực nguồn dữ liệu KiotViet POS & Kho FEFO (độ tin cậy 98.4%).
     - 🎨 **UI Designer:** Chuẩn hóa hệ màu ngữ nghĩa (Red = P1 khẩn cấp, Amber = P2 khuyến nghị, Indigo/Purple = Thao tác thường, Sky = Phân tích/Xem PDF, Green = Đã duyệt/Live), tách các số liệu tài chính thành Khối Stat Cards riêng biệt, xử lý tràn/cắt khung nhìn ở đáy, đồng bộ 100% Lucide Vector Icons (loại bỏ emoji rác), tiết chế chữ in đậm và tạo margin an toàn cho nút Floating Action.
 
-- [x] **02. [ai_insights_ph_t_hi_n_b_t_th_ng_th_i_gian_th_c]** — *Trung tâm AI Insights &amp; Phát hiện Bất thường Engine v4.2*
+- [x] ✔️ **02. [ai_insights_ph_t_hi_n_b_t_th_ng_th_i_gian_th_c]** — *Trung tâm AI Insights &amp; Phát hiện Bất thường Engine v4.2*
   - **File render mới (`new_pd`):** [`zone5_ai.js`](file:///d:/prototype/new_pd/js/components/zone5_ai.js) ➔ `Zone5AI.renderAnomalyCenter()`
-  - **Vị trí nút bấm & đường dẫn:** Cố vấn AI ➔ Tab Cảnh báo Bất thường Anomaly Center
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Cố vấn AI ➔ Sub-tab 2: `⚠️ 2. AI Anomaly Alert Center (BO-08)` (`index.html?view=ai_advisor`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm Radar Bar quét live 15m/lần với 100% dữ liệu đối soát POS KiotViet, 4 Khối Stat Cards báo mức độ nghiêm trọng (P1 Khẩn cấp, P2 Cảnh báo, Đã khắc phục, Sức khỏe vận hành), bộ lọc sự cố theo mức độ, tích hợp Modal Xác nhận Giao dịch Tài chính khi gửi khiếu nại Shopee / xả hàng FEFO.
+    - 🎨 **UI Designer:** Chuẩn hóa hệ thống màu ngữ nghĩa (Red P1, Amber P2, Green Resolved, Sky Info), nổi bật con số thất thoát rủi ro (42.8M VNĐ), loại bỏ emoji rác bằng bộ 100% Lucide Vector Icons, tạo spacing thoáng đạt cho thẻ sự cố.
 
 - [x] **03. [b_o_c_o_l_i_l_p_l_chi_ti_t_accrual_vs_cashflow]** — *Báo Cáo Kết Quả Kinh Doanh &amp; Dòng Tiền Thực Tế*
   - **File render mới (`new_pd`):** [`zone3_sales.js`](file:///d:/prototype/new_pd/js/components/zone3_sales.js) ➔ `Zone3Sales.renderCashflowAccrual()`
