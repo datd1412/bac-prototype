@@ -4,6 +4,14 @@
 
 const App = {
   init: function() {
+    if (window.PAGE_APP) {
+      MockData.activeApp = window.PAGE_APP;
+    }
+    const urlParams = new URLSearchParams(window.location.search);
+    const viewParam = urlParams.get('view');
+    if (viewParam) {
+      MockData.activeApp = viewParam;
+    }
     this.render();
   },
 
@@ -104,8 +112,26 @@ const App = {
     `;
   },
 
-  // Navigation Controller
+  // Navigation Controller (Multi-Page & SPA hybrid)
   navigateTo: function(appId) {
+    const pageMap = {
+      'dashboard': 'index.html',
+      'pos': 'pos.html',
+      'inventory': 'inventory.html',
+      'sales': 'sales.html',
+      'sa_admin': 'admin.html',
+      'ai_advisor': 'index.html?view=ai_advisor'
+    };
+    
+    const targetPage = pageMap[appId] || 'index.html';
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // If target page is different from current page, navigate to HTML file
+    if (currentPage !== targetPage.split('?')[0]) {
+      window.location.href = targetPage;
+      return;
+    }
+    
     MockData.activeApp = appId;
     this.render();
     window.scrollTo({ top: 0, behavior: 'smooth' });
