@@ -331,30 +331,40 @@
     - 🎯 **End User:** Thêm quản lý 5 tài khoản nhân sự với ma trận phân quyền truy cập 4 khu vực (Kho, POS, Báo cáo, Quản trị), nút khóa/mở khóa tài khoản bảo mật.
     - 🎨 **UI Designer:** Bảng phân quyền Odoo phẳng, 100% Lucide Vector Icons, màu sắc đại diện cho từng cấp bậc phân quyền.
 
-- [x] **46. [sa_01_qu_n_tr_h_th_ng_c_u_h_nh_n_n_t_ng_system_administrator_master_console]** — *sa_01_qu_n_tr_h_th_ng_c_u_h_nh_n_n_t_ng_system_administrator_master_console*
+- [x] ✔️ **46. [sa_01_qu_n_tr_h_th_ng_c_u_h_nh_n_n_t_ng_system_administrator_master_console]** — *System Administrator Master Governance Console (SA-01)*
   - **File render mới (`new_pd`):** [`zone1_admin.js`](file:///d:/prototype/new_pd/js/components/zone1_admin.js) ➔ `Zone1Admin.renderSecurityConfig()`
-  - **Vị trí nút bấm & đường dẫn:** Quản trị ➔ Sub-tab Cấu hình Security Policy (SA-03)
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Quản trị & SA-Admin ➔ Sub-tab 4: `⚙️ 4. Cấu hình Nền tảng & Security Policy (SA-03)` (`admin.html?sub=security_config`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm bảng điều khiển an ninh hạ tầng, quản lý cấu hình SSO/2FA, thiết lập giới hạn IP truy cập cho tài khoản quản trị.
+    - 🎨 **UI Designer:** Bố cục phẳng 2 cột Odoo, 100% Lucide Vector Icons, màu tím Odoo `#714B67` chuẩn thương hiệu.
 
-- [x] **47. [sa_02_qu_n_l_doanh_nghi_p_multi_tenant_governance_console]** — *Trung Tâm Quản Trị Khách Thuê &amp; Multi-Tenant*
+- [x] ✔️ **47. [sa_02_qu_n_l_doanh_nghi_p_multi_tenant_governance_console]** — *Trung Tâm Quản Trị Khách Thuê Multi-Tenant (SA-02 Governance)*
   - **File render mới (`new_pd`):** [`zone1_admin.js`](file:///d:/prototype/new_pd/js/components/zone1_admin.js) ➔ `Zone1Admin.renderTenants()`
-  - **Vị trí nút bấm & đường dẫn:** Quản trị ➔ Sub-tab Multi-Tenant Governance (SA-02)
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Quản trị & SA-Admin ➔ Sub-tab 2: `🌐 2. Multi-Tenant Governance (SA-02)` (`admin.html?sub=tenants`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm quản lý 3 doanh nghiệp khách thuê (Maison de Bloom, Bloom Skincare Spa, Silk Viet Fashion), theo dõi dung lượng CSDL & gói đăng ký SaaS.
+    - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, badge màu xanh lá báo trạng thái Tenant Active.
 
-- [x] **48. [sa_03_qu_n_l_c_u_h_nh_h_th_ng_ng_ng_an_ninh_v_n_h_nh]** — *SA-03: Cấu Hình Hệ Thống, Ngưỡng Cảnh Báo &amp; An Ninh Vận Hành*
+- [x] ✔️ **48. [sa_03_qu_n_l_c_u_h_nh_h_th_ng_ng_ng_an_ninh_v_n_h_nh]** — *Cấu Hình Ngưỡng An Ninh & Cảnh Báo Vận Hành (SA-03 Policy)*
   - **File render mới (`new_pd`):** [`zone1_admin.js`](file:///d:/prototype/new_pd/js/components/zone1_admin.js) ➔ `Zone1Admin.renderSecurityConfig()`
-  - **Vị trí nút bấm & đường dẫn:** Quản trị ➔ Sub-tab Cấu hình Ngưỡng & An ninh (SA-03)
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Quản trị & SA-Admin ➔ Sub-tab 4: `⚙️ 4. Cấu hình Nền tảng & Security Policy (SA-03)` (`admin.html?sub=security_config`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm cấu hình ngưỡng cảnh báo tồn kho tối thiểu (Min Stock Threshold) & số lần đăng nhập sai tối đa trước khi khóa tài khoản.
+    - 🎨 **UI Designer:** Form thiết lập Odoo phẳng, 100% Lucide Vector Icons, font mono chuẩn số đo.
 
-- [x] **49. [sa_04_nh_t_k_audit_trail_ki_m_to_n_b_o_m_t_truy_v_t_s_c]** — *Nhật Ký Kiểm Toán &amp; Điều Tra Pháp Y Bảo Mật*
+- [x] ✔️ **49. [sa_04_nh_t_k_audit_trail_ki_m_to_n_b_o_m_t_truy_v_t_s_c]** — *Nhật Ký Kiểm Toán & Truy Vết Sự Cố Bảo Mật (SA-04 Audit Trail)*
   - **File render mới (`new_pd`):** [`zone1_admin.js`](file:///d:/prototype/new_pd/js/components/zone1_admin.js) ➔ `Zone1Admin.renderAuditLogs()`
-  - **Vị trí nút bấm & đường dẫn:** Quản trị ➔ Sub-tab Nhật ký Audit Trail & Truy vết (SA-04)
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Quản trị & SA-Admin ➔ Sub-tab 5: `🛡️ 5. Nhật ký Audit Trail & Truy vết (SA-04)` (`admin.html?sub=audit_logs`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm nhật ký lưu vết 128 hành động hệ thống (Ai đã duyệt PO, ai đã chỉnh giá, ai đã chốt két POS) kèm mốc thời gian & địa chỉ IP.
+    - 🎨 **UI Designer:** Bảng dữ liệu Odoo phẳng, font mono cho IP & Timestamp, 100% Lucide Vector Icons.
 
-- [x] **50. [se_01_ghi_nh_n_giao_d_ch_b_n_h_ng_pos_store_employee_pos_terminal]** — *se_01_ghi_nh_n_giao_d_ch_b_n_h_ng_pos_store_employee_pos_terminal*
+- [x] ✔️ **50. [se_01_ghi_nh_n_giao_d_ch_b_n_h_ng_pos_store_employee_pos_terminal]** — *Màn Hình Tính Tiền POS & In Hóa Đơn Bán Hàng (SE-01 POS Terminal)*
   - **File render mới (`new_pd`):** [`zone4_pos.js`](file:///d:/prototype/new_pd/js/components/zone4_pos.js) ➔ `Zone4POS.renderTerminal()`
-  - **Vị trí nút bấm & đường dẫn:** POS Thu Ngân ➔ Tab Màn Hình Tính Tiền POS (SE-01)
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** POS Thu Ngân ➔ Sub-tab 1: `🖥️ 1. Màn Hình Tính Tiền POS (Bán Hàng & In Hóa Đơn)` (`pos.html?sub=terminal`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Giao diện quầy bán hàng Touch-first tối ưu cho màn hình cảm ứng POS 15", bàn phím số Numpad cảm ứng, tìm kiếm sản phẩm nhanh theo tên/barcode, nút Thanh Toán & In Hóa Đơn một chạm.
+    - 🎨 **UI Designer:** Bố cục 2 cột (40% giỏ hàng / 60% danh mục), 100% Lucide Vector Icons, font mono số tiền & tổng hóa đơn màu xanh dương nổi bật.
 
 - [x] **51. [se_02_ki_m_k_t_n_kho_qu_y_qu_n_l_l_h_n_d_ng_fefo]** — *se_02_ki_m_k_t_n_kho_qu_y_qu_n_l_l_h_n_d_ng_fefo*
   - **File render mới (`new_pd`):** [`zone4_pos.js`](file:///d:/prototype/new_pd/js/components/zone4_pos.js) ➔ `Zone4POS.renderInventoryCount()`
