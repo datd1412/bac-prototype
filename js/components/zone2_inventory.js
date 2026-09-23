@@ -104,116 +104,337 @@ const Zone2Inventory = {
     `;
   },
 
-  // Sub-tab 1: Variants & FEFO
+  // Sub-tab 1: BO-03 Variants & FEFO Product Price Management
   renderVariantsFEFO: function() {
     return `
-      <div class="o-card p-5">
-        <div class="flex items-center justify-between mb-4">
-          <div>
-            <h2 class="text-sm font-bold text-slate-800 flex items-center gap-2">
-              <i class="lucide-package w-4 h-4 text-emerald-600"></i> Danh mục Sản phẩm Biến thể & Lô FEFO
-            </h2>
-            <span class="text-xs text-slate-500">Tự động phân biệt Thời trang (Size/Màu) & Mỹ phẩm (Lô Hạn dùng FEFO)</span>
+      <div class="space-y-6">
+        <!-- Top Control Bar BO-03 -->
+        <div class="o-card p-5 bg-slate-900 text-white rounded-xl shadow-lg border border-slate-800 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wide">BO-03: Catalog & Price Engine</span>
+              <span class="text-xs text-emerald-400 font-semibold flex items-center gap-1">
+                <i class="lucide-check-circle-2 w-3.5 h-3.5 text-emerald-400"></i> Auto-Sync FIFO & FEFO Strict Rules
+              </span>
+            </div>
+            <h1 class="text-xl font-extrabold text-white tracking-tight flex items-center gap-2">
+              Quản Lý Sản Phẩm & Bảng Giá Mỹ Phẩm FEFO
+            </h1>
+            <p class="text-xs text-slate-300">Phân loại danh mục, giá vốn COGS, giá bán niêm yết và theo dõi biên lợi nhuận gộp từng SKU real-time.</p>
           </div>
-          <button onclick="Zone2Inventory.openIntakeWizard()" class="px-3 py-1.5 text-xs font-semibold bg-emerald-700 text-white rounded hover:bg-emerald-800 transition flex items-center gap-1 shadow">
-            <i class="lucide-plus-circle w-3.5 h-3.5"></i> Nhập kho Lô FEFO Mới (Wizard 3 bước)
-          </button>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <button onclick="alert('Đã xuất file Excel bảng giá toàn bộ SKU!')" class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold rounded-lg flex items-center gap-1.5 transition">
+              <i class="lucide-download w-4 h-4 text-sky-400"></i> Xuất Bảng Giá (.XLSX)
+            </button>
+            <button onclick="Zone2Inventory.openIntakeWizard()" class="px-4 py-2 bg-[#714B67] hover:bg-purple-900 text-white text-xs font-bold rounded-lg flex items-center gap-1.5 shadow-md transition">
+              <i class="lucide-plus-circle w-4 h-4 text-amber-300"></i> + Thêm Sản Phẩm / Lô FEFO
+            </button>
+          </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          ${MockData.products.map(p => `
-            <div class="border border-slate-200 rounded-lg p-4 bg-white hover:shadow-md transition flex gap-4">
-              <img src="${p.image}" alt="${p.name}" class="w-20 h-20 object-cover rounded-lg border border-slate-200 shrink-0" />
-              <div class="flex-1 space-y-1.5">
-                <div class="flex items-start justify-between">
-                  <div>
-                    <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded ${p.domain === 'cosmetics' ? 'bg-pink-100 text-pink-800' : 'bg-blue-100 text-blue-800'}">${p.category}</span>
-                    <h3 class="font-bold text-xs text-slate-800 mt-1">${p.name}</h3>
-                    <div class="text-[10px] font-mono text-slate-400">SKU: ${p.sku}</div>
-                  </div>
-                </div>
-
-                <div class="flex items-center justify-between text-xs pt-1 border-t border-slate-100">
-                  <div>
-                    <span class="text-slate-500">Giá bán:</span> <span class="font-bold text-slate-800">${p.price.toLocaleString()} VNĐ</span>
-                  </div>
-                  <div>
-                    <span class="text-slate-500">Tồn kho:</span> <span class="font-bold ${p.stock < p.minStock ? 'text-red-600' : 'text-emerald-700'}">${p.stock} sản phẩm</span>
-                  </div>
-                </div>
-
-                ${p.domain === 'clothing' ? `
-                  <div class="bg-slate-50 p-2 rounded text-[10px] space-y-1">
-                    <div class="font-bold text-slate-600">Ma trận Biến thể Size/Màu:</div>
-                    <div class="flex flex-wrap gap-1.5">
-                      ${p.variants?.map(v => `<span class="bg-white border border-slate-300 px-1.5 py-0.5 rounded font-mono">${v.color} - ${v.size}: <strong>${v.qty}</strong></span>`).join('')}
-                    </div>
-                  </div>
-                ` : `
-                  <div class="bg-pink-50/60 p-2 rounded text-[10px] space-y-1 border border-pink-100">
-                    <div class="font-bold text-pink-900 flex items-center justify-between">
-                      <span>Lô Hạn dùng FEFO:</span>
-                      <span class="badge-warning">FEFO STRICT</span>
-                    </div>
-                    ${p.batches?.map(b => `
-                      <div class="flex items-center justify-between font-mono text-slate-700">
-                        <span>${b.batchNo} (HSD: ${b.expDate})</span>
-                        <span class="font-bold ${b.status === 'EXPIRING_SOON' ? 'text-amber-700' : b.status === 'CRITICAL_LOW' ? 'text-red-600' : 'text-emerald-700'}">${b.qty} hộp</span>
-                      </div>
-                    `).join('')}
-                  </div>
-                `}
+        <!-- 4 KPI Hero Metrics -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- KPI 1 -->
+          <div class="o-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Tổng SKU Đang Kinh Doanh</span>
+              <div class="w-8 h-8 rounded-lg bg-purple-100 text-purple-800 flex items-center justify-center">
+                <i class="lucide-package w-4.5 h-4.5"></i>
               </div>
             </div>
-          `).join('')}
+            <div class="mt-2">
+              <div class="text-xl font-extrabold text-slate-900 font-mono">142 SKU</div>
+              <div class="mt-1 flex items-center gap-1 text-xs text-slate-600 font-medium">
+                98 sản phẩm gốc • 44 biến thể Size/Màu
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI 2 -->
+          <div class="o-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Biên Lợi Nhuận Gộp TB</span>
+              <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                <i class="lucide-trending-up w-4.5 h-4.5"></i>
+              </div>
+            </div>
+            <div class="mt-2">
+              <div class="text-xl font-extrabold text-emerald-800 font-mono">47.45% Margin</div>
+              <div class="mt-1 flex items-center gap-1 text-xs text-emerald-600 font-bold">
+                <i class="lucide-check-circle-2 w-3.5 h-3.5"></i> Vượt mục tiêu tối thiểu (45.0%)
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI 3 -->
+          <div class="o-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Tổng Giá Trị Niêm Yết</span>
+              <div class="w-8 h-8 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center">
+                <i class="lucide-dollar-sign w-4.5 h-4.5"></i>
+              </div>
+            </div>
+            <div class="mt-2">
+              <div class="text-xl font-extrabold text-slate-900 font-mono">2.450.000.000 ₫</div>
+              <div class="mt-1 flex items-center gap-1 text-xs text-slate-600 font-medium">
+                Giá vốn COGS: <strong class="text-slate-900">~1.287 Tỷ ₫</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI 4 -->
+          <div class="o-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-amber-700 uppercase tracking-wide">Sắp Hết Tồn / Cận Date</span>
+              <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center">
+                <i class="lucide-alert-triangle w-4.5 h-4.5"></i>
+              </div>
+            </div>
+            <div class="mt-2">
+              <div class="text-xl font-extrabold text-amber-800 font-mono">6 SKU Báo Động</div>
+              <div class="mt-1 flex items-center gap-1 text-xs text-amber-700 font-semibold">
+                <i class="lucide-clock w-3.5 h-3.5"></i> 4 mã có nguy cơ đứt hàng
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Cards Grid with FEFO Batches & Variants -->
+        <div class="o-card p-5 space-y-4">
+          <div class="flex items-center justify-between border-b pb-3">
+            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <i class="lucide-boxes w-4.5 h-4.5 text-[#714B67]"></i> Ma Trận Sản Phẩm Mỹ Phẩm FEFO & Thời Trang
+            </h3>
+            <span class="px-2.5 py-0.5 text-[10px] font-extrabold bg-emerald-100 text-emerald-800 rounded-full">FEFO Strict Tracking</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            ${MockData.products.map(p => `
+              <div class="border border-slate-200 rounded-xl p-4 bg-white hover:shadow-md transition flex gap-4">
+                <img src="${p.image}" alt="${p.name}" class="w-24 h-24 object-cover rounded-lg border border-slate-200 shrink-0" />
+                <div class="flex-1 space-y-2">
+                  <div class="flex items-start justify-between">
+                    <div>
+                      <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-md ${p.domain === 'cosmetics' ? 'bg-pink-100 text-pink-800 border border-pink-200' : 'bg-blue-100 text-blue-800 border border-blue-200'}">${p.category}</span>
+                      <h3 class="font-bold text-xs text-slate-900 mt-1">${p.name}</h3>
+                      <div class="text-[10px] font-mono text-slate-500">SKU: ${p.sku}</div>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center justify-between text-xs pt-1 border-t border-slate-100">
+                    <div>
+                      <span class="text-slate-500">Giá bán:</span> <span class="font-mono font-bold text-slate-900">${p.price.toLocaleString()} VNĐ</span>
+                    </div>
+                    <div>
+                      <span class="text-slate-500">Tồn kho:</span> <span class="font-bold ${p.stock < p.minStock ? 'text-red-600' : 'text-emerald-700'}">${p.stock} SP</span>
+                    </div>
+                  </div>
+
+                  ${p.domain === 'clothing' ? `
+                    <div class="bg-slate-50 p-2.5 rounded-lg text-[10px] space-y-1 border border-slate-200">
+                      <div class="font-bold text-slate-700 flex items-center gap-1">
+                        <i class="lucide-layers w-3 h-3 text-slate-500"></i> Ma trận Biến thể Size/Màu:
+                      </div>
+                      <div class="flex flex-wrap gap-1">
+                        ${p.variants?.map(v => `<span class="bg-white border border-slate-300 px-1.5 py-0.5 rounded font-mono text-slate-800">${v.color} - ${v.size}: <strong>${v.qty}</strong></span>`).join('')}
+                      </div>
+                    </div>
+                  ` : `
+                    <div class="bg-purple-50/60 p-2.5 rounded-lg text-[10px] space-y-1.5 border border-purple-100">
+                      <div class="font-bold text-purple-950 flex items-center justify-between">
+                        <span class="flex items-center gap-1"><i class="lucide-clock w-3 h-3 text-purple-700"></i> Lô Hạn Dùng FEFO:</span>
+                        <span class="px-1.5 py-0.5 bg-purple-200 text-purple-900 rounded font-mono font-bold text-[9px]">FEFO STRICT</span>
+                      </div>
+                      ${p.batches?.map(b => `
+                        <div class="flex items-center justify-between font-mono text-slate-700 bg-white p-1 rounded border border-purple-100">
+                          <span>${b.batchNo} (HSD: ${b.expDate})</span>
+                          <span class="font-bold ${b.status === 'EXPIRING_SOON' ? 'text-amber-700' : b.status === 'CRITICAL_LOW' ? 'text-red-600' : 'text-emerald-700'}">${b.qty} hộp</span>
+                        </div>
+                      `).join('')}
+                    </div>
+                  `}
+                </div>
+              </div>
+            `).join('')}
+          </div>
         </div>
       </div>
     `;
   },
 
-  // Sub-tab 2: Stock Moves (bo_04_qu_n_l_t_n_kho_ki_m_so_t_xu_t_nh_p)
+  // Sub-tab 2: BO-04 Stock Moves & Inventory Control
   renderStockMoves: function() {
     return `
-      <div class="o-card p-5 space-y-4">
-        <div class="flex items-center justify-between border-b pb-3">
-          <h2 class="text-sm font-bold text-slate-800 flex items-center gap-2">
-            <i class="lucide-arrow-left-right w-4 h-4 text-emerald-600"></i> Nhật ký Dịch chuyển Kho & Kiểm soát Xuất Nhập (Stock Moves)
-          </h2>
-          <button class="px-3 py-1.5 text-xs font-semibold bg-emerald-700 text-white rounded">
-            + Tạo Phiếu Xuất/Nhập Kho
-          </button>
+      <div class="space-y-6">
+        <!-- Top Control Bar BO-04 -->
+        <div class="o-card p-5 bg-slate-900 text-white rounded-xl shadow-lg border border-slate-800 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-purple-500/20 text-purple-300 border border-purple-500/30 uppercase tracking-wide">BO-04: Inventory & Stock Moves Hub</span>
+              <span class="text-xs text-emerald-400 font-semibold flex items-center gap-1">
+                <i class="lucide-check-circle-2 w-3.5 h-3.5 text-emerald-400"></i> Real-time Stock Sync & FEFO Active
+              </span>
+            </div>
+            <h1 class="text-xl font-extrabold text-white tracking-tight flex items-center gap-2">
+              Quản Lý Tồn Kho & Kiểm Soát Xuất Nhập Tồn
+            </h1>
+            <p class="text-xs text-slate-300">Giám sát tồn kho thực tế 3 kho, hạn dùng FEFO, nhật ký xuất nhập kho và cảnh báo nguy cơ đứt hàng AI.</p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <button onclick="Zone0Shell.openFinancialConfirm('Tạo Phiếu Xuất/Nhập Kho Mới', '<p class=\"text-xs text-slate-600\">Khởi tạo phiếu dịch chuyển kho (Kho xuất, Kho nhập, Danh sách SKU & Lô date FEFO).</p>', 'Mở Form Tạo Phiếu Kho', () => alert('Đã mở form tạo phiếu kho mới!'))" class="px-4 py-2 bg-[#714B67] hover:bg-purple-900 text-white text-xs font-bold rounded-lg transition shadow flex items-center gap-1.5">
+              <i class="lucide-plus-circle w-4 h-4 text-amber-300"></i> + Tạo Phiếu Kho Mới
+            </button>
+          </div>
         </div>
 
-        <table class="w-full text-left text-xs border-collapse border border-slate-200">
-          <thead>
-            <tr class="bg-slate-100 text-slate-700 font-semibold border-b">
-              <th class="p-2.5 border">Mã Tham Chiếu</th>
-              <th class="p-2.5 border">Loại Thao Tác</th>
-              <th class="p-2.5 border">Sản Phẩm</th>
-              <th class="p-2.5 border">Kho Xuất / Kho Nhập</th>
-              <th class="p-2.5 border text-right">Số Lượng</th>
-              <th class="p-2.5 border">Trạng Thái</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="hover:bg-slate-50">
-              <td class="p-2.5 border font-mono font-bold text-purple-800">WH/IN/2026-0089</td>
-              <td class="p-2.5 border font-bold text-emerald-600">NHẬP KHO FEFO</td>
-              <td class="p-2.5 border font-medium">Serum Dưỡng Trắng Vitamin C 30ml</td>
-              <td class="p-2.5 border text-slate-600">NCC Korea ➔ Kho Q1</td>
-              <td class="p-2.5 border text-right font-bold">+100 hộp</td>
-              <td class="p-2.5 border"><span class="px-2 py-0.5 text-[10px] font-bold bg-emerald-100 text-emerald-800 rounded">Hoàn tất</span></td>
-            </tr>
-            <tr class="hover:bg-slate-50">
-              <td class="p-2.5 border font-mono font-bold text-purple-800">WH/OUT/2026-0102</td>
-              <td class="p-2.5 border font-bold text-blue-600">XUẤT KHO BÁN HÀNG</td>
-              <td class="p-2.5 border font-medium">Áo Sơ Mi Lụa Premium Silk</td>
-              <td class="p-2.5 border text-slate-600">Kho Q1 ➔ Sàn Shopee</td>
-              <td class="p-2.5 border text-right font-bold text-red-600">-3 cái</td>
-              <td class="p-2.5 border"><span class="px-2 py-0.5 text-[10px] font-bold bg-emerald-100 text-emerald-800 rounded">Hoàn tất</span></td>
-            </tr>
-          </tbody>
-        </table>
+        <!-- 4 KPI Stock Hero Metric Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Card 1: Total Valuation -->
+          <div class="o-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Tổng Giá Trị Tồn Kho</span>
+              <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                <i class="lucide-dollar-sign w-4.5 h-4.5"></i>
+              </div>
+            </div>
+            <div class="mt-2">
+              <div class="text-xl font-extrabold text-slate-900 font-mono">890.400.000 ₫</div>
+              <div class="mt-1 flex items-center gap-1 text-xs text-slate-600 font-medium">
+                142 SKU • 3.840 sp tại 3 kho
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Safe SKUs -->
+          <div class="o-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">SKU An Toàn / Đạt Định Mức</span>
+              <div class="w-8 h-8 rounded-lg bg-purple-100 text-purple-800 flex items-center justify-center">
+                <i class="lucide-check-circle-2 w-4.5 h-4.5"></i>
+              </div>
+            </div>
+            <div class="mt-2">
+              <div class="text-xl font-extrabold text-slate-900 font-mono">128 / 142 SKU</div>
+              <div class="mt-1 flex items-center gap-1 text-xs text-emerald-600 font-bold">
+                90.1% danh mục • Quay vòng 22 ngày
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Stock-out Alert -->
+          <div class="o-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-red-600 uppercase tracking-wide">Nguy Cơ Đứt Hàng</span>
+              <div class="w-8 h-8 rounded-lg bg-red-100 text-red-700 flex items-center justify-center">
+                <i class="lucide-alert-triangle w-4.5 h-4.5"></i>
+              </div>
+            </div>
+            <div class="mt-2">
+              <div class="text-xl font-extrabold text-red-700 font-mono">6 SKU Cấp Bách</div>
+              <div class="mt-1 flex items-center gap-1 text-xs text-red-600 font-bold">
+                4 SKU &lt; Min Stock • 2 cạn 3 ngày
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: FEFO Expiry Alert -->
+          <div class="o-card p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-amber-700 uppercase tracking-wide">Cận Hạn FEFO (&lt;90 Ngày)</span>
+              <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center">
+                <i class="lucide-hourglass w-4.5 h-4.5"></i>
+              </div>
+            </div>
+            <div class="mt-2">
+              <div class="text-xl font-extrabold text-amber-800 font-mono">8 Lô Date FEFO</div>
+              <div class="mt-1 flex items-center gap-1 text-xs text-amber-700 font-semibold">
+                Trị giá 64.200.000 ₫ • Cần xả hàng
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Inventory Intelligence & Burn-Rate Velocity Banner -->
+        <div class="bg-gradient-to-r from-purple-950 via-slate-900 to-slate-900 text-white rounded-xl p-5 border border-purple-800/50 space-y-3">
+          <div class="flex items-center justify-between border-b border-white/10 pb-3">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg bg-purple-600 text-white flex items-center justify-center font-bold">
+                <i class="lucide-brain w-4.5 h-4.5"></i>
+              </div>
+              <div>
+                <h3 class="font-extrabold text-sm text-white">AI Inventory Intelligence & Dự Báo Tiêu Thụ Velocity-V4</h3>
+                <p class="text-[11px] text-slate-300">Tự động phân tích tốc độ bán ra (Burn-rate 7 ngày) & tính toán tổn thất hụt hàng.</p>
+              </div>
+            </div>
+            <span class="px-2.5 py-0.5 text-[10px] font-extrabold bg-purple-500/30 text-purple-200 border border-purple-400/40 rounded-full">Burn-Rate Model</span>
+          </div>
+
+          <div class="p-3.5 bg-white/5 backdrop-blur-md rounded-lg border border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
+            <div class="space-y-1">
+              <div class="font-bold text-amber-300 flex items-center gap-1.5">
+                <i class="lucide-alert-triangle w-4 h-4 text-amber-400"></i> CẢNH BÁO ĐỨT HÀNG: Serum Phục Hồi Bio-B5 Hydra Max (SKU-SKN-001)
+              </div>
+              <p class="text-slate-300">Tồn kho còn 18 hộp (Min stock 30). Tốc độ bán TikTok +85%/tuần. Runway dự báo cạn trong <strong>2.9 ngày</strong>.</p>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button onclick="Zone0Shell.openFinancialConfirm('Tạo Đơn PO Nhập Hàng Gấp', '<p class=\"text-xs text-slate-600\">Duyệt đơn PO nhập 150 hộp Serum Bio-B5 từ NCC Blossom Korea (Tổng giá trị: 45,000,000 VNĐ).</p>', 'Tạo PO 45Mđ', () => alert('Đã tạo PO nhập 150 hộp!'))" class="px-3 py-1.5 bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold rounded shadow">Tạo PO Nhập 150 Hộp</button>
+              <button onclick="alert('Đã chuyển 15 hộp từ Kho Tổng về Kho Q.1!')" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white font-bold rounded border border-white/20">Chuyển Kho 15 Hộp</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stock Moves Table Matrix -->
+        <div class="o-card p-5 space-y-4">
+          <div class="flex items-center justify-between border-b pb-3">
+            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <i class="lucide-arrow-left-right w-4.5 h-4.5 text-[#714B67]"></i> Nhật Ký Dịch Chuyển Kho & Kiểm Soát Xuất Nhập (Stock Moves)
+            </h3>
+            <span class="text-xs text-slate-500">Đối soát 100% mã giao dịch kho chuẩn Odoo Stock Moves</span>
+          </div>
+
+          <div class="overflow-x-auto border border-slate-200 rounded-lg">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                  <th class="p-3">Mã Tham Chiếu</th>
+                  <th class="p-3">Loại Thao Tác Kho</th>
+                  <th class="p-3">Sản Phẩm & Mã Lô FEFO</th>
+                  <th class="p-3">Kho Xuất ➔ Kho Nhập</th>
+                  <th class="p-3 text-right">Số Lượng</th>
+                  <th class="p-3 text-center">Trạng Thái Thao Tác</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 font-medium text-slate-800">
+                <tr class="hover:bg-slate-50 transition">
+                  <td class="p-3 font-mono font-bold text-purple-900">WH/IN/2026-0089</td>
+                  <td class="p-3"><span class="px-2 py-0.5 text-[10px] font-bold bg-emerald-100 text-emerald-800 rounded">NHẬP KHO FEFO</span></td>
+                  <td class="p-3 font-bold text-slate-900">Serum Dưỡng Trắng Vitamin C 30ml <span class="text-slate-500 font-mono font-normal">(Lô #LOT-202608-A)</span></td>
+                  <td class="p-3 text-slate-600">NCC Korea ➔ Kho Quận 1</td>
+                  <td class="p-3 text-right font-mono font-bold text-emerald-700">+100 hộp</td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 text-[10px] font-bold bg-emerald-100 text-emerald-800 rounded">Hoàn tất</span></td>
+                </tr>
+                <tr class="hover:bg-slate-50 transition">
+                  <td class="p-3 font-mono font-bold text-purple-900">WH/OUT/2026-0102</td>
+                  <td class="p-3"><span class="px-2 py-0.5 text-[10px] font-bold bg-sky-100 text-sky-800 rounded">XUẤT KHO BÁN HÀNG</span></td>
+                  <td class="p-3 font-bold text-slate-900">Áo Sơ Mi Lụa Premium Silk Oversized <span class="text-slate-500 font-mono font-normal">(Size M - Trắng)</span></td>
+                  <td class="p-3 text-slate-600">Kho Quận 1 ➔ Đơn Shopee ORD-9982</td>
+                  <td class="p-3 text-right font-mono font-bold text-red-600">-3 cái</td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 text-[10px] font-bold bg-emerald-100 text-emerald-800 rounded">Hoàn tất</span></td>
+                </tr>
+                <tr class="hover:bg-slate-50 transition">
+                  <td class="p-3 font-mono font-bold text-purple-900">WH/INT/2026-0034</td>
+                  <td class="p-3"><span class="px-2 py-0.5 text-[10px] font-bold bg-purple-100 text-purple-800 rounded">ĐIỀU CHUYỂN NỘI BỘ</span></td>
+                  <td class="p-3 font-bold text-slate-900">Serum Phục Hồi Bio-B5 Hydra Max <span class="text-slate-500 font-mono font-normal">(Lô #LOT-202605-B)</span></td>
+                  <td class="p-3 text-slate-600">Kho Tổng Hóc Môn ➔ Kho Q.1</td>
+                  <td class="p-3 text-right font-mono font-bold text-purple-900">15 hộp</td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 text-[10px] font-bold bg-amber-100 text-amber-800 rounded">Đang vận chuyển</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     `;
   },

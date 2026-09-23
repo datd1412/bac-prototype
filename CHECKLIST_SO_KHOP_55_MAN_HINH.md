@@ -54,25 +54,37 @@
     - 🎨 **UI Designer:** Chuẩn hóa toàn bộ 100% Lucide Vector Icons (thay thế emoji rác `📸`, `🎙️`), hệ màu cảnh báo trực quan (Red = Vượt ngân sách 104%, Amber = Tiệm cận định mức, Emerald = Trong tầm kiểm soát), thiết kế đáp ứng hoàn hảo trên cả Mobile & Desktop View.
 
 
-- [x] **07. [bo_02_qu_n_l_chi_ph_t_i_ch_nh_c_b_n]** — *Quản lý Nhóm Chi Phí &amp; Tài Chính Cơ Bản*
-  - **File render mới (`new_pd`):** [`zone3_sales.js`](file:///d:/prototype/new_pd/js/components/zone3_sales.js) ➔ `Zone3Sales.renderCashflowAccrual()`
-  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Sub-tab Chi phí & Ngân sách OPEX
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+- [x] ✔️ **07. [bo_02_qu_n_l_chi_ph_t_i_ch_nh_c_b_n]** — *Quản lý Nhóm Chi Phí & Tài Chính Cơ Bản (Cost Centers & Financial Performance BO-02)*
+  - **File render mới (`new_pd`):** [`zone3_sales.js`](file:///d:/prototype/new_pd/js/components/zone3_sales.js) ➔ `Zone3Sales.renderOPEXMobile()` & `renderCashflowAccrual()`
+  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Sub-tab 5: `📱 5. Ghi Nhận Chi Phí Nhanh & Ngân Sách OPEX (BO-02)` (`sales.html?sub=opex_mobile`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm 4 Thẻ chỉ số tài chính Hero (Tổng doanh thu ghi nhận 1.845B VNĐ, Giá vốn COGS 968.7M VNĐ, Tổng OPEX 412.5M VNĐ, EBT Lợi nhuận ước tính 463.9M VNĐ biên 25.15%), ma trận theo dõi 7 nhóm trung tâm chi phí (Cost Centers: Tiền thuê showroom, Ads, Lương, Điện nước, Logistics, Marketing, Hành chính), nút "+ Tạo Nhóm Chi Phí" & "+ Ghi Nhận Khoản Chi Mới".
+    - 🎨 **UI Designer:** Phân biệt rõ định phí vs biến phí, 100% Lucide Vector Icons, thanh tiến độ giải ngân ngân sách theo màu sắc Odoo (Amber/Red = Cảnh báo vượt chi, Emerald = Hoàn thành trong hạn mức), giao diện phẳng không giật lag.
 
-- [x] **08. [bo_03_qu_n_l_s_n_ph_m_b_ng_gi]** — *Quản lý Sản phẩm &amp; Bảng Giá*
+
+- [x] ✔️ **08. [bo_03_qu_n_l_s_n_ph_m_b_ng_gi]** — *Quản lý Sản phẩm & Bảng Giá (Catalog & Price Engine BO-03)*
   - **File render mới (`new_pd`):** [`zone2_inventory.js`](file:///d:/prototype/new_pd/js/components/zone2_inventory.js) ➔ `Zone2Inventory.renderVariantsFEFO()`
-  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ Sub-tab Sản phẩm & Biến thể Mỹ phẩm FEFO
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ Sub-tab 1: `🧴 1. Hạn Sử Dụng & Vị Trí Kệ Mỹ Phẩm (FEFO)` (`inventory.html?sub=variants_fefo`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm 4 Thẻ chỉ số tổng quan (142 SKU đang kinh doanh, 47.45% Margin lợi nhuận gộp TB, 2.450B VNĐ tổng giá trị niêm yết, 6 SKU chạm ngưỡng tồn tối thiểu/cận date), phân loại riêng biệt Ma trận Biến thể Size/Màu cho Thời trang và Lô Hạn dùng FEFO Strict cho Mỹ phẩm, nút "Xuất Bảng Giá Excel" & "+ Thêm Sản Phẩm / Lô FEFO Wizard 3 Bước".
+    - 🎨 **UI Designer:** Bố cục thẻ 2 cột phẳng hiện đại, 100% Lucide Vector Icons, phân cấp thẻ màu sắc ngữ nghĩa (Pink/Purple = Mỹ phẩm FEFO, Blue = Thời trang, Emerald/Amber/Red = Trạng thái hạn dùng & tồn kho).
 
-- [x] **09. [bo_04_ki_m_tra_t_n_kho_nhanh_qu_t_m_fefo_mobile]** — *Kiểm Kho Nhanh &amp; Lô Date FEFO*
+
+- [x] ✔️ **09. [bo_04_ki_m_tra_t_n_kho_nhanh_qu_t_m_fefo_mobile]** — *Kiểm Kho Nhanh & Lô Date FEFO Mobile (SE-02 Mobile Audit)*
   - **File render mới (`new_pd`):** [`zone4_pos.js`](file:///d:/prototype/new_pd/js/components/zone4_pos.js) ➔ `Zone4POS.renderInventoryCount()`
-  - **Vị trí nút bấm & đường dẫn:** POS Thu Ngân ➔ Tab Kiểm kê quầy FEFO Mobile
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** POS Thu Ngân ➔ Sub-tab 3: `📋 3. Kiểm Kê & Kiểm Date Mỹ Phẩm FEFO` (`pos.html?sub=inventory_count`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm quét mã vạch Barcode/QR tức thì một tay trên Mobile, đếm tồn lý thuyết vs tồn đếm thực tế, tính tự động chênh lệch kiêm cảnh báo chênh lệch kho màu đỏ, theo dõi sát sao ngày hết hạn HSD Mỹ phẩm FEFO, nút "Bắt Đầu Kiểm Kê", "Khoá Phiên" & "Ghi Nhận Điều Chỉnh Tồn Kho".
+    - 🎨 **UI Designer:** Giao diện Mobile Touch-first tối ưu cho nhân viên thu ngân/kiểm kho tại quầy, 100% Lucide Vector Icons, thẻ chênh lệch màu đỏ nổi bật, font mono chuẩn số đo kích thước.
 
-- [x] **10. [bo_04_qu_n_l_t_n_kho_ki_m_so_t_xu_t_nh_p]** — *Quản lý Tồn kho &amp; Kiểm soát Xuất Nhập Tồn*
+
+- [x] ✔️ **10. [bo_04_qu_n_l_t_n_kho_ki_m_so_t_xu_t_nh_p]** — *Quản lý Tồn kho & Kiểm soát Xuất Nhập Tồn (Stock Moves & Inventory Control BO-04)*
   - **File render mới (`new_pd`):** [`zone2_inventory.js`](file:///d:/prototype/new_pd/js/components/zone2_inventory.js) ➔ `Zone2Inventory.renderStockMoves()`
-  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ Sub-tab Nhật ký Xuất Nhập Tồn (Stock Moves)
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ Sub-tab 2: `📦 2. Nhật Ký Xuất Nhập Tồn` (`inventory.html?sub=stock_moves`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm 4 Thẻ chỉ số tồn kho Hero (Tổng giá trị kho 890.4M VNĐ, 128 SKU an toàn, 6 SKU nguy cơ đứt hàng, 8 Lô cận date <90 ngày 64.2Mđ), Banner AI Inventory Intelligence Velocity-V4 tính tốc độ tiêu thụ burn-rate & runway cạn hàng 2.9 ngày (Serum Bio-B5), tích hợp Modal Xác nhận Tạo PO nhập hàng 45Mđ hoặc chuyển kho 15 hộp, bảng đối soát mã tham chiếu Stock Moves chuẩn Odoo (WH/IN, WH/OUT, WH/INT).
+    - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, phân cấp màu sắc rủi ro kho (Red = Stock-out risk, Amber = FEFO Expiring, Emerald = Safe/Done), typography số đếm font mono hiển thị chính xác.
+
 
 - [x] **11. [bo_05_b_o_c_o_dashboard_kpi_doanh_nghi_p_mobile]** — *bo_05_b_o_c_o_dashboard_kpi_doanh_nghi_p_mobile*
   - **File render mới (`new_pd`):** [`zone5_ai.js`](file:///d:/prototype/new_pd/js/components/zone5_ai.js) ➔ `Zone5AI.renderKPIOverview()`
