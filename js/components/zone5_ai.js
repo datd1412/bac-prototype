@@ -241,25 +241,100 @@ const Zone5AI = {
 
   renderRetailPulse: function() {
     return `
-      <div class="o-card p-5 space-y-4">
+      <div class="o-card p-5 space-y-5">
+        <!-- Header -->
         <div class="flex items-center justify-between border-b pb-3">
-          <h2 class="text-sm font-bold text-slate-800 flex items-center gap-2">
-            <i class="lucide-activity w-4 h-4 text-emerald-600"></i> Retail Intelligence Pulse Monitor
-          </h2>
-          <span class="badge-rec">NHỊP ĐẬP BÁN LẺ REAL-TIME</span>
+          <div>
+            <h2 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <i class="lucide-activity w-4.5 h-4.5 text-emerald-600 animate-pulse"></i> ⚡ Theo Dõi Tốc Độ Bán Hàng Realtime (Nhịp Đập Cửa Hàng)
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">Cập nhật liên tục đơn hàng mới phát sinh trong giờ, giá trị đơn hàng trung bình và tiền két tại quầy.</p>
+          </div>
+          <span class="badge-rec">DỮ LIỆU TỰ ĐỘNG CẬP NHẬT 5 PHÚT/LẦN</span>
         </div>
-        <div class="grid grid-cols-3 gap-4 text-xs">
-          <div class="p-3 bg-slate-50 border rounded-lg">
-            <div class="text-slate-500 font-semibold">Đơn mới trong giờ qua:</div>
-            <div class="text-base font-bold text-emerald-600 mt-1">12 đơn (▲ 20%)</div>
+
+        <!-- 3 Metric Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="p-3.5 bg-emerald-50/60 border border-emerald-200 rounded-lg flex items-center justify-between shadow-sm">
+            <div>
+              <div class="text-slate-600 font-semibold">⚡ Đơn mới nhận trong 1 giờ qua:</div>
+              <div class="text-lg font-extrabold text-emerald-700 mt-1">12 đơn hàng</div>
+              <div class="text-[11px] text-emerald-600 font-bold mt-0.5">▲ Tăng 20% so với giờ trước</div>
+            </div>
+            <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-base">
+              <i class="lucide-shopping-cart w-5 h-5"></i>
+            </div>
           </div>
-          <div class="p-3 bg-slate-50 border rounded-lg">
-            <div class="text-slate-500 font-semibold">Tốc độ bán trung bình:</div>
-            <div class="text-base font-bold text-slate-800 mt-1">4.5 đơn/giờ</div>
+
+          <div class="p-3.5 bg-blue-50/60 border border-blue-200 rounded-lg flex items-center justify-between shadow-sm">
+            <div>
+              <div class="text-slate-600 font-semibold">⏱️ Tốc độ bán hàng trung bình:</div>
+              <div class="text-lg font-extrabold text-blue-900 mt-1">4.5 đơn / giờ</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">Dự báo hôm nay đạt ~54 đơn</div>
+            </div>
+            <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-800 flex items-center justify-center font-bold text-base">
+              <i class="lucide-clock w-5 h-5"></i>
+            </div>
           </div>
-          <div class="p-3 bg-slate-50 border rounded-lg">
-            <div class="text-slate-500 font-semibold">Giá trị trung bình đơn (AOV):</div>
-            <div class="text-base font-bold text-purple-900 mt-1">680,000 VNĐ</div>
+
+          <div class="p-3.5 bg-purple-50/60 border border-purple-200 rounded-lg flex items-center justify-between shadow-sm">
+            <div>
+              <div class="text-slate-600 font-semibold">💳 Giá trị trung bình 1 đơn (AOV):</div>
+              <div class="text-lg font-extrabold text-purple-900 mt-1">680,000 VNĐ / đơn</div>
+              <div class="text-[11px] text-purple-700 font-semibold mt-0.5">Mỹ phẩm bán chạy: Serum Vit C</div>
+            </div>
+            <div class="w-10 h-10 rounded-lg bg-purple-100 text-purple-800 flex items-center justify-center font-bold text-base">
+              <i class="lucide-credit-card w-5 h-5"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Store Branch Live Table -->
+        <div class="space-y-2 pt-2">
+          <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wide flex items-center gap-1.5">
+            <i class="lucide-store w-4 h-4 text-slate-700"></i> Báo Cáo Doanh Thu Tương Tác 3 Chi Nhánh Cửa Hàng
+          </h3>
+          <div class="overflow-x-auto border border-slate-200 rounded-lg">
+            <table class="w-full text-xs text-left">
+              <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                <tr>
+                  <th class="p-2.5">Tên Chi Nhánh Cửa Hàng</th>
+                  <th class="p-2.5 text-right">Doanh Thu Hôm Nay</th>
+                  <th class="p-2.5 text-right">Tiền Két Tại Quầy (POS)</th>
+                  <th class="p-2.5 text-center">Số Đơn Đã Bán</th>
+                  <th class="p-2.5 text-center">Trạng Thái Bán Hàng</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 font-medium text-slate-800">
+                <tr class="hover:bg-slate-50">
+                  <td class="p-2.5 font-bold flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Maison Quận 1 (Flagship Store)
+                  </td>
+                  <td class="p-2.5 text-right font-mono font-bold text-purple-900">42,500,000 VNĐ</td>
+                  <td class="p-2.5 text-right font-mono font-bold text-emerald-800">18,200,000 VNĐ</td>
+                  <td class="p-2.5 text-center font-bold">28 đơn</td>
+                  <td class="p-2.5 text-center"><span class="px-2 py-0.5 text-[10px] font-bold bg-emerald-100 text-emerald-800 rounded">🟢 Đang bán tốt</span></td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="p-2.5 font-bold flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Maison Thủ Đức
+                  </td>
+                  <td class="p-2.5 text-right font-mono font-bold text-purple-900">28,000,000 VNĐ</td>
+                  <td class="p-2.5 text-right font-mono font-bold text-emerald-800">11,500,000 VNĐ</td>
+                  <td class="p-2.5 text-center font-bold">18 đơn</td>
+                  <td class="p-2.5 text-center"><span class="px-2 py-0.5 text-[10px] font-bold bg-emerald-100 text-emerald-800 rounded">🟢 Đang bán tốt</span></td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="p-2.5 font-bold flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-amber-500"></span> Maison Bình Thạnh
+                  </td>
+                  <td class="p-2.5 text-right font-mono font-bold text-purple-900">15,800,000 VNĐ</td>
+                  <td class="p-2.5 text-right font-mono font-bold text-emerald-800">6,000,000 VNĐ</td>
+                  <td class="p-2.5 text-center font-bold">10 đơn</td>
+                  <td class="p-2.5 text-center"><span class="px-2 py-0.5 text-[10px] font-bold bg-amber-100 text-amber-800 rounded">🟡 Tốc độ chậm</span></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
