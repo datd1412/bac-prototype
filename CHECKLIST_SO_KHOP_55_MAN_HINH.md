@@ -261,30 +261,40 @@
     - 🎯 **End User:** Thêm Wizard nhập kho 3 bước chuẩn Odoo (1. Chọn PO & NCC ➔ 2. Nhập Lô & HSD FEFO ➔ 3. Vị trí Kho & Duyệt), nhập thông tin Lot No `LOT-202610-NEW` & HSD Datepicker.
     - 🎨 **UI Designer:** Odoo Statusbar 3 bước trên nền xám nhẹ, 100% Lucide Vector Icons, font mono cho mã lô sản phẩm.
 
-- [x] **36. [modal_nh_p_kho_kh_i_t_o_l_date_po_2]** — *Kho &amp; Lô Date Mỹ Phẩm*
+- [x] ✔️ **36. [modal_nh_p_kho_kh_i_t_o_l_date_po_2]** — *Wizard Nhập Kho FEFO Mỹ Phẩm Bước 2: Nhập Chi Tiết Lô & HSD*
   - **File render mới (`new_pd`):** [`zone2_inventory.js`](file:///d:/prototype/new_pd/js/components/zone2_inventory.js) ➔ `Zone2Inventory.openIntakeWizard()`
-  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ PO Draft ➔ Nút Khởi tạo Nhập kho đợt 2
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ Sub-tab 1 ➔ Wizard Intake Bước 2 (`inventory.html?sub=variants_fefo`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm tính năng tự động tính khoảng thời gian còn lại đến ngày hết hạn HSD (ví dụ còn 365 ngày), cảnh báo nếu HSD < 180 ngày ngay trong form nhập kho.
+    - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, font mono chuẩn số đo kích thước & mã lô.
 
-- [x] **37. [modal_nh_p_kho_kh_i_t_o_l_date_po_3]** — *Kho &amp; Lô Date Mỹ Phẩm*
-  - **File render mới (`new_pd`):** [`zone2_inventory.js`](file:///d:/prototype/new_pd/js/components/zone2_inventory.js) ➔ `Zone2Inventory.openIntakeWizard()`
-  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ PO Draft ➔ Nút Khởi tạo Nhập kho đợt 3
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+- [x] ✔️ **37. [modal_nh_p_kho_kh_i_t_o_l_date_po_3]** — *Wizard Nhập Kho FEFO Mỹ Phẩm Bước 3: Phân Vị Trí Kệ Kho & Hoàn Tất*
+  - **File render mới (`new_pd`):** [`zone2_inventory.js`](file:///d:/prototype/new_pd/js/components/zone2_inventory.js) ➔ `Zone2Inventory.openIntakeWizard()` & `confirmIntake()`
+  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ Sub-tab 1 ➔ Wizard Intake Bước 3 (`inventory.html?sub=variants_fefo`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm phân vị trí dãy kệ (Ví dụ: Kệ A1-02 Kho Q.1), nút "XÁC NHẬN NHẬP KHO FEFO →" ghi nhận ngay tăng số lượng tồn thực tế.
+    - 🎨 **UI Designer:** Nút bấm màu xanh Emerald nổi bật, 100% Lucide Vector Icons, giao diện Modal sạch đẹp chuẩn Odoo.
 
-- [x] **38. [modal_th_m_nh_n_vi_n_m_i_g_n_ph_n_quy_n_rbac]** — *modal_th_m_nh_n_vi_n_m_i_g_n_ph_n_quy_n_rbac*
+- [x] ✔️ **38. [modal_th_m_nh_n_vi_n_m_i_g_n_ph_n_quy_n_rbac]** — *Modal Thêm Nhân Viên Mới & Gán Ma Trận Phân Quyền IAM RBAC*
   - **File render mới (`new_pd`):** [`zone1_admin.js`](file:///d:/prototype/new_pd/js/components/zone1_admin.js) ➔ `Zone1Admin.renderRBACUsers()`
-  - **Vị trí nút bấm & đường dẫn:** Quản trị ➔ RBAC Users ➔ Nút + Thêm nhân viên mới
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Quản trị & SA-Admin ➔ Sub-tab 3 ➔ Nút "+ Thêm Nhân Viên Mới" (`admin.html?sub=rbac_users`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm form nhập thông tin nhân viên mới, chọn vai trò (Store Owner, Store Manager, Cashier POS, Warehouse Staff), chọn chi nhánh gán quyền quản lý.
+    - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, badge màu sắc theo vai trò chuẩn RBAC Odoo Enterprise.
 
-- [x] **39. [modal_thanh_to_n_c_ng_n_qu_t_vietqr_b2b_h_ng_lo_t]** — *Thanh Toán Công Nợ Đối Tác &amp; Lập Lệnh VietQR B2B*
+- [x] ✔️ **39. [modal_thanh_to_n_c_ng_n_qu_t_vietqr_b2b_h_ng_lo_t]** — *Modal Thanh Toán Công Nợ Đối Tác & Lập Mã VietQR B2B Hàng Loạt*
   - **File render mới (`new_pd`):** [`zone3_sales.js`](file:///d:/prototype/new_pd/js/components/zone3_sales.js) ➔ `Zone3Sales.openVietQRModal()`
-  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ Nhà cung cấp ➔ Nút Thanh toán VietQR B2B
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Kho hàng ➔ Sub-tab 4: Nhà cung cấp ➔ Nút Thanh toán VietQR B2B (`inventory.html?sub=suppliers`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm tính năng thanh toán công nợ hàng loạt cho Nhà cung cấp Dược Mỹ phẩm Blossom Korea (Mã NCC: NCC-001) với số tiền công nợ 24.5Mđ.
+    - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, mã QR sắc nét, font mono cho số tài khoản & nội dung chuyển khoản.
 
-- [x] **40. [qu_n_l_n_h_ng_pos_b_n_l_a_k_nh]** — *Hub Đơn hàng &amp; POS Đa kênh*
+- [x] ✔️ **40. [qu_n_l_n_h_ng_pos_b_n_l_a_k_nh]** — *Hub Quản Lý Đơn Hàng Bán Lẻ & POS Đa Kênh (Omnichannel POS Sales Hub)*
   - **File render mới (`new_pd`):** [`zone3_sales.js`](file:///d:/prototype/new_pd/js/components/zone3_sales.js) ➔ `Zone3Sales.renderOmnichannel()`
-  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Sub-tab Đơn hàng Đa kênh & POS
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** Tài chính ➔ Sub-tab 1: `🛒 1. Đơn Hàng Đa Kênh (Shopee, TikTok, POS)` (`sales.html?sub=omnichannel`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm tổng hợp doanh thu đơn bán lẻ đa kênh real-time, bộ lọc trạng thái đơn hàng (Đã hoàn tất, Đang giao, Đã hủy), xem chi tiết đơn qua Modal `#ORD-2024-9982`.
+    - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, phân cấp thẻ stat cards tài chính rõ ràng.
 
 - [x] **41. [qu_n_l_nh_cung_c_p_c_ng_n_n_h_ng]** — *Quản lý Nhà Cung Cấp &amp; Công Nợ Đơn Hàng*
   - **File render mới (`new_pd`):** [`zone2_inventory.js`](file:///d:/prototype/new_pd/js/components/zone2_inventory.js) ➔ `Zone2Inventory.renderSuppliers()`
