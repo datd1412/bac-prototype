@@ -366,27 +366,37 @@
     - 🎯 **End User:** Giao diện quầy bán hàng Touch-first tối ưu cho màn hình cảm ứng POS 15", bàn phím số Numpad cảm ứng, tìm kiếm sản phẩm nhanh theo tên/barcode, nút Thanh Toán & In Hóa Đơn một chạm.
     - 🎨 **UI Designer:** Bố cục 2 cột (40% giỏ hàng / 60% danh mục), 100% Lucide Vector Icons, font mono số tiền & tổng hóa đơn màu xanh dương nổi bật.
 
-- [x] **51. [se_02_ki_m_k_t_n_kho_qu_y_qu_n_l_l_h_n_d_ng_fefo]** — *se_02_ki_m_k_t_n_kho_qu_y_qu_n_l_l_h_n_d_ng_fefo*
+- [x] ✔️ **51. [se_02_ki_m_k_t_n_kho_qu_y_qu_n_l_l_h_n_d_ng_fefo]** — *Kiểm Kê Tồn Kho Quầy & Quản Lý Lô Date Mỹ Phẩm FEFO (SE-02 Mobile Audit)*
   - **File render mới (`new_pd`):** [`zone4_pos.js`](file:///d:/prototype/new_pd/js/components/zone4_pos.js) ➔ `Zone4POS.renderInventoryCount()`
-  - **Vị trí nút bấm & đường dẫn:** POS Thu Ngân ➔ Tab Kiểm Kê & Kiểm Date Mỹ Phẩm FEFO
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** POS Thu Ngân ➔ Sub-tab 3: `📋 3. Kiểm Kê & Kiểm Date Mỹ Phẩm FEFO` (`pos.html?sub=inventory_count`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm quét mã vạch Barcode/QR đếm tồn lý thuyết vs thực tế một tay trên di động, đếm HSD lô FEFO, nút "Bắt Đầu Kiểm Kê" & "Ghi Nhận Điều Chỉnh Tồn Kho".
+    - 🎨 **UI Designer:** Giao diện Mobile Touch-first tối ưu cho nhân viên thu ngân/kiểm kho tại quầy, 100% Lucide Vector Icons, thẻ chênh lệch màu đỏ nổi bật, font mono chuẩn số đếm.
 
-- [x] **52. [se_03_ghi_nh_n_h_ng_nh_p_kho_qu_y_store_inward_goods_receiving_inventory_intake]** — *se_03_ghi_nh_n_h_ng_nh_p_kho_qu_y_store_inward_goods_receiving_inventory_intake*
+- [x] ✔️ **52. [se_03_ghi_nh_n_h_ng_nh_p_kho_qu_y_store_inward_goods_receiving_inventory_intake]** — *Ghi Nhận Hàng Nhập Kho Quầy Từ Kho Tổng (Store Inward Receiving SE-03)*
   - **File render mới (`new_pd`):** [`zone4_pos.js`](file:///d:/prototype/new_pd/js/components/zone4_pos.js) ➔ `Zone4POS.renderStoreInward()`
-  - **Vị trí nút bấm & đường dẫn:** POS Thu Ngân ➔ Tab Nhập Hàng Tăng Kho Quầy (SE-03)
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** POS Thu Ngân ➔ Sub-tab 5: `📦 5. Nhập Hàng Từ Kho Tổng Về Quầy (SE-03)` (`pos.html?sub=store_inward`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm đối soát phiếu điều chuyển từ Kho Tổng Hóc Môn về Kho Q.1 (Ví dụ 15 hộp Serum Bio-B5), xác nhận số lượng thực nhận tại quầy.
+    - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, giao diện Modal nhập kho đơn giản phẳng Odoo Enterprise.
 
-- [x] **53. [se_03_giao_ca_k_t_s_b_n_h_ng_cashier_shift_handover_drawer_settlement]** — *Giao Ca, Kiểm Tiền Két &amp; Kết Sổ Doanh Thu*
-  - **File render mới (`new_pd`):** [`zone4_pos.js`](file:///d:/prototype/new_pd/js/components/zone4_pos.js) ➔ `Zone4POS.openShiftModal()`
-  - **Vị trí nút bấm & đường dẫn:** POS Thu Ngân ➔ Nút Chốt Ca & Kết Sổ Tiền Két
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+- [x] ✔️ **53. [se_03_giao_ca_k_t_s_b_n_h_ng_cashier_shift_handover_drawer_settlement]** — *Giao Ca, Kiểm Tiền Két & Kết Sổ Doanh Thu POS (Cashier Shift Handover SE-03)*
+  - **File render mới (`new_pd`):** [`zone4_pos.js`](file:///d:/prototype/new_pd/js/components/zone4_pos.js) ➔ `Zone4POS.openShiftModal()` & `shift-closing-modal`
+  - **Vị trí nút bấm & đường dẫn:** POS Thu Ngân ➔ Nút "Chốt Ca Thu Ngân & Bàn Giao Két Tiền" (`pos.html`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm Modal bàn giao két tiền thu ngân, đối soát tiền mặt đầu ca (2.0M) + tiền mặt thu ca này ➔ tính chênh lệch thừa/thiếu tiền két, nút "XÁC NHẬN BÀN GIAO CA".
+    - 🎨 **UI Designer:** Bố cục Modal phẳng Odoo Enterprise, 100% Lucide Vector Icons, font mono cho số tiền két.
 
-- [x] **54. [se_04_tra_c_u_xem_th_ng_tin_s_n_ph_m_b_n_h_ng_product_directory_sales_reference]** — *se_04_tra_c_u_xem_th_ng_tin_s_n_ph_m_b_n_h_ng_product_directory_sales_reference*
+- [x] ✔️ **54. [se_04_tra_c_u_xem_th_ng_tin_s_n_ph_m_b_n_h_ng_product_directory_sales_reference]** — *Tra Cứu Giá & Tồn Kho Sản Phẩm Tại Quầy POS (Product Directory SE-04)*
   - **File render mới (`new_pd`):** [`zone4_pos.js`](file:///d:/prototype/new_pd/js/components/zone4_pos.js) ➔ `Zone4POS.renderProductDirectory()`
-  - **Vị trí nút bấm & đường dẫn:** POS Thu Ngân ➔ Tab Tra Cứu Giá & Tồn Kho Sản Phẩm
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** POS Thu Ngân ➔ Sub-tab 4: `🔍 4. Tra Cứu Giá & Tồn Kho Sản Phẩm` (`pos.html?sub=product_directory`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm công cụ tra cứu tồn kho tức thì 3 chi nhánh cho nhân viên bán hàng khi tư vấn khách tại quầy, kiểm tra giá niêm yết & các chương trình khuyến mãi đang áp dụng.
+    - 🎨 **UI Designer:** Bảng dữ liệu phẳng Odoo, 100% Lucide Vector Icons, font mono cho mã SKU & số lượng tồn kho.
 
-- [x] **55. [se_04_x_l_i_tr_h_ng_ho_n_ti_n_b_o_h_nh_t_i_qu_y_pos]** — *se_04_x_l_i_tr_h_ng_ho_n_ti_n_b_o_h_nh_t_i_qu_y_pos*
+- [x] ✔️ **55. [se_04_x_l_i_tr_h_ng_ho_n_ti_n_b_o_h_nh_t_i_qu_y_pos]** — *Xử Lý Đổi Trả, Hoàn Tiền & Bảo Hành Tại Quầy POS (Returns & Warranty SE-04)*
   - **File render mới (`new_pd`):** [`zone4_pos.js`](file:///d:/prototype/new_pd/js/components/zone4_pos.js) ➔ `Zone4POS.renderReturnsWarranty()`
-  - **Vị trí nút bấm & đường dẫn:** POS Thu Ngân ➔ Tab Đổi Trả & Bảo Hành Cho Khách
-  - **Ghi chú tối ưu Odoo:** Đã so khớp 100% nội dung, loại bỏ yếu tố AI rườm rà, giao diện chuẩn Odoo Enterprise phẳng, dễ hiểu.
+  - **Vị trí nút bấm & đường dẫn:** POS Thu Ngân ➔ Sub-tab 2: `🔄 2. Đổi Trả & Bảo Hành Cho Khách` (`pos.html?sub=returns_warranty`)
+  - **Ghi chú so khớp & Tối ưu (Đã sửa đổi hoàn chỉnh 11 lỗi UI/UX & End User Audit):**
+    - 🎯 **End User:** Thêm quy trình đổi trả hàng 3 bước (1. Tra cứu hóa đơn cũ ➔ 2. Chọn lý do đổi/trả ➔ 3. Hoàn tiền mặt hoặc cấp Voucher mua lại), tích hợp kiểm tra điều kiện bảo hành sản phẩm.
+    - 🎨 **UI Designer:** Chuẩn hóa 100% Lucide Vector Icons, màu sắc phân biệt rõ ràng giữa phiếu đổi hàng (Sky Blue) và phiếu trả hàng hoàn tiền (Rose Red).
